@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		226C4CBF1D95897800731F9D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 226C4CBE1D95897800731F9D /* Assets.xcassets */; };
 		22A923931D93B0AB002A0CA0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A923921D93B0AB002A0CA0 /* AppDelegate.swift */; };
 		22A923951D93B0AB002A0CA0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A923941D93B0AB002A0CA0 /* ViewController.swift */; };
 		22A923981D93B0AB002A0CA0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22A923961D93B0AB002A0CA0 /* Main.storyboard */; };
-		22A9239A1D93B0AB002A0CA0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22A923991D93B0AB002A0CA0 /* Assets.xcassets */; };
 		22A9239D1D93B0AB002A0CA0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22A9239B1D93B0AB002A0CA0 /* LaunchScreen.storyboard */; };
 		22A923A81D93B0AB002A0CA0 /* MusicMoodTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A923A71D93B0AB002A0CA0 /* MusicMoodTests.swift */; };
 		22A923B31D93B0AB002A0CA0 /* MusicMoodUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A923B21D93B0AB002A0CA0 /* MusicMoodUITests.swift */; };
@@ -34,11 +34,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		226C4CBE1D95897800731F9D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		22A9238F1D93B0AB002A0CA0 /* MusicMood.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicMood.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22A923921D93B0AB002A0CA0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		22A923941D93B0AB002A0CA0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		22A923971D93B0AB002A0CA0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		22A923991D93B0AB002A0CA0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		22A9239C1D93B0AB002A0CA0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		22A9239E1D93B0AB002A0CA0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		22A923A31D93B0AB002A0CA0 /* MusicMoodTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MusicMoodTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -100,7 +100,7 @@
 				22A923921D93B0AB002A0CA0 /* AppDelegate.swift */,
 				22A923941D93B0AB002A0CA0 /* ViewController.swift */,
 				22A923961D93B0AB002A0CA0 /* Main.storyboard */,
-				22A923991D93B0AB002A0CA0 /* Assets.xcassets */,
+				226C4CBE1D95897800731F9D /* Assets.xcassets */,
 				22A9239B1D93B0AB002A0CA0 /* LaunchScreen.storyboard */,
 				22A9239E1D93B0AB002A0CA0 /* Info.plist */,
 			);
@@ -236,7 +236,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				22A9239D1D93B0AB002A0CA0 /* LaunchScreen.storyboard in Resources */,
-				22A9239A1D93B0AB002A0CA0 /* Assets.xcassets in Resources */,
+				226C4CBF1D95897800731F9D /* Assets.xcassets in Resources */,
 				22A923981D93B0AB002A0CA0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -514,6 +514,7 @@
 				22A923B91D93B0AB002A0CA0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		22A923BA1D93B0AB002A0CA0 /* Build configuration list for PBXNativeTarget "MusicMoodTests" */ = {
 			isa = XCConfigurationList;
@@ -522,6 +523,7 @@
 				22A923BC1D93B0AB002A0CA0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		22A923BD1D93B0AB002A0CA0 /* Build configuration list for PBXNativeTarget "MusicMoodUITests" */ = {
 			isa = XCConfigurationList;
@@ -530,6 +532,7 @@
 				22A923BF1D93B0AB002A0CA0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
