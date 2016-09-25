@@ -209,6 +209,12 @@
                                             </button>
                                         </subviews>
                                     </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R8R-oJ-90a">
+                                        <state key="normal" title="Pick"/>
+                                        <connections>
+                                            <action selector="pick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HYJ-rD-8Rb"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -220,7 +226,9 @@
                                     <constraint firstItem="EeH-FX-7Jp" firstAttribute="top" secondItem="Pav-ps-bGd" secondAttribute="bottom" constant="16" id="ND9-yy-HGj"/>
                                     <constraint firstItem="Pav-ps-bGd" firstAttribute="centerX" secondItem="ZSZ-8Y-mk4" secondAttribute="centerX" id="RRf-DK-m96"/>
                                     <constraint firstAttribute="trailing" secondItem="Pav-ps-bGd" secondAttribute="trailing" constant="100" id="U9t-Sb-mcd"/>
+                                    <constraint firstItem="Ift-nA-SVw" firstAttribute="top" secondItem="R8R-oJ-90a" secondAttribute="bottom" constant="93" id="aUx-Sa-WED"/>
                                     <constraint firstItem="Pav-ps-bGd" firstAttribute="top" secondItem="ZSZ-8Y-mk4" secondAttribute="top" constant="16" id="eGK-yk-H17"/>
+                                    <constraint firstItem="R8R-oJ-90a" firstAttribute="leading" secondItem="ZSZ-8Y-mk4" secondAttribute="leading" constant="24" id="g2Q-Ju-oQL"/>
                                     <constraint firstItem="Cpw-mz-3NA" firstAttribute="top" secondItem="EeH-FX-7Jp" secondAttribute="bottom" constant="16" id="g7x-pu-X0N"/>
                                     <constraint firstItem="dvp-QO-ilZ" firstAttribute="centerX" secondItem="ZSZ-8Y-mk4" secondAttribute="centerX" id="gV0-g6-qfJ"/>
                                 </constraints>
