@@ -194,6 +194,9 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ift-nA-SVw">
                                                 <state key="normal" title="Previous"/>
+                                                <connections>
+                                                    <action selector="previous:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fHX-Hl-KaS"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ah3-8s-YmT">
                                                 <state key="normal" title="Play/Pause"/>
@@ -215,21 +218,41 @@
                                             <action selector="pick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HYJ-rD-8Rb"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rA6-b2-YvD">
+                                        <state key="normal" title="Genre"/>
+                                        <connections>
+                                            <action selector="genre:" destination="BYZ-38-t0r" eventType="touchUpInside" id="m56-jd-68g"/>
+                                        </connections>
+                                    </button>
+                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X7t-vj-EHg">
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="143" id="KuL-yY-DLG"/>
+                                            <constraint firstAttribute="width" secondItem="X7t-vj-EHg" secondAttribute="height" multiplier="1:1" id="RnT-Qh-6BC"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="dataSource" destination="ZSZ-8Y-mk4" id="HT3-4Z-aTv"/>
+                                            <outlet property="delegate" destination="ZSZ-8Y-mk4" id="4Z0-eO-dfE"/>
+                                        </connections>
+                                    </pickerView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstItem="aM1-eW-vS3" firstAttribute="top" secondItem="rA6-b2-YvD" secondAttribute="bottom" constant="93" id="2EY-Sd-Pjo"/>
                                     <constraint firstItem="Cpw-mz-3NA" firstAttribute="centerX" secondItem="ZSZ-8Y-mk4" secondAttribute="centerX" id="5zF-vO-vut"/>
                                     <constraint firstItem="Pav-ps-bGd" firstAttribute="leading" secondItem="ZSZ-8Y-mk4" secondAttribute="leading" constant="100" id="9yb-Gq-pM2"/>
                                     <constraint firstAttribute="bottom" secondItem="dvp-QO-ilZ" secondAttribute="bottom" constant="14.5" id="CyI-ew-th0"/>
                                     <constraint firstItem="Cpw-mz-3NA" firstAttribute="leading" secondItem="ZSZ-8Y-mk4" secondAttribute="leading" constant="107" id="I0Z-24-mvu"/>
-                                    <constraint firstItem="EeH-FX-7Jp" firstAttribute="centerX" secondItem="ZSZ-8Y-mk4" secondAttribute="centerX" id="MPp-7E-C0U"/>
+                                    <constraint firstItem="EeH-FX-7Jp" firstAttribute="centerX" secondItem="ZSZ-8Y-mk4" secondAttribute="centerX" constant="1" id="MPp-7E-C0U"/>
                                     <constraint firstItem="EeH-FX-7Jp" firstAttribute="top" secondItem="Pav-ps-bGd" secondAttribute="bottom" constant="16" id="ND9-yy-HGj"/>
+                                    <constraint firstItem="X7t-vj-EHg" firstAttribute="leading" secondItem="R8R-oJ-90a" secondAttribute="trailing" constant="46" id="R65-pp-Fvx"/>
                                     <constraint firstItem="Pav-ps-bGd" firstAttribute="centerX" secondItem="ZSZ-8Y-mk4" secondAttribute="centerX" id="RRf-DK-m96"/>
                                     <constraint firstAttribute="trailing" secondItem="Pav-ps-bGd" secondAttribute="trailing" constant="100" id="U9t-Sb-mcd"/>
+                                    <constraint firstAttribute="trailing" secondItem="rA6-b2-YvD" secondAttribute="trailing" constant="27" id="WxS-4K-bQZ"/>
                                     <constraint firstItem="Ift-nA-SVw" firstAttribute="top" secondItem="R8R-oJ-90a" secondAttribute="bottom" constant="93" id="aUx-Sa-WED"/>
+                                    <constraint firstAttribute="bottom" secondItem="X7t-vj-EHg" secondAttribute="bottom" constant="80" id="dBd-q3-9f1"/>
                                     <constraint firstItem="Pav-ps-bGd" firstAttribute="top" secondItem="ZSZ-8Y-mk4" secondAttribute="top" constant="16" id="eGK-yk-H17"/>
                                     <constraint firstItem="R8R-oJ-90a" firstAttribute="leading" secondItem="ZSZ-8Y-mk4" secondAttribute="leading" constant="24" id="g2Q-Ju-oQL"/>
-                                    <constraint firstItem="Cpw-mz-3NA" firstAttribute="top" secondItem="EeH-FX-7Jp" secondAttribute="bottom" constant="16" id="g7x-pu-X0N"/>
+                                    <constraint firstItem="Cpw-mz-3NA" firstAttribute="top" secondItem="EeH-FX-7Jp" secondAttribute="bottom" constant="15" id="g7x-pu-X0N"/>
                                     <constraint firstItem="dvp-QO-ilZ" firstAttribute="centerX" secondItem="ZSZ-8Y-mk4" secondAttribute="centerX" id="gV0-g6-qfJ"/>
                                 </constraints>
                                 <variation key="heightClass=compact">
@@ -253,6 +276,7 @@
                     </view>
                     <connections>
                         <outlet property="currentMood" destination="DIE-n6-P1E" id="YHS-5B-Xb0"/>
+                        <outlet property="genrePicker" destination="X7t-vj-EHg" id="4NV-yt-CyY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
