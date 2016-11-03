@@ -28,8 +28,7 @@
                         <action selector="disconnect:" destination="-1" eventType="touchUpInside" id="p9o-wn-T73"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ddZ-0P-xNP">
-                    <frame key="frameInset" minX="523" minY="195" width="70" height="30"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ddZ-0P-xNP">
                     <constraints>
                         <constraint firstAttribute="width" constant="70" id="I9A-Lc-8kQ"/>
                     </constraints>
@@ -40,8 +39,7 @@
                         <action selector="stopScan:" destination="-1" eventType="touchUpInside" id="9dK-11-eVi"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1nA-gl-fwy">
-                    <frame key="frameInset" minX="283" minY="195" width="35" height="30"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1nA-gl-fwy">
                     <state key="normal" title="Scan">
                         <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
@@ -49,8 +47,7 @@
                         <action selector="scan:" destination="-1" eventType="touchUpInside" id="UPq-DN-Kzw"/>
                     </connections>
                 </button>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="WZJ-Nl-Adz">
-                    <frame key="frameInset" minY="240" width="599" height="360"/>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="WZJ-Nl-Adz">
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="WZJ-Nl-Adz" secondAttribute="height" multiplier="80:53" id="t9c-UV-wT0"/>
