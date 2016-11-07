@@ -1,0 +1,1067 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "AppDelegate"
+provides-nominal:
+- "C9MusicMood11AppDelegate"
+provides-member:
+- ["C9MusicMood11AppDelegate", ""]
+provides-dynamic-lookup:
+- "applicationDidBecomeActive"
+- "simpleController"
+- "playMuseFile"
+- "applicationWillResignActive"
+- "window"
+- "application"
+- "applicationDidEnterBackground"
+- "applicationWillTerminate"
+- "applicationWillEnterForeground"
+depends-top-level:
+- !private "IXNMessageTypeAccelerometer"
+- "SimpleController"
+- !private "StringLiteralType"
+- !private "IXNMessageTypeBattery"
+- "UIApplicationDelegate"
+- !private "URL"
+- !private "IXNMuseFileFactory"
+- "UIApplicationLaunchOptionsKey"
+- !private "BooleanLiteralType"
+- "UIApplication"
+- "UIWindow"
+- !private "IXNMessageTypeEeg"
+- !private "Int"
+- !private "IXNMessageTypeQuantization"
+- "AppDelegate"
+- !private "IXNMessageTypeVersion"
+- "UIResponder"
+- !private "print"
+- !private "IXNMessageTypeAnnotation"
+- "Bool"
+- !private "Int64"
+- !private "IXNMessageTypeConfiguration"
+- !private "NSSearchPathForDirectoriesInDomains"
+- "AssignmentPrecedence"
+- !private "~="
+depends-member:
+- !private ["Ps9AnyObject", "IXNMessageTypeAccelerometer"]
+- !private ["Ps9AnyObject", "IXNMessageTypeAnnotation"]
+- !private ["Ps9AnyObject", "IXNMessageTypeBattery"]
+- !private ["Ps9AnyObject", "IXNMessageTypeConfiguration"]
+- !private ["Ps9AnyObject", "IXNMessageTypeEeg"]
+- !private ["Ps9AnyObject", "IXNMessageTypeQuantization"]
+- !private ["Ps9AnyObject", "IXNMessageTypeVersion"]
+- !private ["Ps9AnyObject", "IXNMuseFileFactory"]
+- !private ["Ps9AnyObject", "Int"]
+- !private ["Ps9AnyObject", "NSSearchPathForDirectoriesInDomains"]
+- !private ["Ps9AnyObject", "SimpleController"]
+- !private ["Ps9AnyObject", "URL"]
+- ["Ps9AnyObject", "application"]
+- ["Ps9AnyObject", "applicationDidBecomeActive"]
+- ["Ps9AnyObject", "applicationDidEnterBackground"]
+- ["Ps9AnyObject", "applicationDidFinishLaunching"]
+- ["Ps9AnyObject", "applicationDidReceiveMemoryWarning"]
+- ["Ps9AnyObject", "applicationProtectedDataDidBecomeAvailable"]
+- ["Ps9AnyObject", "applicationProtectedDataWillBecomeUnavailable"]
+- ["Ps9AnyObject", "applicationShouldRequestHealthAuthorization"]
+- ["Ps9AnyObject", "applicationSignificantTimeChange"]
+- ["Ps9AnyObject", "applicationWillEnterForeground"]
+- ["Ps9AnyObject", "applicationWillResignActive"]
+- ["Ps9AnyObject", "applicationWillTerminate"]
+- !private ["Ps9AnyObject", "getAnnotation"]
+- !private ["Ps9AnyObject", "getConfiguration"]
+- !private ["Ps9AnyObject", "getDataPacket"]
+- !private ["Ps9AnyObject", "getMessageId"]
+- !private ["Ps9AnyObject", "getMessageTimestamp"]
+- !private ["Ps9AnyObject", "getMessageType"]
+- !private ["Ps9AnyObject", "getVersion"]
+- !private ["Ps9AnyObject", "gotoNextMessage"]
+- !private ["Ps9AnyObject", "init"]
+- !private ["Ps9AnyObject", "museFileReader"]
+- ["Ps9AnyObject", "playMuseFile"]
+- !private ["Ps9AnyObject", "print"]
+- !private ["Ps9AnyObject", "rootViewController"]
+- ["Ps9AnyObject", "simpleController"]
+- ["Ps9AnyObject", "window"]
+- ["Ps9AnyObject", ""]
+- ["C9MusicMood11AppDelegate", "Bool"]
+- !private ["C9MusicMood11AppDelegate", "IXNMessageTypeAccelerometer"]
+- !private ["C9MusicMood11AppDelegate", "IXNMessageTypeAnnotation"]
+- !private ["C9MusicMood11AppDelegate", "IXNMessageTypeBattery"]
+- !private ["C9MusicMood11AppDelegate", "IXNMessageTypeConfiguration"]
+- !private ["C9MusicMood11AppDelegate", "IXNMessageTypeEeg"]
+- !private ["C9MusicMood11AppDelegate", "IXNMessageTypeQuantization"]
+- !private ["C9MusicMood11AppDelegate", "IXNMessageTypeVersion"]
+- !private ["C9MusicMood11AppDelegate", "IXNMuseFileFactory"]
+- !private ["C9MusicMood11AppDelegate", "Int"]
+- !private ["C9MusicMood11AppDelegate", "Int64"]
+- !private ["C9MusicMood11AppDelegate", "NSSearchPathForDirectoriesInDomains"]
+- ["C9MusicMood11AppDelegate", "SimpleController"]
+- ["C9MusicMood11AppDelegate", "UIApplication"]
+- ["C9MusicMood11AppDelegate", "UIApplicationLaunchOptionsKey"]
+- ["C9MusicMood11AppDelegate", "UIWindow"]
+- !private ["C9MusicMood11AppDelegate", "URL"]
+- ["C9MusicMood11AppDelegate", "application"]
+- ["C9MusicMood11AppDelegate", "applicationDidBecomeActive"]
+- ["C9MusicMood11AppDelegate", "applicationDidEnterBackground"]
+- ["C9MusicMood11AppDelegate", "applicationDidFinishLaunching"]
+- ["C9MusicMood11AppDelegate", "applicationDidReceiveMemoryWarning"]
+- ["C9MusicMood11AppDelegate", "applicationProtectedDataDidBecomeAvailable"]
+- ["C9MusicMood11AppDelegate", "applicationProtectedDataWillBecomeUnavailable"]
+- ["C9MusicMood11AppDelegate", "applicationShouldRequestHealthAuthorization"]
+- ["C9MusicMood11AppDelegate", "applicationSignificantTimeChange"]
+- ["C9MusicMood11AppDelegate", "applicationWillEnterForeground"]
+- ["C9MusicMood11AppDelegate", "applicationWillResignActive"]
+- ["C9MusicMood11AppDelegate", "applicationWillTerminate"]
+- ["C9MusicMood11AppDelegate", "deinit"]
+- ["C9MusicMood11AppDelegate", "init"]
+- ["C9MusicMood11AppDelegate", "playMuseFile"]
+- !private ["C9MusicMood11AppDelegate", "print"]
+- ["C9MusicMood11AppDelegate", "simpleController"]
+- ["C9MusicMood11AppDelegate", "window"]
+- !private ["Sa", "Index"]
+- !private ["Sa", "SubSequence"]
+- ["Sa", "deinit"]
+- !private ["Sa", "subscript"]
+- !private ["Ps23BidirectionalCollection", "Index"]
+- !private ["Ps23BidirectionalCollection", "IndexDistance"]
+- !private ["Ps23BidirectionalCollection", "Indices"]
+- !private ["Ps23BidirectionalCollection", "Iterator"]
+- !private ["Ps23BidirectionalCollection", "SubSequence"]
+- !private ["Ps23BidirectionalCollection", "_Element"]
+- !private ["Ps23BidirectionalCollection", "subscript"]
+- !private ["Ps22BidirectionalIndexable", "Index"]
+- !private ["Ps22BidirectionalIndexable", "IndexDistance"]
+- !private ["Ps22BidirectionalIndexable", "Indices"]
+- !private ["Ps22BidirectionalIndexable", "Iterator"]
+- !private ["Ps22BidirectionalIndexable", "SubSequence"]
+- !private ["Ps22BidirectionalIndexable", "_Element"]
+- !private ["Ps22BidirectionalIndexable", "subscript"]
+- !private ["Vs18BidirectionalSlice", "Index"]
+- !private ["Vs18BidirectionalSlice", "IndexDistance"]
+- !private ["Vs18BidirectionalSlice", "Indices"]
+- !private ["Vs18BidirectionalSlice", "Iterator"]
+- !private ["Vs18BidirectionalSlice", "SubSequence"]
+- !private ["Vs18BidirectionalSlice", "_Element"]
+- !private ["Ps17BitwiseOperations", "IntegerLiteralType"]
+- !private ["Ps17BitwiseOperations", "Stride"]
+- !private ["Ps17BitwiseOperations", "_DisabledRangeIndex"]
+- ["Sb", "deinit"]
+- !private ["PSo15CALayerDelegate", "rootViewController"]
+- !private ["Ps7CVarArg", "IXNMessageTypeAccelerometer"]
+- !private ["Ps7CVarArg", "IXNMessageTypeAnnotation"]
+- !private ["Ps7CVarArg", "IXNMessageTypeBattery"]
+- !private ["Ps7CVarArg", "IXNMessageTypeConfiguration"]
+- !private ["Ps7CVarArg", "IXNMessageTypeEeg"]
+- !private ["Ps7CVarArg", "IXNMessageTypeQuantization"]
+- !private ["Ps7CVarArg", "IXNMessageTypeVersion"]
+- !private ["Ps7CVarArg", "IXNMuseFileFactory"]
+- !private ["Ps7CVarArg", "Index"]
+- !private ["Ps7CVarArg", "Int"]
+- !private ["Ps7CVarArg", "IntegerLiteralType"]
+- !private ["Ps7CVarArg", "NSSearchPathForDirectoriesInDomains"]
+- !private ["Ps7CVarArg", "SimpleController"]
+- !private ["Ps7CVarArg", "Stride"]
+- !private ["Ps7CVarArg", "SubSequence"]
+- !private ["Ps7CVarArg", "URL"]
+- !private ["Ps7CVarArg", "_DisabledRangeIndex"]
+- ["Ps7CVarArg", "application"]
+- ["Ps7CVarArg", "applicationDidBecomeActive"]
+- ["Ps7CVarArg", "applicationDidEnterBackground"]
+- ["Ps7CVarArg", "applicationDidFinishLaunching"]
+- ["Ps7CVarArg", "applicationDidReceiveMemoryWarning"]
+- ["Ps7CVarArg", "applicationProtectedDataDidBecomeAvailable"]
+- ["Ps7CVarArg", "applicationProtectedDataWillBecomeUnavailable"]
+- ["Ps7CVarArg", "applicationShouldRequestHealthAuthorization"]
+- ["Ps7CVarArg", "applicationSignificantTimeChange"]
+- ["Ps7CVarArg", "applicationWillEnterForeground"]
+- ["Ps7CVarArg", "applicationWillResignActive"]
+- ["Ps7CVarArg", "applicationWillTerminate"]
+- !private ["Ps7CVarArg", "getAnnotation"]
+- !private ["Ps7CVarArg", "getConfiguration"]
+- !private ["Ps7CVarArg", "getDataPacket"]
+- !private ["Ps7CVarArg", "getMessageId"]
+- !private ["Ps7CVarArg", "getMessageTimestamp"]
+- !private ["Ps7CVarArg", "getMessageType"]
+- !private ["Ps7CVarArg", "getVersion"]
+- !private ["Ps7CVarArg", "gotoNextMessage"]
+- !private ["Ps7CVarArg", "init"]
+- !private ["Ps7CVarArg", "museFileReader"]
+- ["Ps7CVarArg", "playMuseFile"]
+- !private ["Ps7CVarArg", "print"]
+- !private ["Ps7CVarArg", "rootViewController"]
+- ["Ps7CVarArg", "simpleController"]
+- !private ["Ps7CVarArg", "subscript"]
+- ["Ps7CVarArg", "window"]
+- ["Ps7CVarArg", ""]
+- !private ["Ps10Collection", "Index"]
+- !private ["Ps10Collection", "IndexDistance"]
+- !private ["Ps10Collection", "Indices"]
+- !private ["Ps10Collection", "Iterator"]
+- !private ["Ps10Collection", "SubSequence"]
+- !private ["Ps10Collection", "_Element"]
+- !private ["Ps10Collection", "subscript"]
+- !private ["Ps10Comparable", "IntegerLiteralType"]
+- !private ["Ps10Comparable", "Stride"]
+- !private ["Ps10Comparable", "_DisabledRangeIndex"]
+- !private ["Ps10Comparable", "init"]
+- !private ["Ps28CustomDebugStringConvertible", "IXNMessageTypeAccelerometer"]
+- !private ["Ps28CustomDebugStringConvertible", "IXNMessageTypeAnnotation"]
+- !private ["Ps28CustomDebugStringConvertible", "IXNMessageTypeBattery"]
+- !private ["Ps28CustomDebugStringConvertible", "IXNMessageTypeConfiguration"]
+- !private ["Ps28CustomDebugStringConvertible", "IXNMessageTypeEeg"]
+- !private ["Ps28CustomDebugStringConvertible", "IXNMessageTypeQuantization"]
+- !private ["Ps28CustomDebugStringConvertible", "IXNMessageTypeVersion"]
+- !private ["Ps28CustomDebugStringConvertible", "IXNMuseFileFactory"]
+- !private ["Ps28CustomDebugStringConvertible", "Index"]
+- !private ["Ps28CustomDebugStringConvertible", "Int"]
+- !private ["Ps28CustomDebugStringConvertible", "NSSearchPathForDirectoriesInDomains"]
+- !private ["Ps28CustomDebugStringConvertible", "SimpleController"]
+- !private ["Ps28CustomDebugStringConvertible", "SubSequence"]
+- !private ["Ps28CustomDebugStringConvertible", "URL"]
+- !private ["Ps28CustomDebugStringConvertible", "absoluteString"]
+- !private ["Ps28CustomDebugStringConvertible", "appendingPathComponent"]
+- ["Ps28CustomDebugStringConvertible", "application"]
+- ["Ps28CustomDebugStringConvertible", "applicationDidBecomeActive"]
+- ["Ps28CustomDebugStringConvertible", "applicationDidEnterBackground"]
+- ["Ps28CustomDebugStringConvertible", "applicationDidFinishLaunching"]
+- ["Ps28CustomDebugStringConvertible", "applicationDidReceiveMemoryWarning"]
+- ["Ps28CustomDebugStringConvertible", "applicationProtectedDataDidBecomeAvailable"]
+- ["Ps28CustomDebugStringConvertible", "applicationProtectedDataWillBecomeUnavailable"]
+- ["Ps28CustomDebugStringConvertible", "applicationShouldRequestHealthAuthorization"]
+- ["Ps28CustomDebugStringConvertible", "applicationSignificantTimeChange"]
+- ["Ps28CustomDebugStringConvertible", "applicationWillEnterForeground"]
+- ["Ps28CustomDebugStringConvertible", "applicationWillResignActive"]
+- ["Ps28CustomDebugStringConvertible", "applicationWillTerminate"]
+- !private ["Ps28CustomDebugStringConvertible", "getAnnotation"]
+- !private ["Ps28CustomDebugStringConvertible", "getConfiguration"]
+- !private ["Ps28CustomDebugStringConvertible", "getDataPacket"]
+- !private ["Ps28CustomDebugStringConvertible", "getMessageId"]
+- !private ["Ps28CustomDebugStringConvertible", "getMessageTimestamp"]
+- !private ["Ps28CustomDebugStringConvertible", "getMessageType"]
+- !private ["Ps28CustomDebugStringConvertible", "getVersion"]
+- !private ["Ps28CustomDebugStringConvertible", "gotoNextMessage"]
+- !private ["Ps28CustomDebugStringConvertible", "init"]
+- !private ["Ps28CustomDebugStringConvertible", "museFileReader"]
+- ["Ps28CustomDebugStringConvertible", "playMuseFile"]
+- !private ["Ps28CustomDebugStringConvertible", "print"]
+- !private ["Ps28CustomDebugStringConvertible", "rootViewController"]
+- ["Ps28CustomDebugStringConvertible", "simpleController"]
+- !private ["Ps28CustomDebugStringConvertible", "subscript"]
+- ["Ps28CustomDebugStringConvertible", "window"]
+- ["Ps28CustomDebugStringConvertible", ""]
+- !private ["Ps29CustomPlaygroundQuickLookable", "IntegerLiteralType"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "Stride"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "_DisabledRangeIndex"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "absoluteString"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "appendingPathComponent"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "init"]
+- !private ["Ps17CustomReflectable", "Index"]
+- !private ["Ps17CustomReflectable", "IntegerLiteralType"]
+- !private ["Ps17CustomReflectable", "Stride"]
+- !private ["Ps17CustomReflectable", "SubSequence"]
+- !private ["Ps17CustomReflectable", "_DisabledRangeIndex"]
+- !private ["Ps17CustomReflectable", "getAnnotation"]
+- !private ["Ps17CustomReflectable", "getConfiguration"]
+- !private ["Ps17CustomReflectable", "getDataPacket"]
+- !private ["Ps17CustomReflectable", "getMessageId"]
+- !private ["Ps17CustomReflectable", "getMessageTimestamp"]
+- !private ["Ps17CustomReflectable", "getMessageType"]
+- !private ["Ps17CustomReflectable", "getVersion"]
+- !private ["Ps17CustomReflectable", "gotoNextMessage"]
+- !private ["Ps17CustomReflectable", "init"]
+- !private ["Ps17CustomReflectable", "subscript"]
+- !private ["Ps23CustomStringConvertible", "IXNMessageTypeAccelerometer"]
+- !private ["Ps23CustomStringConvertible", "IXNMessageTypeAnnotation"]
+- !private ["Ps23CustomStringConvertible", "IXNMessageTypeBattery"]
+- !private ["Ps23CustomStringConvertible", "IXNMessageTypeConfiguration"]
+- !private ["Ps23CustomStringConvertible", "IXNMessageTypeEeg"]
+- !private ["Ps23CustomStringConvertible", "IXNMessageTypeQuantization"]
+- !private ["Ps23CustomStringConvertible", "IXNMessageTypeVersion"]
+- !private ["Ps23CustomStringConvertible", "IXNMuseFileFactory"]
+- !private ["Ps23CustomStringConvertible", "Index"]
+- !private ["Ps23CustomStringConvertible", "Int"]
+- !private ["Ps23CustomStringConvertible", "IntegerLiteralType"]
+- !private ["Ps23CustomStringConvertible", "NSSearchPathForDirectoriesInDomains"]
+- !private ["Ps23CustomStringConvertible", "SimpleController"]
+- !private ["Ps23CustomStringConvertible", "Stride"]
+- !private ["Ps23CustomStringConvertible", "SubSequence"]
+- !private ["Ps23CustomStringConvertible", "URL"]
+- !private ["Ps23CustomStringConvertible", "_DisabledRangeIndex"]
+- !private ["Ps23CustomStringConvertible", "absoluteString"]
+- !private ["Ps23CustomStringConvertible", "appendingPathComponent"]
+- ["Ps23CustomStringConvertible", "application"]
+- ["Ps23CustomStringConvertible", "applicationDidBecomeActive"]
+- ["Ps23CustomStringConvertible", "applicationDidEnterBackground"]
+- ["Ps23CustomStringConvertible", "applicationDidFinishLaunching"]
+- ["Ps23CustomStringConvertible", "applicationDidReceiveMemoryWarning"]
+- ["Ps23CustomStringConvertible", "applicationProtectedDataDidBecomeAvailable"]
+- ["Ps23CustomStringConvertible", "applicationProtectedDataWillBecomeUnavailable"]
+- ["Ps23CustomStringConvertible", "applicationShouldRequestHealthAuthorization"]
+- ["Ps23CustomStringConvertible", "applicationSignificantTimeChange"]
+- ["Ps23CustomStringConvertible", "applicationWillEnterForeground"]
+- ["Ps23CustomStringConvertible", "applicationWillResignActive"]
+- ["Ps23CustomStringConvertible", "applicationWillTerminate"]
+- !private ["Ps23CustomStringConvertible", "getAnnotation"]
+- !private ["Ps23CustomStringConvertible", "getConfiguration"]
+- !private ["Ps23CustomStringConvertible", "getDataPacket"]
+- !private ["Ps23CustomStringConvertible", "getMessageId"]
+- !private ["Ps23CustomStringConvertible", "getMessageTimestamp"]
+- !private ["Ps23CustomStringConvertible", "getMessageType"]
+- !private ["Ps23CustomStringConvertible", "getVersion"]
+- !private ["Ps23CustomStringConvertible", "gotoNextMessage"]
+- !private ["Ps23CustomStringConvertible", "init"]
+- !private ["Ps23CustomStringConvertible", "museFileReader"]
+- ["Ps23CustomStringConvertible", "playMuseFile"]
+- !private ["Ps23CustomStringConvertible", "print"]
+- !private ["Ps23CustomStringConvertible", "rootViewController"]
+- ["Ps23CustomStringConvertible", "simpleController"]
+- !private ["Ps23CustomStringConvertible", "subscript"]
+- ["Ps23CustomStringConvertible", "window"]
+- ["Ps23CustomStringConvertible", ""]
+- !private ["Vs27DefaultBidirectionalIndices", "Index"]
+- !private ["Vs27DefaultBidirectionalIndices", "Iterator"]
+- !private ["Vs27DefaultBidirectionalIndices", "SubSequence"]
+- !private ["Vs27DefaultBidirectionalIndices", "_Element"]
+- !private ["Vs26DefaultRandomAccessIndices", "Index"]
+- !private ["Vs26DefaultRandomAccessIndices", "IndexDistance"]
+- !private ["Vs26DefaultRandomAccessIndices", "Indices"]
+- !private ["Vs26DefaultRandomAccessIndices", "Iterator"]
+- !private ["Vs26DefaultRandomAccessIndices", "SubSequence"]
+- !private ["Vs26DefaultRandomAccessIndices", "_Element"]
+- !private ["Ps9Equatable", "IXNMessageTypeAccelerometer"]
+- !private ["Ps9Equatable", "IXNMessageTypeAnnotation"]
+- !private ["Ps9Equatable", "IXNMessageTypeBattery"]
+- !private ["Ps9Equatable", "IXNMessageTypeConfiguration"]
+- !private ["Ps9Equatable", "IXNMessageTypeEeg"]
+- !private ["Ps9Equatable", "IXNMessageTypeQuantization"]
+- !private ["Ps9Equatable", "IXNMessageTypeVersion"]
+- !private ["Ps9Equatable", "IXNMuseFileFactory"]
+- !private ["Ps9Equatable", "Int"]
+- !private ["Ps9Equatable", "IntegerLiteralType"]
+- !private ["Ps9Equatable", "NSSearchPathForDirectoriesInDomains"]
+- !private ["Ps9Equatable", "SimpleController"]
+- !private ["Ps9Equatable", "Stride"]
+- !private ["Ps9Equatable", "URL"]
+- !private ["Ps9Equatable", "_DisabledRangeIndex"]
+- !private ["Ps9Equatable", "absoluteString"]
+- !private ["Ps9Equatable", "appendingPathComponent"]
+- ["Ps9Equatable", "application"]
+- ["Ps9Equatable", "applicationDidBecomeActive"]
+- ["Ps9Equatable", "applicationDidEnterBackground"]
+- ["Ps9Equatable", "applicationDidFinishLaunching"]
+- ["Ps9Equatable", "applicationDidReceiveMemoryWarning"]
+- ["Ps9Equatable", "applicationProtectedDataDidBecomeAvailable"]
+- ["Ps9Equatable", "applicationProtectedDataWillBecomeUnavailable"]
+- ["Ps9Equatable", "applicationShouldRequestHealthAuthorization"]
+- ["Ps9Equatable", "applicationSignificantTimeChange"]
+- ["Ps9Equatable", "applicationWillEnterForeground"]
+- ["Ps9Equatable", "applicationWillResignActive"]
+- ["Ps9Equatable", "applicationWillTerminate"]
+- !private ["Ps9Equatable", "documentDirectory"]
+- !private ["Ps9Equatable", "getAnnotation"]
+- !private ["Ps9Equatable", "getConfiguration"]
+- !private ["Ps9Equatable", "getDataPacket"]
+- !private ["Ps9Equatable", "getMessageId"]
+- !private ["Ps9Equatable", "getMessageTimestamp"]
+- !private ["Ps9Equatable", "getMessageType"]
+- !private ["Ps9Equatable", "getVersion"]
+- !private ["Ps9Equatable", "gotoNextMessage"]
+- !private ["Ps9Equatable", "init"]
+- !private ["Ps9Equatable", "museFileReader"]
+- ["Ps9Equatable", "playMuseFile"]
+- !private ["Ps9Equatable", "print"]
+- !private ["Ps9Equatable", "rootViewController"]
+- ["Ps9Equatable", "simpleController"]
+- !private ["Ps9Equatable", "userDomainMask"]
+- ["Ps9Equatable", "window"]
+- ["Ps9Equatable", ""]
+- !private ["Ps25ExpressibleByArrayLiteral", "Index"]
+- !private ["Ps25ExpressibleByArrayLiteral", "SubSequence"]
+- !private ["Ps25ExpressibleByArrayLiteral", "subscript"]
+- !private ["Ps25ExpressibleByArrayLiteral", "userDomainMask"]
+- !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "init"]
+- !private ["Ps27ExpressibleByIntegerLiteral", "IntegerLiteralType"]
+- !private ["Ps27ExpressibleByIntegerLiteral", "Stride"]
+- !private ["Ps27ExpressibleByIntegerLiteral", "_DisabledRangeIndex"]
+- !private ["Ps23ExpressibleByNilLiteral", "getAnnotation"]
+- !private ["Ps23ExpressibleByNilLiteral", "getConfiguration"]
+- !private ["Ps23ExpressibleByNilLiteral", "getDataPacket"]
+- !private ["Ps23ExpressibleByNilLiteral", "getMessageId"]
+- !private ["Ps23ExpressibleByNilLiteral", "getMessageTimestamp"]
+- !private ["Ps23ExpressibleByNilLiteral", "getMessageType"]
+- !private ["Ps23ExpressibleByNilLiteral", "getVersion"]
+- !private ["Ps23ExpressibleByNilLiteral", "gotoNextMessage"]
+- !private ["Ps32ExpressibleByStringInterpolation", "init"]
+- !private ["Ps26ExpressibleByStringLiteral", "init"]
+- !private ["Ps33ExpressibleByUnicodeScalarLiteral", "init"]
+- !private ["Ps8Hashable", "IXNMessageTypeAccelerometer"]
+- !private ["Ps8Hashable", "IXNMessageTypeAnnotation"]
+- !private ["Ps8Hashable", "IXNMessageTypeBattery"]
+- !private ["Ps8Hashable", "IXNMessageTypeConfiguration"]
+- !private ["Ps8Hashable", "IXNMessageTypeEeg"]
+- !private ["Ps8Hashable", "IXNMessageTypeQuantization"]
+- !private ["Ps8Hashable", "IXNMessageTypeVersion"]
+- !private ["Ps8Hashable", "IXNMuseFileFactory"]
+- !private ["Ps8Hashable", "Int"]
+- !private ["Ps8Hashable", "IntegerLiteralType"]
+- !private ["Ps8Hashable", "NSSearchPathForDirectoriesInDomains"]
+- !private ["Ps8Hashable", "SimpleController"]
+- !private ["Ps8Hashable", "Stride"]
+- !private ["Ps8Hashable", "URL"]
+- !private ["Ps8Hashable", "_DisabledRangeIndex"]
+- !private ["Ps8Hashable", "absoluteString"]
+- !private ["Ps8Hashable", "appendingPathComponent"]
+- ["Ps8Hashable", "application"]
+- ["Ps8Hashable", "applicationDidBecomeActive"]
+- ["Ps8Hashable", "applicationDidEnterBackground"]
+- ["Ps8Hashable", "applicationDidFinishLaunching"]
+- ["Ps8Hashable", "applicationDidReceiveMemoryWarning"]
+- ["Ps8Hashable", "applicationProtectedDataDidBecomeAvailable"]
+- ["Ps8Hashable", "applicationProtectedDataWillBecomeUnavailable"]
+- ["Ps8Hashable", "applicationShouldRequestHealthAuthorization"]
+- ["Ps8Hashable", "applicationSignificantTimeChange"]
+- ["Ps8Hashable", "applicationWillEnterForeground"]
+- ["Ps8Hashable", "applicationWillResignActive"]
+- ["Ps8Hashable", "applicationWillTerminate"]
+- !private ["Ps8Hashable", "documentDirectory"]
+- !private ["Ps8Hashable", "getAnnotation"]
+- !private ["Ps8Hashable", "getConfiguration"]
+- !private ["Ps8Hashable", "getDataPacket"]
+- !private ["Ps8Hashable", "getMessageId"]
+- !private ["Ps8Hashable", "getMessageTimestamp"]
+- !private ["Ps8Hashable", "getMessageType"]
+- !private ["Ps8Hashable", "getVersion"]
+- !private ["Ps8Hashable", "gotoNextMessage"]
+- !private ["Ps8Hashable", "init"]
+- !private ["Ps8Hashable", "museFileReader"]
+- ["Ps8Hashable", "playMuseFile"]
+- !private ["Ps8Hashable", "print"]
+- !private ["Ps8Hashable", "rootViewController"]
+- ["Ps8Hashable", "simpleController"]
+- ["Ps8Hashable", "window"]
+- ["Ps8Hashable", ""]
+- !private ["PSo14IXNLogListener", "init"]
+- !private ["PSo25IXNMuseConnectionListener", "init"]
+- !private ["PSo19IXNMuseDataListener", "init"]
+- !private ["CSo18IXNMuseFileFactory", "museFileReader"]
+- !private ["CSo17IXNMuseFileReader", "getAnnotation"]
+- !private ["CSo17IXNMuseFileReader", "getConfiguration"]
+- !private ["CSo17IXNMuseFileReader", "getDataPacket"]
+- !private ["CSo17IXNMuseFileReader", "getMessageId"]
+- !private ["CSo17IXNMuseFileReader", "getMessageTimestamp"]
+- !private ["CSo17IXNMuseFileReader", "getMessageType"]
+- !private ["CSo17IXNMuseFileReader", "getVersion"]
+- !private ["CSo17IXNMuseFileReader", "gotoNextMessage"]
+- !private ["PSo15IXNMuseListener", "init"]
+- ["SQ", "deinit"]
+- !private ["Ps9Indexable", "Index"]
+- !private ["Ps9Indexable", "IndexDistance"]
+- !private ["Ps9Indexable", "Indices"]
+- !private ["Ps9Indexable", "Iterator"]
+- !private ["Ps9Indexable", "SubSequence"]
+- !private ["Ps9Indexable", "_Element"]
+- !private ["Ps9Indexable", "subscript"]
+- !private ["Ps13IndexableBase", "Index"]
+- !private ["Ps13IndexableBase", "IndexDistance"]
+- !private ["Ps13IndexableBase", "Indices"]
+- !private ["Ps13IndexableBase", "Iterator"]
+- !private ["Ps13IndexableBase", "SubSequence"]
+- !private ["Ps13IndexableBase", "_Element"]
+- !private ["Ps13IndexableBase", "subscript"]
+- !private ["Vs16IndexingIterator", "Element"]
+- !private ["Si", "IntegerLiteralType"]
+- !private ["Si", "Stride"]
+- !private ["Si", "_DisabledRangeIndex"]
+- ["Si", "deinit"]
+- !private ["Ps7Integer", "IntegerLiteralType"]
+- !private ["Ps7Integer", "Stride"]
+- !private ["Ps7Integer", "_DisabledRangeIndex"]
+- !private ["Ps17IntegerArithmetic", "IntegerLiteralType"]
+- !private ["Ps17IntegerArithmetic", "Stride"]
+- !private ["Ps17IntegerArithmetic", "_DisabledRangeIndex"]
+- !private ["Ps16IteratorProtocol", "Element"]
+- !private ["Ps25LosslessStringConvertible", "init"]
+- !private ["Ps10MirrorPath", "IntegerLiteralType"]
+- !private ["Ps10MirrorPath", "Stride"]
+- !private ["Ps10MirrorPath", "_DisabledRangeIndex"]
+- !private ["Ps10MirrorPath", "init"]
+- !private ["Ps17MutableCollection", "Index"]
+- !private ["Ps17MutableCollection", "SubSequence"]
+- !private ["Ps17MutableCollection", "subscript"]
+- !private ["Ps16MutableIndexable", "Index"]
+- !private ["Ps16MutableIndexable", "SubSequence"]
+- !private ["Ps16MutableIndexable", "subscript"]
+- !private ["PSo8NSCoding", "init"]
+- !private ["PSo8NSCoding", "rootViewController"]
+- !private ["PSo9NSCopying", "init"]
+- !private ["PSo26NSExtensionRequestHandling", "init"]
+- !private ["PSo16NSMutableCopying", "init"]
+- ["CSo8NSObject", "Bool"]
+- !private ["CSo8NSObject", "IXNMessageTypeAccelerometer"]
+- !private ["CSo8NSObject", "IXNMessageTypeAnnotation"]
+- !private ["CSo8NSObject", "IXNMessageTypeBattery"]
+- !private ["CSo8NSObject", "IXNMessageTypeConfiguration"]
+- !private ["CSo8NSObject", "IXNMessageTypeEeg"]
+- !private ["CSo8NSObject", "IXNMessageTypeQuantization"]
+- !private ["CSo8NSObject", "IXNMessageTypeVersion"]
+- !private ["CSo8NSObject", "IXNMuseFileFactory"]
+- !private ["CSo8NSObject", "Int"]
+- !private ["CSo8NSObject", "Int64"]
+- !private ["CSo8NSObject", "NSSearchPathForDirectoriesInDomains"]
+- ["CSo8NSObject", "SimpleController"]
+- ["CSo8NSObject", "UIApplication"]
+- ["CSo8NSObject", "UIApplicationLaunchOptionsKey"]
+- ["CSo8NSObject", "UIWindow"]
+- !private ["CSo8NSObject", "URL"]
+- ["CSo8NSObject", "application"]
+- ["CSo8NSObject", "applicationDidBecomeActive"]
+- ["CSo8NSObject", "applicationDidEnterBackground"]
+- ["CSo8NSObject", "applicationDidFinishLaunching"]
+- ["CSo8NSObject", "applicationDidReceiveMemoryWarning"]
+- ["CSo8NSObject", "applicationProtectedDataDidBecomeAvailable"]
+- ["CSo8NSObject", "applicationProtectedDataWillBecomeUnavailable"]
+- ["CSo8NSObject", "applicationShouldRequestHealthAuthorization"]
+- ["CSo8NSObject", "applicationSignificantTimeChange"]
+- ["CSo8NSObject", "applicationWillEnterForeground"]
+- ["CSo8NSObject", "applicationWillResignActive"]
+- ["CSo8NSObject", "applicationWillTerminate"]
+- ["CSo8NSObject", "deinit"]
+- !private ["CSo8NSObject", "getAnnotation"]
+- !private ["CSo8NSObject", "getConfiguration"]
+- !private ["CSo8NSObject", "getDataPacket"]
+- !private ["CSo8NSObject", "getMessageId"]
+- !private ["CSo8NSObject", "getMessageTimestamp"]
+- !private ["CSo8NSObject", "getMessageType"]
+- !private ["CSo8NSObject", "getVersion"]
+- !private ["CSo8NSObject", "gotoNextMessage"]
+- ["CSo8NSObject", "init"]
+- !private ["CSo8NSObject", "museFileReader"]
+- ["CSo8NSObject", "playMuseFile"]
+- !private ["CSo8NSObject", "print"]
+- !private ["CSo8NSObject", "rootViewController"]
+- ["CSo8NSObject", "simpleController"]
+- ["CSo8NSObject", "window"]
+- !private ["PSo16NSObjectProtocol", "IXNMessageTypeAccelerometer"]
+- !private ["PSo16NSObjectProtocol", "IXNMessageTypeAnnotation"]
+- !private ["PSo16NSObjectProtocol", "IXNMessageTypeBattery"]
+- !private ["PSo16NSObjectProtocol", "IXNMessageTypeConfiguration"]
+- !private ["PSo16NSObjectProtocol", "IXNMessageTypeEeg"]
+- !private ["PSo16NSObjectProtocol", "IXNMessageTypeQuantization"]
+- !private ["PSo16NSObjectProtocol", "IXNMessageTypeVersion"]
+- !private ["PSo16NSObjectProtocol", "IXNMuseFileFactory"]
+- !private ["PSo16NSObjectProtocol", "Int"]
+- !private ["PSo16NSObjectProtocol", "NSSearchPathForDirectoriesInDomains"]
+- !private ["PSo16NSObjectProtocol", "SimpleController"]
+- !private ["PSo16NSObjectProtocol", "URL"]
+- ["PSo16NSObjectProtocol", "application"]
+- ["PSo16NSObjectProtocol", "applicationDidBecomeActive"]
+- ["PSo16NSObjectProtocol", "applicationDidEnterBackground"]
+- ["PSo16NSObjectProtocol", "applicationDidFinishLaunching"]
+- ["PSo16NSObjectProtocol", "applicationDidReceiveMemoryWarning"]
+- ["PSo16NSObjectProtocol", "applicationProtectedDataDidBecomeAvailable"]
+- ["PSo16NSObjectProtocol", "applicationProtectedDataWillBecomeUnavailable"]
+- ["PSo16NSObjectProtocol", "applicationShouldRequestHealthAuthorization"]
+- ["PSo16NSObjectProtocol", "applicationSignificantTimeChange"]
+- ["PSo16NSObjectProtocol", "applicationWillEnterForeground"]
+- ["PSo16NSObjectProtocol", "applicationWillResignActive"]
+- ["PSo16NSObjectProtocol", "applicationWillTerminate"]
+- !private ["PSo16NSObjectProtocol", "getAnnotation"]
+- !private ["PSo16NSObjectProtocol", "getConfiguration"]
+- !private ["PSo16NSObjectProtocol", "getDataPacket"]
+- !private ["PSo16NSObjectProtocol", "getMessageId"]
+- !private ["PSo16NSObjectProtocol", "getMessageTimestamp"]
+- !private ["PSo16NSObjectProtocol", "getMessageType"]
+- !private ["PSo16NSObjectProtocol", "getVersion"]
+- !private ["PSo16NSObjectProtocol", "gotoNextMessage"]
+- !private ["PSo16NSObjectProtocol", "init"]
+- !private ["PSo16NSObjectProtocol", "museFileReader"]
+- ["PSo16NSObjectProtocol", "playMuseFile"]
+- !private ["PSo16NSObjectProtocol", "print"]
+- !private ["PSo16NSObjectProtocol", "rootViewController"]
+- ["PSo16NSObjectProtocol", "simpleController"]
+- ["PSo16NSObjectProtocol", "window"]
+- ["PSo16NSObjectProtocol", ""]
+- !private ["PSo14NSSecureCoding", "init"]
+- !private ["CSo8NSString", "init"]
+- !private ["Ps9OptionSet", "userDomainMask"]
+- ["Sq", "deinit"]
+- !private ["Sq", "getAnnotation"]
+- !private ["Sq", "getConfiguration"]
+- !private ["Sq", "getDataPacket"]
+- !private ["Sq", "getMessageId"]
+- !private ["Sq", "getMessageTimestamp"]
+- !private ["Sq", "getMessageType"]
+- !private ["Sq", "getVersion"]
+- !private ["Sq", "gotoNextMessage"]
+- !private ["Ps22RandomAccessCollection", "Index"]
+- !private ["Ps22RandomAccessCollection", "IndexDistance"]
+- !private ["Ps22RandomAccessCollection", "Indices"]
+- !private ["Ps22RandomAccessCollection", "Iterator"]
+- !private ["Ps22RandomAccessCollection", "SubSequence"]
+- !private ["Ps22RandomAccessCollection", "_Element"]
+- !private ["Ps22RandomAccessCollection", "subscript"]
+- !private ["Ps21RandomAccessIndexable", "Index"]
+- !private ["Ps21RandomAccessIndexable", "IndexDistance"]
+- !private ["Ps21RandomAccessIndexable", "Indices"]
+- !private ["Ps21RandomAccessIndexable", "Iterator"]
+- !private ["Ps21RandomAccessIndexable", "SubSequence"]
+- !private ["Ps21RandomAccessIndexable", "_Element"]
+- !private ["Ps21RandomAccessIndexable", "subscript"]
+- !private ["Vs17RandomAccessSlice", "Index"]
+- !private ["Vs17RandomAccessSlice", "IndexDistance"]
+- !private ["Vs17RandomAccessSlice", "Indices"]
+- !private ["Vs17RandomAccessSlice", "Iterator"]
+- !private ["Vs17RandomAccessSlice", "SubSequence"]
+- !private ["Vs17RandomAccessSlice", "_Element"]
+- !private ["Ps26RangeReplaceableCollection", "Index"]
+- !private ["Ps26RangeReplaceableCollection", "SubSequence"]
+- !private ["Ps26RangeReplaceableCollection", "subscript"]
+- !private ["Ps25RangeReplaceableIndexable", "Index"]
+- !private ["Ps25RangeReplaceableIndexable", "SubSequence"]
+- !private ["Ps25RangeReplaceableIndexable", "subscript"]
+- !private ["Ps16RawRepresentable", "documentDirectory"]
+- !private ["Ps16RawRepresentable", "userDomainMask"]
+- !private ["P10Foundation20ReferenceConvertible", "absoluteString"]
+- !private ["P10Foundation20ReferenceConvertible", "appendingPathComponent"]
+- !private ["P10Foundation20ReferenceConvertible", "init"]
+- ["OCSo11FileManager19SearchPathDirectory", "deinit"]
+- !private ["OCSo11FileManager19SearchPathDirectory", "documentDirectory"]
+- ["VCSo11FileManager20SearchPathDomainMask", "deinit"]
+- !private ["VCSo11FileManager20SearchPathDomainMask", "userDomainMask"]
+- !private ["Ps8Sequence", "Element"]
+- !private ["Ps8Sequence", "Index"]
+- !private ["Ps8Sequence", "IndexDistance"]
+- !private ["Ps8Sequence", "Indices"]
+- !private ["Ps8Sequence", "Iterator"]
+- !private ["Ps8Sequence", "SubSequence"]
+- !private ["Ps8Sequence", "_Element"]
+- !private ["Ps8Sequence", "subscript"]
+- !private ["Ps10SetAlgebra", "userDomainMask"]
+- !private ["Ps13SignedInteger", "IntegerLiteralType"]
+- !private ["Ps13SignedInteger", "Stride"]
+- !private ["Ps13SignedInteger", "_DisabledRangeIndex"]
+- !private ["Ps12SignedNumber", "IntegerLiteralType"]
+- !private ["Ps12SignedNumber", "Stride"]
+- !private ["Ps12SignedNumber", "_DisabledRangeIndex"]
+- ["CSo16SimpleController", "deinit"]
+- !private ["CSo16SimpleController", "init"]
+- !private ["Vs5Slice", "Index"]
+- !private ["Vs5Slice", "Iterator"]
+- !private ["Vs5Slice", "SubSequence"]
+- !private ["Vs5Slice", "_Element"]
+- !private ["Ps10Strideable", "IntegerLiteralType"]
+- !private ["Ps10Strideable", "Stride"]
+- !private ["Ps10Strideable", "_DisabledRangeIndex"]
+- ["SS", "deinit"]
+- !private ["SS", "init"]
+- !private ["Ps16TextOutputStream", "init"]
+- !private ["Ps20TextOutputStreamable", "init"]
+- !private ["PSo29UIAccessibilityIdentification", "rootViewController"]
+- !private ["PSo12UIAppearance", "rootViewController"]
+- !private ["PSo21UIAppearanceContainer", "init"]
+- !private ["PSo21UIAppearanceContainer", "rootViewController"]
+- !private ["PSo21UIApplicationDelegate", "IXNMessageTypeAccelerometer"]
+- !private ["PSo21UIApplicationDelegate", "IXNMessageTypeAnnotation"]
+- !private ["PSo21UIApplicationDelegate", "IXNMessageTypeBattery"]
+- !private ["PSo21UIApplicationDelegate", "IXNMessageTypeConfiguration"]
+- !private ["PSo21UIApplicationDelegate", "IXNMessageTypeEeg"]
+- !private ["PSo21UIApplicationDelegate", "IXNMessageTypeQuantization"]
+- !private ["PSo21UIApplicationDelegate", "IXNMessageTypeVersion"]
+- !private ["PSo21UIApplicationDelegate", "IXNMuseFileFactory"]
+- !private ["PSo21UIApplicationDelegate", "Int"]
+- !private ["PSo21UIApplicationDelegate", "NSSearchPathForDirectoriesInDomains"]
+- !private ["PSo21UIApplicationDelegate", "SimpleController"]
+- !private ["PSo21UIApplicationDelegate", "URL"]
+- ["PSo21UIApplicationDelegate", "application"]
+- ["PSo21UIApplicationDelegate", "applicationDidBecomeActive"]
+- ["PSo21UIApplicationDelegate", "applicationDidEnterBackground"]
+- ["PSo21UIApplicationDelegate", "applicationDidFinishLaunching"]
+- ["PSo21UIApplicationDelegate", "applicationDidReceiveMemoryWarning"]
+- ["PSo21UIApplicationDelegate", "applicationProtectedDataDidBecomeAvailable"]
+- ["PSo21UIApplicationDelegate", "applicationProtectedDataWillBecomeUnavailable"]
+- ["PSo21UIApplicationDelegate", "applicationShouldRequestHealthAuthorization"]
+- ["PSo21UIApplicationDelegate", "applicationSignificantTimeChange"]
+- ["PSo21UIApplicationDelegate", "applicationWillEnterForeground"]
+- ["PSo21UIApplicationDelegate", "applicationWillResignActive"]
+- ["PSo21UIApplicationDelegate", "applicationWillTerminate"]
+- !private ["PSo21UIApplicationDelegate", "print"]
+- !private ["PSo21UIApplicationDelegate", "simpleController"]
+- ["PSo21UIApplicationDelegate", "window"]
+- ["PSo21UIApplicationDelegate", ""]
+- !private ["PSo18UIContentContainer", "init"]
+- !private ["PSo17UICoordinateSpace", "rootViewController"]
+- !private ["PSo13UIDynamicItem", "rootViewController"]
+- !private ["PSo18UIFocusEnvironment", "init"]
+- !private ["PSo18UIFocusEnvironment", "rootViewController"]
+- !private ["PSo11UIFocusItem", "rootViewController"]
+- ["CSo11UIResponder", "Bool"]
+- !private ["CSo11UIResponder", "IXNMessageTypeAccelerometer"]
+- !private ["CSo11UIResponder", "IXNMessageTypeAnnotation"]
+- !private ["CSo11UIResponder", "IXNMessageTypeBattery"]
+- !private ["CSo11UIResponder", "IXNMessageTypeConfiguration"]
+- !private ["CSo11UIResponder", "IXNMessageTypeEeg"]
+- !private ["CSo11UIResponder", "IXNMessageTypeQuantization"]
+- !private ["CSo11UIResponder", "IXNMessageTypeVersion"]
+- !private ["CSo11UIResponder", "IXNMuseFileFactory"]
+- !private ["CSo11UIResponder", "Int"]
+- !private ["CSo11UIResponder", "Int64"]
+- !private ["CSo11UIResponder", "NSSearchPathForDirectoriesInDomains"]
+- ["CSo11UIResponder", "SimpleController"]
+- ["CSo11UIResponder", "UIApplication"]
+- ["CSo11UIResponder", "UIApplicationLaunchOptionsKey"]
+- ["CSo11UIResponder", "UIWindow"]
+- !private ["CSo11UIResponder", "URL"]
+- ["CSo11UIResponder", "application"]
+- ["CSo11UIResponder", "applicationDidBecomeActive"]
+- ["CSo11UIResponder", "applicationDidEnterBackground"]
+- ["CSo11UIResponder", "applicationDidFinishLaunching"]
+- ["CSo11UIResponder", "applicationDidReceiveMemoryWarning"]
+- ["CSo11UIResponder", "applicationProtectedDataDidBecomeAvailable"]
+- ["CSo11UIResponder", "applicationProtectedDataWillBecomeUnavailable"]
+- ["CSo11UIResponder", "applicationShouldRequestHealthAuthorization"]
+- ["CSo11UIResponder", "applicationSignificantTimeChange"]
+- ["CSo11UIResponder", "applicationWillEnterForeground"]
+- ["CSo11UIResponder", "applicationWillResignActive"]
+- ["CSo11UIResponder", "applicationWillTerminate"]
+- ["CSo11UIResponder", "deinit"]
+- ["CSo11UIResponder", "init"]
+- ["CSo11UIResponder", "playMuseFile"]
+- !private ["CSo11UIResponder", "print"]
+- !private ["CSo11UIResponder", "rootViewController"]
+- ["CSo11UIResponder", "simpleController"]
+- ["CSo11UIResponder", "window"]
+- ["CSo11UIResponder", ""]
+- !private ["PSo30UIResponderStandardEditActions", "IXNMessageTypeAccelerometer"]
+- !private ["PSo30UIResponderStandardEditActions", "IXNMessageTypeAnnotation"]
+- !private ["PSo30UIResponderStandardEditActions", "IXNMessageTypeBattery"]
+- !private ["PSo30UIResponderStandardEditActions", "IXNMessageTypeConfiguration"]
+- !private ["PSo30UIResponderStandardEditActions", "IXNMessageTypeEeg"]
+- !private ["PSo30UIResponderStandardEditActions", "IXNMessageTypeQuantization"]
+- !private ["PSo30UIResponderStandardEditActions", "IXNMessageTypeVersion"]
+- !private ["PSo30UIResponderStandardEditActions", "IXNMuseFileFactory"]
+- !private ["PSo30UIResponderStandardEditActions", "Int"]
+- !private ["PSo30UIResponderStandardEditActions", "NSSearchPathForDirectoriesInDomains"]
+- !private ["PSo30UIResponderStandardEditActions", "SimpleController"]
+- !private ["PSo30UIResponderStandardEditActions", "URL"]
+- ["PSo30UIResponderStandardEditActions", "application"]
+- ["PSo30UIResponderStandardEditActions", "applicationDidBecomeActive"]
+- ["PSo30UIResponderStandardEditActions", "applicationDidEnterBackground"]
+- ["PSo30UIResponderStandardEditActions", "applicationDidFinishLaunching"]
+- ["PSo30UIResponderStandardEditActions", "applicationDidReceiveMemoryWarning"]
+- ["PSo30UIResponderStandardEditActions", "applicationProtectedDataDidBecomeAvailable"]
+- ["PSo30UIResponderStandardEditActions", "applicationProtectedDataWillBecomeUnavailable"]
+- ["PSo30UIResponderStandardEditActions", "applicationShouldRequestHealthAuthorization"]
+- ["PSo30UIResponderStandardEditActions", "applicationSignificantTimeChange"]
+- ["PSo30UIResponderStandardEditActions", "applicationWillEnterForeground"]
+- ["PSo30UIResponderStandardEditActions", "applicationWillResignActive"]
+- ["PSo30UIResponderStandardEditActions", "applicationWillTerminate"]
+- !private ["PSo30UIResponderStandardEditActions", "init"]
+- ["PSo30UIResponderStandardEditActions", "playMuseFile"]
+- !private ["PSo30UIResponderStandardEditActions", "print"]
+- !private ["PSo30UIResponderStandardEditActions", "rootViewController"]
+- ["PSo30UIResponderStandardEditActions", "simpleController"]
+- ["PSo30UIResponderStandardEditActions", "window"]
+- ["PSo30UIResponderStandardEditActions", ""]
+- !private ["PSo20UIScrollViewDelegate", "init"]
+- !private ["PSo16UIStateRestoring", "init"]
+- !private ["PSo21UITableViewDataSource", "init"]
+- !private ["PSo19UITableViewDelegate", "init"]
+- !private ["PSo18UITraitEnvironment", "init"]
+- !private ["PSo18UITraitEnvironment", "rootViewController"]
+- !private ["CSo6UIView", "rootViewController"]
+- !private ["CSo16UIViewController", "init"]
+- !private ["CSo8UIWindow", "rootViewController"]
+- !private ["V10Foundation3URL", "absoluteString"]
+- !private ["V10Foundation3URL", "appendingPathComponent"]
+- ["V10Foundation3URL", "deinit"]
+- !private ["V10Foundation3URL", "init"]
+- !private ["Ps14_ArrayProtocol", "Index"]
+- !private ["Ps14_ArrayProtocol", "SubSequence"]
+- !private ["Ps14_ArrayProtocol", "subscript"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "rootViewController"]
+- !private ["Ps24_DestructorSafeContainer", "Index"]
+- !private ["Ps24_DestructorSafeContainer", "SubSequence"]
+- !private ["Ps24_DestructorSafeContainer", "subscript"]
+- !private ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "init"]
+- !private ["Ps35_ExpressibleByBuiltinIntegerLiteral", "IntegerLiteralType"]
+- !private ["Ps35_ExpressibleByBuiltinIntegerLiteral", "Stride"]
+- !private ["Ps35_ExpressibleByBuiltinIntegerLiteral", "_DisabledRangeIndex"]
+- !private ["Ps34_ExpressibleByBuiltinStringLiteral", "init"]
+- !private ["Ps39_ExpressibleByBuiltinUTF16StringLiteral", "init"]
+- !private ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "init"]
+- !private ["Ps34_ExpressibleByFileReferenceLiteral", "absoluteString"]
+- !private ["Ps34_ExpressibleByFileReferenceLiteral", "appendingPathComponent"]
+- !private ["Ps34_ExpressibleByFileReferenceLiteral", "init"]
+- !private ["Ps35_HasCustomAnyHashableRepresentation", "init"]
+- !private ["Ps9_Hashable", "IXNMessageTypeAccelerometer"]
+- !private ["Ps9_Hashable", "IXNMessageTypeAnnotation"]
+- !private ["Ps9_Hashable", "IXNMessageTypeBattery"]
+- !private ["Ps9_Hashable", "IXNMessageTypeConfiguration"]
+- !private ["Ps9_Hashable", "IXNMessageTypeEeg"]
+- !private ["Ps9_Hashable", "IXNMessageTypeQuantization"]
+- !private ["Ps9_Hashable", "IXNMessageTypeVersion"]
+- !private ["Ps9_Hashable", "IXNMuseFileFactory"]
+- !private ["Ps9_Hashable", "Int"]
+- !private ["Ps9_Hashable", "IntegerLiteralType"]
+- !private ["Ps9_Hashable", "NSSearchPathForDirectoriesInDomains"]
+- !private ["Ps9_Hashable", "SimpleController"]
+- !private ["Ps9_Hashable", "Stride"]
+- !private ["Ps9_Hashable", "URL"]
+- !private ["Ps9_Hashable", "_DisabledRangeIndex"]
+- !private ["Ps9_Hashable", "absoluteString"]
+- !private ["Ps9_Hashable", "appendingPathComponent"]
+- ["Ps9_Hashable", "application"]
+- ["Ps9_Hashable", "applicationDidBecomeActive"]
+- ["Ps9_Hashable", "applicationDidEnterBackground"]
+- ["Ps9_Hashable", "applicationDidFinishLaunching"]
+- ["Ps9_Hashable", "applicationDidReceiveMemoryWarning"]
+- ["Ps9_Hashable", "applicationProtectedDataDidBecomeAvailable"]
+- ["Ps9_Hashable", "applicationProtectedDataWillBecomeUnavailable"]
+- ["Ps9_Hashable", "applicationShouldRequestHealthAuthorization"]
+- ["Ps9_Hashable", "applicationSignificantTimeChange"]
+- ["Ps9_Hashable", "applicationWillEnterForeground"]
+- ["Ps9_Hashable", "applicationWillResignActive"]
+- ["Ps9_Hashable", "applicationWillTerminate"]
+- !private ["Ps9_Hashable", "documentDirectory"]
+- !private ["Ps9_Hashable", "getAnnotation"]
+- !private ["Ps9_Hashable", "getConfiguration"]
+- !private ["Ps9_Hashable", "getDataPacket"]
+- !private ["Ps9_Hashable", "getMessageId"]
+- !private ["Ps9_Hashable", "getMessageTimestamp"]
+- !private ["Ps9_Hashable", "getMessageType"]
+- !private ["Ps9_Hashable", "getVersion"]
+- !private ["Ps9_Hashable", "gotoNextMessage"]
+- !private ["Ps9_Hashable", "init"]
+- !private ["Ps9_Hashable", "museFileReader"]
+- ["Ps9_Hashable", "playMuseFile"]
+- !private ["Ps9_Hashable", "print"]
+- !private ["Ps9_Hashable", "rootViewController"]
+- ["Ps9_Hashable", "simpleController"]
+- ["Ps9_Hashable", "window"]
+- ["Ps9_Hashable", ""]
+- !private ["Ps14_Incrementable", "IntegerLiteralType"]
+- !private ["Ps14_Incrementable", "Stride"]
+- !private ["Ps14_Incrementable", "_DisabledRangeIndex"]
+- !private ["Ps8_Integer", "IntegerLiteralType"]
+- !private ["Ps8_Integer", "Stride"]
+- !private ["Ps8_Integer", "_DisabledRangeIndex"]
+- !private ["Ps18_IntegerArithmetic", "IntegerLiteralType"]
+- !private ["Ps18_IntegerArithmetic", "Stride"]
+- !private ["Ps18_IntegerArithmetic", "_DisabledRangeIndex"]
+- !private ["Ps21_ObjectiveCBridgeable", "Index"]
+- !private ["Ps21_ObjectiveCBridgeable", "IntegerLiteralType"]
+- !private ["Ps21_ObjectiveCBridgeable", "Stride"]
+- !private ["Ps21_ObjectiveCBridgeable", "SubSequence"]
+- !private ["Ps21_ObjectiveCBridgeable", "_DisabledRangeIndex"]
+- !private ["Ps21_ObjectiveCBridgeable", "absoluteString"]
+- !private ["Ps21_ObjectiveCBridgeable", "appendingPathComponent"]
+- !private ["Ps21_ObjectiveCBridgeable", "getAnnotation"]
+- !private ["Ps21_ObjectiveCBridgeable", "getConfiguration"]
+- !private ["Ps21_ObjectiveCBridgeable", "getDataPacket"]
+- !private ["Ps21_ObjectiveCBridgeable", "getMessageId"]
+- !private ["Ps21_ObjectiveCBridgeable", "getMessageTimestamp"]
+- !private ["Ps21_ObjectiveCBridgeable", "getMessageType"]
+- !private ["Ps21_ObjectiveCBridgeable", "getVersion"]
+- !private ["Ps21_ObjectiveCBridgeable", "gotoNextMessage"]
+- !private ["Ps21_ObjectiveCBridgeable", "init"]
+- !private ["Ps21_ObjectiveCBridgeable", "subscript"]
+- !private ["Ps14_SignedInteger", "IntegerLiteralType"]
+- !private ["Ps14_SignedInteger", "Stride"]
+- !private ["Ps14_SignedInteger", "_DisabledRangeIndex"]
+- !private ["Ps11_Strideable", "IntegerLiteralType"]
+- !private ["Ps11_Strideable", "Stride"]
+- !private ["Ps11_Strideable", "_DisabledRangeIndex"]
+depends-nominal:
+- "Ps9AnyObject"
+- "C9MusicMood11AppDelegate"
+- "Sa"
+- !private "Ps23BidirectionalCollection"
+- !private "Ps22BidirectionalIndexable"
+- !private "Vs18BidirectionalSlice"
+- !private "Ps17BitwiseOperations"
+- "Sb"
+- !private "PSo15CALayerDelegate"
+- "Ps7CVarArg"
+- !private "Ps10Collection"
+- !private "Ps10Comparable"
+- "Ps28CustomDebugStringConvertible"
+- !private "Ps29CustomPlaygroundQuickLookable"
+- !private "Ps17CustomReflectable"
+- "Ps23CustomStringConvertible"
+- !private "Vs27DefaultBidirectionalIndices"
+- !private "Vs26DefaultRandomAccessIndices"
+- "Ps9Equatable"
+- !private "Ps25ExpressibleByArrayLiteral"
+- !private "Ps43ExpressibleByExtendedGraphemeClusterLiteral"
+- !private "Ps27ExpressibleByIntegerLiteral"
+- !private "Ps23ExpressibleByNilLiteral"
+- !private "Ps32ExpressibleByStringInterpolation"
+- !private "Ps26ExpressibleByStringLiteral"
+- !private "Ps33ExpressibleByUnicodeScalarLiteral"
+- "Ps8Hashable"
+- !private "PSo14IXNLogListener"
+- !private "PSo25IXNMuseConnectionListener"
+- !private "PSo19IXNMuseDataListener"
+- !private "CSo18IXNMuseFileFactory"
+- !private "CSo17IXNMuseFileReader"
+- !private "PSo15IXNMuseListener"
+- "SQ"
+- !private "Ps9Indexable"
+- !private "Ps13IndexableBase"
+- !private "Vs16IndexingIterator"
+- "Si"
+- !private "Ps7Integer"
+- !private "Ps17IntegerArithmetic"
+- !private "Ps16IteratorProtocol"
+- !private "Ps25LosslessStringConvertible"
+- !private "Ps10MirrorPath"
+- !private "Ps17MutableCollection"
+- !private "Ps16MutableIndexable"
+- !private "PSo8NSCoding"
+- !private "PSo9NSCopying"
+- !private "PSo26NSExtensionRequestHandling"
+- !private "PSo16NSMutableCopying"
+- "CSo8NSObject"
+- "PSo16NSObjectProtocol"
+- !private "PSo14NSSecureCoding"
+- !private "CSo8NSString"
+- !private "Ps9OptionSet"
+- "Sq"
+- !private "Ps22RandomAccessCollection"
+- !private "Ps21RandomAccessIndexable"
+- !private "Vs17RandomAccessSlice"
+- !private "Ps26RangeReplaceableCollection"
+- !private "Ps25RangeReplaceableIndexable"
+- !private "Ps16RawRepresentable"
+- !private "P10Foundation20ReferenceConvertible"
+- "OCSo11FileManager19SearchPathDirectory"
+- "VCSo11FileManager20SearchPathDomainMask"
+- !private "Ps8Sequence"
+- !private "Ps10SetAlgebra"
+- !private "Ps13SignedInteger"
+- !private "Ps12SignedNumber"
+- "CSo16SimpleController"
+- !private "Vs5Slice"
+- !private "Ps10Strideable"
+- "SS"
+- !private "Ps16TextOutputStream"
+- !private "Ps20TextOutputStreamable"
+- !private "PSo29UIAccessibilityIdentification"
+- !private "PSo12UIAppearance"
+- !private "PSo21UIAppearanceContainer"
+- "PSo21UIApplicationDelegate"
+- !private "PSo18UIContentContainer"
+- !private "PSo17UICoordinateSpace"
+- !private "PSo13UIDynamicItem"
+- !private "PSo18UIFocusEnvironment"
+- !private "PSo11UIFocusItem"
+- "CSo11UIResponder"
+- "PSo30UIResponderStandardEditActions"
+- !private "PSo20UIScrollViewDelegate"
+- !private "PSo16UIStateRestoring"
+- !private "PSo21UITableViewDataSource"
+- !private "PSo19UITableViewDelegate"
+- !private "PSo18UITraitEnvironment"
+- !private "CSo6UIView"
+- !private "CSo16UIViewController"
+- !private "CSo8UIWindow"
+- "V10Foundation3URL"
+- !private "Ps14_ArrayProtocol"
+- !private "Ps37_DefaultCustomPlaygroundQuickLookable"
+- !private "Ps24_DestructorSafeContainer"
+- !private "Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral"
+- !private "Ps35_ExpressibleByBuiltinIntegerLiteral"
+- !private "Ps34_ExpressibleByBuiltinStringLiteral"
+- !private "Ps39_ExpressibleByBuiltinUTF16StringLiteral"
+- !private "Ps41_ExpressibleByBuiltinUnicodeScalarLiteral"
+- !private "Ps34_ExpressibleByFileReferenceLiteral"
+- !private "Ps35_HasCustomAnyHashableRepresentation"
+- "Ps9_Hashable"
+- !private "Ps14_Incrementable"
+- !private "Ps8_Integer"
+- !private "Ps18_IntegerArithmetic"
+- !private "Ps21_ObjectiveCBridgeable"
+- !private "Ps14_SignedInteger"
+- !private "Ps11_Strideable"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Swift.swiftmodule"
+- "/Users/ivanrzhanoi/Documents/workspace/Swift/MusicMood/MusicMood/MusicMood-Bridging-Header.h"
+- "/Users/ivanrzhanoi/Documents/workspace/Swift/MusicMood/Muse.framework/Headers/Muse.h"
+- "/Users/ivanrzhanoi/Documents/workspace/Swift/MusicMood/Muse.framework/Headers/IXNCharacteristicMapperIos.h"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreGraphics.swiftmodule"
+- "/Users/ivanrzhanoi/Documents/workspace/Swift/MusicMood/Muse.framework/Headers/gen-objc/IXNCharacteristicId.h"
+- "/Users/ivanrzhanoi/Documents/workspace/Swift/MusicMood/Muse.framework/Headers/gen-objc/IXNCharacteristicMapper.h"
+- "/Users/ivanrzhanoi/Documents/workspace/Swift/MusicMood/Muse.framework/Headers/IXNMuseFileFactory.h"
+- "/Users/ivanrzhanoi/Documents/workspace/Swift/MusicMood/Muse.framework/Headers/gen-objc/IXNMuseFile.h"
+- "/Users/ivanrzhanoi/Documents/workspace/Swift/MusicMood/Muse.framework/Headers/gen-objc/IXNMuseFileReader.h"
+- "/Users/ivanrzhanoi/Documents/workspace/Swift/MusicMood/Muse.framework/Headers/gen-objc/IXNAnnotationData.h"
+- "/Users/ivanrzhanoi/Documents/workspace/Swift/MusicMood/Muse.framework/Headers/gen-objc/IXNAnnotationFormat.h"
+- "/Users/ivanrzhanoi/Documents/workspace/Swift/MusicMood/Muse.framework/Headers/gen-objc/IXNComputingDeviceConfiguration.h"
+- "/Users/ivanrzhanoi/Documents/workspace/Swift/MusicMood/Muse.framework/Headers/gen-objc/IXNDspData.h"
+- "/Users/ivanrzhanoi/Documents/workspace/Swift/MusicMood/Muse.framework/Headers/gen-objc/IXNMessageType.h"
+- "/Users/ivanrzhanoi/Documents/workspace/Swift/MusicMood/Muse.framework/Headers/gen-objc/IXNResult.h"
+- "/Users/ivanrzhanoi/Documents/workspace/Swift/MusicMood/Muse.framework/Headers/gen-objc/IXNResultLevel.h"
+- "/Users/ivanrzhanoi/Documents/workspace/Swift/MusicMood/Muse.framework/Headers/gen-objc/IXNMuseFileWriter.h"
+- "/Users/ivanrzhanoi/Documents/workspace/Swift/MusicMood/Muse.framework/Headers/gen-objc/IXNMuseArtifactPacket.h"
+- "/Users/ivanrzhanoi/Documents/workspace/Swift/MusicMood/Muse.framework/Headers/gen-objc/IXNTimestampMode.h"
+- "/Users/ivanrzhanoi/Documents/workspace/Swift/MusicMood/Muse.framework/Headers/IXNMuseFileIos.h"
+- "/Users/ivanrzhanoi/Documents/workspace/Swift/MusicMood/Muse.framework/Headers/IXNMuseManagerIos.h"
+- "/Users/ivanrzhanoi/Documents/workspace/Swift/MusicMood/Muse.framework/Headers/gen-objc/IXNMuseManager.h"
+- "/Users/ivanrzhanoi/Documents/workspace/Swift/MusicMood/Muse.framework/Headers/gen-objc/IXNAdvertisingStats.h"
+- "/Users/ivanrzhanoi/Documents/workspace/Swift/MusicMood/Muse.framework/Headers/IXNRunEventLoop.h"
+- "/Users/ivanrzhanoi/Documents/workspace/Swift/MusicMood/Muse.framework/Headers/gen-objc/IXNEventLoop.h"
+- "/Users/ivanrzhanoi/Documents/workspace/Swift/MusicMood/Muse.framework/Headers/gen-objc/IXNAccelerometer.h"
+- "/Users/ivanrzhanoi/Documents/workspace/Swift/MusicMood/Muse.framework/Headers/gen-objc/IXNAction.h"
+- "/Users/ivanrzhanoi/Documents/workspace/Swift/MusicMood/Muse.framework/Headers/gen-objc/IXNApiVersion.h"
+- "/Users/ivanrzhanoi/Documents/workspace/Swift/MusicMood/Muse.framework/Headers/gen-objc/IXNBattery.h"
+- "/Users/ivanrzhanoi/Documents/workspace/Swift/MusicMood/Muse.framework/Headers/gen-objc/IXNConnectionHandle.h"
+- "/Users/ivanrzhanoi/Documents/workspace/Swift/MusicMood/Muse.framework/Headers/gen-objc/IXNConnectionState.h"
+- "/Users/ivanrzhanoi/Documents/workspace/Swift/MusicMood/Muse.framework/Headers/gen-objc/IXNDeviceInformation.h"
+- "/Users/ivanrzhanoi/Documents/workspace/Swift/MusicMood/Muse.framework/Headers/gen-objc/IXNDrlRef.h"
+- "/Users/ivanrzhanoi/Documents/workspace/Swift/MusicMood/Muse.framework/Headers/gen-objc/IXNEeg.h"
+- "/Users/ivanrzhanoi/Documents/workspace/Swift/MusicMood/Muse.framework/Headers/gen-objc/IXNError.h"
+- "/Users/ivanrzhanoi/Documents/workspace/Swift/MusicMood/Muse.framework/Headers/gen-objc/IXNErrorType.h"
+- "/Users/ivanrzhanoi/Documents/workspace/Swift/MusicMood/Muse.framework/Headers/gen-objc/IXNGyro.h"
+- "/Users/ivanrzhanoi/Documents/workspace/Swift/MusicMood/Muse.framework/Headers/gen-objc/IXNLibmuseVersion.h"
+- "/Users/ivanrzhanoi/Documents/workspace/Swift/MusicMood/Muse.framework/Headers/gen-objc/IXNLogListener.h"
+- "/Users/ivanrzhanoi/Documents/workspace/Swift/MusicMood/Muse.framework/Headers/gen-objc/IXNLogPacket.h"
+- "/Users/ivanrzhanoi/Documents/workspace/Swift/MusicMood/Muse.framework/Headers/gen-objc/IXNSeverity.h"
+- "/Users/ivanrzhanoi/Documents/workspace/Swift/MusicMood/Muse.framework/Headers/gen-objc/IXNLogManager.h"
+- "/Users/ivanrzhanoi/Documents/workspace/Swift/MusicMood/Muse.framework/Headers/gen-objc/IXNMuse.h"
+- "/Users/ivanrzhanoi/Documents/workspace/Swift/MusicMood/Muse.framework/Headers/gen-objc/IXNMuseDataPacketType.h"
+- "/Users/ivanrzhanoi/Documents/workspace/Swift/MusicMood/Muse.framework/Headers/gen-objc/IXNMusePreset.h"
+- "/Users/ivanrzhanoi/Documents/workspace/Swift/MusicMood/Muse.framework/Headers/gen-objc/IXNNotchFrequency.h"
+- "/Users/ivanrzhanoi/Documents/workspace/Swift/MusicMood/Muse.framework/Headers/gen-objc/IXNMuseConfiguration.h"
+- "/Users/ivanrzhanoi/Documents/workspace/Swift/MusicMood/Muse.framework/Headers/gen-objc/IXNMuseModel.h"
+- "/Users/ivanrzhanoi/Documents/workspace/Swift/MusicMood/Muse.framework/Headers/gen-objc/IXNMuseConnectionListener.h"
+- "/Users/ivanrzhanoi/Documents/workspace/Swift/MusicMood/Muse.framework/Headers/gen-objc/IXNMuseConnectionPacket.h"
+- "/Users/ivanrzhanoi/Documents/workspace/Swift/MusicMood/Muse.framework/Headers/gen-objc/IXNMuseDataListener.h"
+- "/Users/ivanrzhanoi/Documents/workspace/Swift/MusicMood/Muse.framework/Headers/gen-objc/IXNMuseDataPacket.h"
+- "/Users/ivanrzhanoi/Documents/workspace/Swift/MusicMood/Muse.framework/Headers/gen-objc/IXNMuseErrorListener.h"
+- "/Users/ivanrzhanoi/Documents/workspace/Swift/MusicMood/Muse.framework/Headers/gen-objc/IXNMuseFactory.h"
+- "/Users/ivanrzhanoi/Documents/workspace/Swift/MusicMood/Muse.framework/Headers/gen-objc/IXNMuseLeDevice.h"
+- "/Users/ivanrzhanoi/Documents/workspace/Swift/MusicMood/Muse.framework/Headers/gen-objc/IXNMuseLeDeviceDelegate.h"
+- "/Users/ivanrzhanoi/Documents/workspace/Swift/MusicMood/Muse.framework/Headers/gen-objc/IXNMuseLeFactory.h"
+- "/Users/ivanrzhanoi/Documents/workspace/Swift/MusicMood/Muse.framework/Headers/gen-objc/IXNMuseListener.h"
+- "/Users/ivanrzhanoi/Documents/workspace/Swift/MusicMood/Muse.framework/Headers/gen-objc/IXNMusePlatformInterface.h"
+- "/Users/ivanrzhanoi/Documents/workspace/Swift/MusicMood/Muse.framework/Headers/gen-objc/IXNMuseVersion.h"
+- "/Users/ivanrzhanoi/Documents/workspace/Swift/MusicMood/Muse.framework/Headers/gen-objc/IXNReaderListener.h"
+- "/Users/ivanrzhanoi/Documents/workspace/Swift/MusicMood/Muse.framework/Headers/gen-objc/IXNReaderMuse.h"
+- "/Users/ivanrzhanoi/Documents/workspace/Swift/MusicMood/Muse.framework/Headers/gen-objc/IXNReaderMusePlaybackSettings.h"
+- "/Users/ivanrzhanoi/Documents/workspace/Swift/MusicMood/Muse.framework/Headers/gen-objc/IXNReaderMuseBuilder.h"
+- "/Users/ivanrzhanoi/Documents/workspace/Swift/MusicMood/Muse.framework/Headers/gen-objc/IXNReaderPlaybackListener.h"
+- "/Users/ivanrzhanoi/Documents/workspace/Swift/MusicMood/Muse.framework/Headers/gen-objc/IXNStringify.h"
+- "/Users/ivanrzhanoi/Documents/workspace/Swift/MusicMood/MusicMood/SimpleController.h"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/QuartzCore.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreImage.swiftmodule"
+- "/Users/ivanrzhanoi/Documents/workspace/Swift/MusicMood/MusicMood/AppDelegate.h"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/SwiftOnoneSupport.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/AVFoundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreMedia.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreAudio.swiftmodule"
+interface-hash: "d4998d828c55dafb4f6e81c9533318a0"

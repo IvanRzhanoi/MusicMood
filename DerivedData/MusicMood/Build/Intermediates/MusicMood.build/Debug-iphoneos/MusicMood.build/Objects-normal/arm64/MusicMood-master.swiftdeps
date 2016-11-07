@@ -1,0 +1,7 @@
+version: "Apple Swift version 3.0.1 (swiftlang-800.0.58.6 clang-800.0.42.1)"
+options: "31f65cf9621d0f63b1b8eba59083d731"
+build_time: [531811277, 950900000]
+inputs:
+  "/Users/ivanrzhanoi/Documents/workspace/Swift/MusicMood/MusicMood/ViewController.swift": !dirty [531809889, 0]
+  "/Users/ivanrzhanoi/Documents/workspace/Swift/MusicMood/MusicMood/AppDelegate.swift": !dirty [531811073, 0]
+  "/Users/ivanrzhanoi/Documents/workspace/Swift/MusicMood/MusicMood/Connect.swift": !dirty [530954999, 0]
