@@ -28,16 +28,15 @@
                                 <rect key="frame" x="16" y="72" width="343" height="283.5"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R8R-oJ-90a">
-                                        <rect key="frame" x="24" y="127" width="30" height="30"/>
+                                        <rect key="frame" x="27.5" y="127" width="30" height="30"/>
                                         <state key="normal" title="Pick"/>
                                         <connections>
                                             <action selector="pick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HYJ-rD-8Rb"/>
                                         </connections>
                                     </button>
                                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X7t-vj-EHg">
-                                        <rect key="frame" x="100" y="70.5" width="143" height="143"/>
+                                        <rect key="frame" x="103.5" y="74" width="137" height="137"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="143" id="KuL-yY-DLG"/>
                                             <constraint firstAttribute="width" secondItem="X7t-vj-EHg" secondAttribute="height" multiplier="1:1" id="RnT-Qh-6BC"/>
                                         </constraints>
                                         <connections>
@@ -46,7 +45,7 @@
                                         </connections>
                                     </pickerView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rA6-b2-YvD">
-                                        <rect key="frame" x="293" y="127" width="42" height="30"/>
+                                        <rect key="frame" x="290.5" y="127" width="42" height="30"/>
                                         <state key="normal" title="Genre"/>
                                         <connections>
                                             <action selector="genre:" destination="BYZ-38-t0r" eventType="touchUpInside" id="m56-jd-68g"/>
@@ -54,6 +53,7 @@
                                     </button>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="X7t-vj-EHg" firstAttribute="width" secondItem="k5y-wv-0yI" secondAttribute="width" multiplier="1/2.5" id="V7r-Te-lFI"/>
                                     <constraint firstItem="X7t-vj-EHg" firstAttribute="centerY" secondItem="k5y-wv-0yI" secondAttribute="centerY" id="ZD4-DS-Wdq"/>
                                     <constraint firstItem="rA6-b2-YvD" firstAttribute="centerY" secondItem="k5y-wv-0yI" secondAttribute="centerY" id="bF9-za-pR7"/>
                                     <constraint firstItem="X7t-vj-EHg" firstAttribute="leading" secondItem="R8R-oJ-90a" secondAttribute="trailing" constant="46" id="cwq-SF-RVk"/>
@@ -235,13 +235,13 @@
                                         <rect key="frame" x="8" y="56" width="64" height="321.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alpha:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HPb-5I-1x3">
-                                                <rect key="frame" x="0.0" y="0.0" width="64" height="64"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="64" height="64.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Beta:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qid-bI-C8I">
-                                                <rect key="frame" x="0.0" y="64" width="64" height="64.5"/>
+                                                <rect key="frame" x="0.0" y="64.5" width="64" height="64"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -270,13 +270,13 @@
                                         <rect key="frame" x="88" y="56" width="55" height="321.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0000" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hx5-lx-NTv">
-                                                <rect key="frame" x="0.0" y="0.0" width="55" height="64"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="55" height="64.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0000" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pu1-AR-8zm">
-                                                <rect key="frame" x="0.0" y="64" width="55" height="64.5"/>
+                                                <rect key="frame" x="0.0" y="64.5" width="55" height="64"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -305,13 +305,13 @@
                                         <rect key="frame" x="159" y="56" width="55" height="321.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0000" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yeE-Qc-DPs">
-                                                <rect key="frame" x="0.0" y="0.0" width="55" height="64"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="55" height="64.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0000" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UC0-be-z4E">
-                                                <rect key="frame" x="0.0" y="64" width="55" height="64.5"/>
+                                                <rect key="frame" x="0.0" y="64.5" width="55" height="64"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>

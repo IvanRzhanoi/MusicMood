@@ -70,7 +70,7 @@ class Connect: UIViewController, IXNMuseConnectionListener, IXNMuseDataListener,
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let simpleTableIdentifier: String = "nil"
-        var cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: simpleTableIdentifier)!
+        let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: simpleTableIdentifier)!
         
         if cell == nil {
             // TODO: Insert the corresponding function

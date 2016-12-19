@@ -21,7 +21,16 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     var player = MPMusicPlayerController()
     var album = MPMediaItemPropertyAlbumTitle
     //var mood = MPMediaItemPropertyUserGrouping
-    var mood = MPMediaItemPropertyComments
+    //var mood = MPMediaItemPropertyComments
+    
+    
+    enum Mood: String {
+        case happy
+        case sad
+        case melancholic
+    }
+    
+    
     var currentMoodValue = "Rock"
     
     
@@ -43,7 +52,7 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     
     
     // Player part
-    let genrePickerValues = ["Rock", "Pop", "Jazz"]
+    let genrePickerValues = [Mood.happy.rawValue, Mood.sad.rawValue, Mood.melancholic.rawValue]
     @IBOutlet weak var genrePicker: UIPickerView!
     @IBAction func pick(_ sender: AnyObject) {
         // Useless for now
@@ -74,8 +83,14 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
             player.pause()
         }*/
         
+        
+        
+        
         runMediaLibraryQuery()
         player.play()
+        
+        
+        
         /*
         if (player.nowPlayingItem != nil) {
             player.pause()
@@ -149,17 +164,75 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         
         // Get all songs from the library
         let mediaItems = MPMediaQuery.songs().items
+        
+        
         // Filter
-        var query = MPMediaQuery.songs()
+        //let query = MPMediaQuery.songs()
+        
+        
+        let query = MPMediaQuery.albums()
+        
+        
+        
         let predicateByMood = MPMediaPropertyPredicate(value: currentMoodValue, forProperty: MPMediaItemPropertyGenre)
+        
+        
+        
+        let predicateByComment = MPMediaPropertyPredicate(value: currentMoodValue, forProperty: MPMediaItemPropertyGenre)
         
         //query.filterPredicates = NSSet(object: predicateByMood)
         
         //query.filterPredicates(predicateByMood)
-        query.addFilterPredicate(predicateByMood)
+        //query.addFilterPredicate(predicateByMood)
+        //query.addFilterPredicate(predicateByComment)
         
         let mediaCollection = MPMediaItemCollection(items: query.items!)
         player.setQueue(with: mediaCollection)
+        
+        // Trying to filter the songs out by comments
+        
+        // 「アルバム」単位で取得
+        
+        
+        // 取得したアルバム情報を表示
+        if let collections = query.collections {
+            for collection in collections {
+                if let representativeTitle = collection.representativeItem!.albumTitle, let comment = collection.representativeItem!.comments {
+                    //print("Title: \(representativeTitle)  songs: \(collection.items.count) comment: \(comment)")
+                    
+                    
+                    // TODO: Implement the switch statement
+                    switch currentMoodValue {
+                    case Mood.happy.rawValue:
+                        if comment.lowercased().range(of: "#\(Mood.happy.rawValue)") != nil {
+                            print("Title: \(representativeTitle)  songs: \(collection.items.count) comment: \(comment)")
+                            print(Mood.happy.rawValue)
+                        }
+                    case Mood.sad.rawValue:
+                        if comment.lowercased().range(of: "#\(Mood.sad.rawValue)") != nil {
+                            print("Title: \(representativeTitle)  songs: \(collection.items.count) comment: \(comment)")
+                            print(Mood.sad.rawValue)
+                        }
+                    case Mood.melancholic.rawValue:
+                        if comment.lowercased().range(of: "#\(Mood.melancholic.rawValue)") != nil {
+                            print("Title: \(representativeTitle)  songs: \(collection.items.count) comment: \(comment)")
+                            print(Mood.melancholic.rawValue)
+                        }
+                    default:
+                        print("static")
+                    }
+                    
+                }
+            }
+        }
+        
+        
+        
+        
+        
+        
+        
+        
         
         /*
         let query = MPMediaQuery.songs()
@@ -194,7 +267,7 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
             currentMood.text = genrePickerValues[row]
             currentMoodValue = genrePickerValues[row]
         default:
-            currentMood.text = "Static"
+            currentMood.text = "#static"
         }
     }
 
