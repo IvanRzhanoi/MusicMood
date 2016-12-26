@@ -17,11 +17,12 @@
 		22A9239D1D93B0AB002A0CA0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22A9239B1D93B0AB002A0CA0 /* LaunchScreen.storyboard */; };
 		22A923A81D93B0AB002A0CA0 /* MusicMoodTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A923A71D93B0AB002A0CA0 /* MusicMoodTests.swift */; };
 		22A923B31D93B0AB002A0CA0 /* MusicMoodUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A923B21D93B0AB002A0CA0 /* MusicMoodUITests.swift */; };
-		22A989061DC1B22000794700 /* Connect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A989051DC1B22000794700 /* Connect.swift */; };
 		22D1C1D21DC0639400FA16FD /* SimpleController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22D1C1CC1DC0639400FA16FD /* SimpleController.xib */; };
 		22D1C1D31DC0639400FA16FD /* SimpleController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D1C1CD1DC0639400FA16FD /* SimpleController.m */; };
-		22D1C1D41DC0639400FA16FD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D1C1D01DC0639400FA16FD /* AppDelegate.m */; };
 		22D1C1D71DC0639D00FA16FD /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 22D1C1D61DC0639D00FA16FD /* libc++.tbd */; };
+		22D569081E10F25200832153 /* ConnectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D569071E10F25200832153 /* ConnectionController.swift */; };
+		22D569091E10F25200832153 /* ConnectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D569071E10F25200832153 /* ConnectionController.swift */; };
+		22D5690A1E10F25200832153 /* ConnectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D569071E10F25200832153 /* ConnectionController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,13 +60,11 @@
 		22A923AE1D93B0AB002A0CA0 /* MusicMoodUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MusicMoodUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		22A923B21D93B0AB002A0CA0 /* MusicMoodUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicMoodUITests.swift; sourceTree = "<group>"; };
 		22A923B41D93B0AB002A0CA0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		22A989051DC1B22000794700 /* Connect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Connect.swift; sourceTree = "<group>"; };
 		22D1C1CC1DC0639400FA16FD /* SimpleController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SimpleController.xib; sourceTree = "<group>"; };
 		22D1C1CD1DC0639400FA16FD /* SimpleController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleController.m; sourceTree = "<group>"; };
 		22D1C1CE1DC0639400FA16FD /* SimpleController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleController.h; sourceTree = "<group>"; };
-		22D1C1CF1DC0639400FA16FD /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		22D1C1D01DC0639400FA16FD /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		22D1C1D61DC0639D00FA16FD /* libc++.tbd */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.text-based-dylib-definition"; path = "libc++.tbd"; sourceTree = "<group>"; };
+		22D569071E10F25200832153 /* ConnectionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,12 +124,10 @@
 				22D1C1CC1DC0639400FA16FD /* SimpleController.xib */,
 				22D1C1CE1DC0639400FA16FD /* SimpleController.h */,
 				22D1C1CD1DC0639400FA16FD /* SimpleController.m */,
-				22D1C1CF1DC0639400FA16FD /* AppDelegate.h */,
-				22D1C1D01DC0639400FA16FD /* AppDelegate.m */,
 				22A923921D93B0AB002A0CA0 /* AppDelegate.swift */,
 				22A923941D93B0AB002A0CA0 /* ViewController.swift */,
 				22A923961D93B0AB002A0CA0 /* Main.storyboard */,
-				22A989051DC1B22000794700 /* Connect.swift */,
+				22D569071E10F25200832153 /* ConnectionController.swift */,
 				226C4CBE1D95897800731F9D /* Assets.xcassets */,
 				22A9239B1D93B0AB002A0CA0 /* LaunchScreen.storyboard */,
 				22A9239E1D93B0AB002A0CA0 /* Info.plist */,
@@ -300,11 +297,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				22D1C1D41DC0639400FA16FD /* AppDelegate.m in Sources */,
+				22D569081E10F25200832153 /* ConnectionController.swift in Sources */,
 				22A923951D93B0AB002A0CA0 /* ViewController.swift in Sources */,
 				22A923931D93B0AB002A0CA0 /* AppDelegate.swift in Sources */,
 				22D1C1D31DC0639400FA16FD /* SimpleController.m in Sources */,
-				22A989061DC1B22000794700 /* Connect.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -313,6 +309,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				22A923A81D93B0AB002A0CA0 /* MusicMoodTests.swift in Sources */,
+				22D569091E10F25200832153 /* ConnectionController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -321,6 +318,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				22A923B31D93B0AB002A0CA0 /* MusicMoodUITests.swift in Sources */,
+				22D5690A1E10F25200832153 /* ConnectionController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

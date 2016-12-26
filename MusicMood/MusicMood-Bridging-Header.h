@@ -4,4 +4,3 @@
 
 #import <Muse/Muse.h>
 #import "SimpleController.h"
-#import "AppDelegate.h"
