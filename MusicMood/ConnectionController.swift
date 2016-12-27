@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class ConnectionController: UIViewController, IXNMuseConnectionListener, IXNMuseDataListener, IXNMuseListener, IXNLogListener, UITableViewDelegate, UITableViewDataSource {
     /**
@@ -45,6 +46,7 @@ class ConnectionController: UIViewController, IXNMuseConnectionListener, IXNMuse
     var manager = IXNMuseManagerIos()
     var logLines = [Any]()
     var isLastBlink = false
+    
     
     // Declaring an object that will call the functions in SimpleController()
     var connectionController = SimpleController()
@@ -256,7 +258,7 @@ class ConnectionController: UIViewController, IXNMuseConnectionListener, IXNMuse
         self.muse.register(self, type: IXNMuseDataPacketType.thetaAbsolute)
         self.muse.register(self, type: IXNMuseDataPacketType.gammaAbsolute)
         
-        self.muse.register(self, type: IXNMuseDataPacketType.eeg)
+//        self.muse.register(self, type: IXNMuseDataPacketType.eeg)
         
 //        self.muse.register(self, type: IXNMuseDataPacketType.alphaRelative)
 //        self.muse.register(self, type: IXNMuseDataPacketType.betaRelative)
@@ -264,120 +266,92 @@ class ConnectionController: UIViewController, IXNMuseConnectionListener, IXNMuse
 //        self.muse.register(self, type: IXNMuseDataPacketType.thetaRelative)
 //        self.muse.register(self, type: IXNMuseDataPacketType.gammaRelative)
         
-        //self.muse.register(self, type: IXNMuseDataPacketType.eeg)
         
         self.muse.runAsynchronously()
     }
     
+    
     func receive(_ packet: IXNMuseDataPacket?, muse: IXNMuse?) {
-        // TODO: add "switch" statement
-        // TODO: create the function to reduce the abandance of code
-        
-        if packet?.packetType() == IXNMuseDataPacketType.alphaAbsolute {
-            
+        switch packet!.packetType() {
+        case IXNMuseDataPacketType.alphaAbsolute:
             if let info = packet?.values() {
-                //print("Alpha: \(info[0]) \(info[1]) \(info[2]) \(info[3]) \(info[4]) \(info[5])")
-                var alpha: Double = 0
-                for i in 0...5 {
-                    alpha += (info[i] as! Double)
-                }
-                alpha = alpha / 6
+                let alpha: Double = calculate(info: info as NSArray)
+                print("Alpha: \(alpha)")
+            }
+        case IXNMuseDataPacketType.betaAbsolute:
+            if let info = packet?.values() {
+                let beta: Double = calculate(info: info as NSArray)
+                print("Beta: \(beta)")
+            }
+        case IXNMuseDataPacketType.deltaAbsolute:
+            if let info = packet?.values() {
+                let delta: Double = calculate(info: info as NSArray)
+                print("Delta: \(delta)")
+            }
+        case IXNMuseDataPacketType.thetaAbsolute:
+            if let info = packet?.values() {
+                let theta: Double = calculate(info: info as NSArray)
+                print("Theta: \(theta)")
+            }
+        case IXNMuseDataPacketType.gammaAbsolute:
+            if let info = packet?.values() {
+                let gamma: Double = calculate(info: info as NSArray)
+                print("Gamma: \(gamma)")
+            }
+        default:
+            print("another package")
+        }
+        
+        
+        // TODO: Test the lines above and if they are succesful (no errors), deleta the lines below
+        /*
+        if packet?.packetType() == IXNMuseDataPacketType.alphaAbsolute {
+            if let info = packet?.values() {
+                let alpha: Double = calculate(info: info as NSArray)
                 print("Alpha: \(alpha)")
             }
         }
         
-        // TODO: Add info for other brainwaves
-        
-        
         if packet?.packetType() == IXNMuseDataPacketType.betaAbsolute {
             if let info = packet?.values() {
-                //print("Beta: \(info[0]) \(info[1]) \(info[2]) \(info[3]) \(info[4]) \(info[5])")
-                var beta: Double = 0
-                for i in 0...5 {
-                    beta += (info[i] as! Double)
-                }
-                beta = beta / 6
+                let beta: Double = calculate(info: info as NSArray)
                 print("Beta: \(beta)")
             }
         }
         
         if packet?.packetType() == IXNMuseDataPacketType.deltaAbsolute {
             if let info = packet?.values() {
-                //print("Delta: \(info[0]) \(info[1]) \(info[2]) \(info[3]) \(info[4]) \(info[5])")
-                var delta: Double = 0
-                for i in 0...5 {
-                    delta += (info[i] as! Double)
-                }
-                delta = delta / 6
+                let delta: Double = calculate(info: info as NSArray)
                 print("Delta: \(delta)")
             }
         }
         
         if packet?.packetType() == IXNMuseDataPacketType.thetaAbsolute {
             if let info = packet?.values() {
-                //print("Theta: \(info[0]) \(info[1]) \(info[2]) \(info[3]) \(info[4]) \(info[5])")
-                var theta: Double = 0
-                for i in 0...5 {
-                    theta += (info[i] as! Double)
-                }
-                theta = theta / 6
+                let theta: Double = calculate(info: info as NSArray)
                 print("Theta: \(theta)")
             }
         }
         
         if packet?.packetType() == IXNMuseDataPacketType.gammaAbsolute {
             if let info = packet?.values() {
-                //print("Gamma: \(info[0]) \(info[1]) \(info[2]) \(info[3]) \(info[4]) \(info[5])")
-                var gamma: Double = 0
-                for i in 0...5 {
-                    gamma += (info[i] as! Double)
-                }
-                gamma = gamma / 6
+                let gamma: Double = calculate(info: info as NSArray)
+                
                 print("Gamma: \(gamma)")
             }
         }
-        
-//        if packet?.packetType() == IXNMuseDataPacketType.eeg {
-//            if let info = packet?.values() {
-//                print("Packet: \(info[0]) \(info[1]) \(info[2]) \(info[3]) \(info[4]) \(info[5])")
-//            }
-//        }
-        
-        
-        // TODO: Consider deleting the test for relative brain waves
-        /*
-        if packet?.packetType() == IXNMuseDataPacketType.alphaRelative {
-            if let info = packet?.values() {
-                print("Alpha Relative: \(info[0]) \(info[1]) \(info[2]) \(info[3]) \(info[4]) \(info[5])")
-            }
-        }
-        
-        if packet?.packetType() == IXNMuseDataPacketType.betaRelative {
-            if let info = packet?.values() {
-                print("Beta Relative: \(info[0]) \(info[1]) \(info[2]) \(info[3]) \(info[4]) \(info[5])")
-            }
-        }
-        
-        if packet?.packetType() == IXNMuseDataPacketType.deltaRelative {
-            if let info = packet?.values() {
-                print("Delta Relative: \(info[0]) \(info[1]) \(info[2]) \(info[3]) \(info[4]) \(info[5])")
-            }
-        }
-        
-        if packet?.packetType() == IXNMuseDataPacketType.thetaRelative {
-            if let info = packet?.values() {
-                print("Theta Relative: \(info[0]) \(info[1]) \(info[2]) \(info[3]) \(info[4]) \(info[5])")
-            }
-        }
-        
-        if packet?.packetType() == IXNMuseDataPacketType.gammaRelative {
-            if let info = packet?.values() {
-                print("Gamma Relative: \(info[0]) \(info[1]) \(info[2]) \(info[3]) \(info[4]) \(info[5])")
-            }
-        }
- */
+        */
     }
     
+    func calculate(info: NSArray) -> Double {
+        var value: Double = 0
+        for i in 0...5 {
+            value += (info[i] as! Double)
+        }
+        value = value / 6
+        
+        return value
+    }
     
     func receive(_ packet: IXNMuseArtifactPacket, muse: IXNMuse?) {
         if packet.blink && packet.blink != self.isLastBlink {
