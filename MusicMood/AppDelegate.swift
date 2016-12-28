@@ -88,7 +88,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
          application to it. This property is optional since there are legitimate
          error conditions that could cause the creation of the store to fail.
          */
-        let container = NSPersistentContainer(name: "MyModel") //ここを作ったcore dataのファイル名に変更(拡張子不要)
+        let container = NSPersistentContainer(name: "AppData") //ここを作ったcore dataのファイル名に変更(拡張子不要)
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
                 // Replace this implementation with code to handle the error appropriately.

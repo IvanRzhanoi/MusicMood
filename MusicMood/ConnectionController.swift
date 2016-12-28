@@ -47,9 +47,10 @@ class ConnectionController: UIViewController, IXNMuseConnectionListener, IXNMuse
     var logLines = [Any]()
     var isLastBlink = false
     
-    
     // Declaring an object that will call the functions in SimpleController()
     var connectionController = SimpleController()
+    
+    var i: Int = 0
     
     @IBOutlet var tableView: UITableView!
     @IBOutlet var logView: UITextView!
@@ -71,6 +72,49 @@ class ConnectionController: UIViewController, IXNMuseConnectionListener, IXNMuse
         self.manager = IXNMuseManagerIos.sharedManager()
         
         //}
+        
+        
+        
+        // TODO: Adapt the code below
+        
+        // Deleting the data from previous session
+        // TODO: Change the code, so it will delete the data only when the app starts for the first time, but not changes the View
+        let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
+        let viewContext = appDelegate.persistentContainer.viewContext
+        let request: NSFetchRequest<BrainWaveData> = BrainWaveData.fetchRequest()
+        do {
+            let fetchResults = try viewContext.fetch(request)
+            for result: AnyObject in fetchResults {
+                let record = result as! NSManagedObject
+                viewContext.delete(record)
+            }
+            try viewContext.save()
+        } catch {
+        }
+
+        let query: NSFetchRequest<BrainWaveData> = BrainWaveData.fetchRequest()
+        do {
+            let fetchResults = try viewContext.fetch(query)
+            for result: AnyObject in fetchResults {
+                let alpha: Double! = result.value(forKey: "alpha") as? Double
+                let beta: Double? = result.value(forKey: "beta") as? Double
+                let delta: Double? = result.value(forKey: "delta") as? Double
+                let theta: Double? = result.value(forKey: "theta") as? Double
+                let gamma: Double? = result.value(forKey: "gamma") as? Double
+                
+                print("CD Alpha: \(alpha)")
+                print("CD Beta: \(beta)")
+                print("CD Delta: \(delta)")
+                print("CD Theta: \(theta)")
+                print("CD Gamma: \(gamma)")
+            }
+        } catch {
+        }
+
+        
+        
+        
+        
     }
     
         override init(nibName nibNameOrNil: String!, bundle nibBundleOrNil: Bundle!) {
@@ -272,75 +316,103 @@ class ConnectionController: UIViewController, IXNMuseConnectionListener, IXNMuse
     
     
     func receive(_ packet: IXNMuseDataPacket?, muse: IXNMuse?) {
+        
+        // Declaring values for CoreData
+        // For saving
+        let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
+        let viewContext = appDelegate.persistentContainer.viewContext
+        let data = NSEntityDescription.entity(forEntityName: "BrainWaveData", in: viewContext)
+        let newRecord = NSManagedObject(entity: data!, insertInto: viewContext)
+        
+        // For reading
+        let query: NSFetchRequest<BrainWaveData> = BrainWaveData.fetchRequest()
+        
         switch packet!.packetType() {
         case IXNMuseDataPacketType.alphaAbsolute:
             if let info = packet?.values() {
                 let alpha: Double = calculate(info: info as NSArray)
                 print("Alpha: \(alpha)")
+                
+                newRecord.setValue(alpha, forKey: "alpha") //値を代入
+                do {
+                    try viewContext.save()
+                } catch {
+                }
             }
+            
         case IXNMuseDataPacketType.betaAbsolute:
             if let info = packet?.values() {
                 let beta: Double = calculate(info: info as NSArray)
                 print("Beta: \(beta)")
+                
+                newRecord.setValue(beta, forKey: "beta") //値を代入
+                do {
+                    try viewContext.save()
+                } catch {
+                }
             }
+            
         case IXNMuseDataPacketType.deltaAbsolute:
             if let info = packet?.values() {
                 let delta: Double = calculate(info: info as NSArray)
                 print("Delta: \(delta)")
+                
+                newRecord.setValue(delta, forKey: "delta") //値を代入
+                do {
+                    try viewContext.save()
+                } catch {
+                }
             }
+            
         case IXNMuseDataPacketType.thetaAbsolute:
             if let info = packet?.values() {
                 let theta: Double = calculate(info: info as NSArray)
                 print("Theta: \(theta)")
+                
+                newRecord.setValue(theta, forKey: "theta") //値を代入
+                do {
+                    try viewContext.save()
+                } catch {
+                }
             }
+            
         case IXNMuseDataPacketType.gammaAbsolute:
             if let info = packet?.values() {
+                print("\(info[0]) \(info[1]) \(info[2]) \(info[3]) \(info[4]) \(info[5])")
                 let gamma: Double = calculate(info: info as NSArray)
                 print("Gamma: \(gamma)")
+                
+                newRecord.setValue(gamma, forKey: "gamma") //値を代入
+                do {
+                    try viewContext.save()
+                } catch {
+                }
+                
+                i += 1
+                if i == 250 {
+                    do {
+                        let fetchResults = try viewContext.fetch(query)
+                        for result: AnyObject in fetchResults {
+                            let alpha: Double! = result.value(forKey: "alpha") as? Double
+                            let beta: Double? = result.value(forKey: "beta") as? Double
+                            let delta: Double? = result.value(forKey: "delta") as? Double
+                            let theta: Double? = result.value(forKey: "theta") as? Double
+                            let gamma: Double? = result.value(forKey: "gamma") as? Double
+                            
+                            print("CD Alpha: \(alpha)")
+                            print("CD Beta: \(beta)")
+                            print("CD Delta: \(delta)")
+                            print("CD Theta: \(theta)")
+                            print("CD Gamma: \(gamma)")
+                        }
+                    } catch {
+                    }
+                }
+                
             }
         default:
             print("another package")
         }
-        
-        
-        // TODO: Test the lines above and if they are succesful (no errors), deleta the lines below
-        /*
-        if packet?.packetType() == IXNMuseDataPacketType.alphaAbsolute {
-            if let info = packet?.values() {
-                let alpha: Double = calculate(info: info as NSArray)
-                print("Alpha: \(alpha)")
-            }
-        }
-        
-        if packet?.packetType() == IXNMuseDataPacketType.betaAbsolute {
-            if let info = packet?.values() {
-                let beta: Double = calculate(info: info as NSArray)
-                print("Beta: \(beta)")
-            }
-        }
-        
-        if packet?.packetType() == IXNMuseDataPacketType.deltaAbsolute {
-            if let info = packet?.values() {
-                let delta: Double = calculate(info: info as NSArray)
-                print("Delta: \(delta)")
-            }
-        }
-        
-        if packet?.packetType() == IXNMuseDataPacketType.thetaAbsolute {
-            if let info = packet?.values() {
-                let theta: Double = calculate(info: info as NSArray)
-                print("Theta: \(theta)")
-            }
-        }
-        
-        if packet?.packetType() == IXNMuseDataPacketType.gammaAbsolute {
-            if let info = packet?.values() {
-                let gamma: Double = calculate(info: info as NSArray)
-                
-                print("Gamma: \(gamma)")
-            }
-        }
-        */
     }
     
     func calculate(info: NSArray) -> Double {

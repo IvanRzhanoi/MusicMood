@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2240B5EA1E12541F00D24F9A /* AppData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2240B5E81E12541F00D24F9A /* AppData.xcdatamodeld */; };
 		226C4CBF1D95897800731F9D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 226C4CBE1D95897800731F9D /* Assets.xcassets */; };
 		22A0FDA31DBF476E00A263F5 /* Muse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22A0FDA21DBF476E00A263F5 /* Muse.framework */; };
 		22A0FDA41DBF476E00A263F5 /* Muse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22A0FDA21DBF476E00A263F5 /* Muse.framework */; };
@@ -23,6 +24,12 @@
 		22D569081E10F25200832153 /* ConnectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D569071E10F25200832153 /* ConnectionController.swift */; };
 		22D569091E10F25200832153 /* ConnectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D569071E10F25200832153 /* ConnectionController.swift */; };
 		22D5690A1E10F25200832153 /* ConnectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D569071E10F25200832153 /* ConnectionController.swift */; };
+		22EB783A1E137F3D000DFC07 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A923921D93B0AB002A0CA0 /* AppDelegate.swift */; };
+		22EB783B1E137F3E000DFC07 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A923921D93B0AB002A0CA0 /* AppDelegate.swift */; };
+		22EB783D1E137F6A000DFC07 /* BrainWaveData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2240B5F31E1255A700D24F9A /* BrainWaveData+CoreDataClass.swift */; };
+		22EB783E1E137F6B000DFC07 /* BrainWaveData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2240B5F31E1255A700D24F9A /* BrainWaveData+CoreDataClass.swift */; };
+		22EB78401E137F6D000DFC07 /* BrainWaveData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2240B5F41E1255A700D24F9A /* BrainWaveData+CoreDataProperties.swift */; };
+		22EB78411E137F6E000DFC07 /* BrainWaveData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2240B5F41E1255A700D24F9A /* BrainWaveData+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +50,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2240B5E91E12541F00D24F9A /* AppData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AppData.xcdatamodel; sourceTree = "<group>"; };
+		2240B5F31E1255A700D24F9A /* BrainWaveData+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BrainWaveData+CoreDataClass.swift"; sourceTree = "<group>"; };
+		2240B5F41E1255A700D24F9A /* BrainWaveData+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BrainWaveData+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		226C4CBE1D95897800731F9D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		22A0FDA21DBF476E00A263F5 /* Muse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Muse.framework; sourceTree = "<group>"; };
 		22A0FDA61DBF49EF00A263F5 /* MusicMood-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MusicMood-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -99,6 +109,8 @@
 		22A923861D93B0AB002A0CA0 = {
 			isa = PBXGroup;
 			children = (
+				2240B5F31E1255A700D24F9A /* BrainWaveData+CoreDataClass.swift */,
+				2240B5F41E1255A700D24F9A /* BrainWaveData+CoreDataProperties.swift */,
 				22A0FDA21DBF476E00A263F5 /* Muse.framework */,
 				22D1C1D61DC0639D00FA16FD /* libc++.tbd */,
 				22A923911D93B0AB002A0CA0 /* MusicMood */,
@@ -134,6 +146,7 @@
 				22A0FDA61DBF49EF00A263F5 /* MusicMood-Bridging-Header.h */,
 				22A0FDA71DBF49EF00A263F5 /* MusicMoodTests-Bridging-Header.h */,
 				22A0FDA81DBF49EF00A263F5 /* MusicMoodUITests-Bridging-Header.h */,
+				2240B5E81E12541F00D24F9A /* AppData.xcdatamodeld */,
 			);
 			path = MusicMood;
 			sourceTree = "<group>";
@@ -301,6 +314,7 @@
 				22A923951D93B0AB002A0CA0 /* ViewController.swift in Sources */,
 				22A923931D93B0AB002A0CA0 /* AppDelegate.swift in Sources */,
 				22D1C1D31DC0639400FA16FD /* SimpleController.m in Sources */,
+				2240B5EA1E12541F00D24F9A /* AppData.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,8 +322,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22EB783A1E137F3D000DFC07 /* AppDelegate.swift in Sources */,
 				22A923A81D93B0AB002A0CA0 /* MusicMoodTests.swift in Sources */,
 				22D569091E10F25200832153 /* ConnectionController.swift in Sources */,
+				22EB783D1E137F6A000DFC07 /* BrainWaveData+CoreDataClass.swift in Sources */,
+				22EB78401E137F6D000DFC07 /* BrainWaveData+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -317,8 +334,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22EB783B1E137F3E000DFC07 /* AppDelegate.swift in Sources */,
 				22A923B31D93B0AB002A0CA0 /* MusicMoodUITests.swift in Sources */,
 				22D5690A1E10F25200832153 /* ConnectionController.swift in Sources */,
+				22EB783E1E137F6B000DFC07 /* BrainWaveData+CoreDataClass.swift in Sources */,
+				22EB78411E137F6E000DFC07 /* BrainWaveData+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -625,6 +645,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		2240B5E81E12541F00D24F9A /* AppData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				2240B5E91E12541F00D24F9A /* AppData.xcdatamodel */,
+			);
+			currentVersion = 2240B5E91E12541F00D24F9A /* AppData.xcdatamodel */;
+			path = AppData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 22A923871D93B0AB002A0CA0 /* Project object */;
 }
