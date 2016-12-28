@@ -50,6 +50,12 @@ class ConnectionController: UIViewController, IXNMuseConnectionListener, IXNMuse
     // Declaring an object that will call the functions in SimpleController()
     var connectionController = SimpleController()
     
+    var alpha: Double = 0.0
+    var beta: Double = 0.0
+    var delta: Double = 0.0
+    var theta: Double = 0.0
+    var gamma: Double = 0.0
+    
     var i: Int = 0
     
     @IBOutlet var tableView: UITableView!
@@ -317,93 +323,75 @@ class ConnectionController: UIViewController, IXNMuseConnectionListener, IXNMuse
     
     func receive(_ packet: IXNMuseDataPacket?, muse: IXNMuse?) {
         
-        // Declaring values for CoreData
-        // For saving
-        let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
-        let viewContext = appDelegate.persistentContainer.viewContext
-        let data = NSEntityDescription.entity(forEntityName: "BrainWaveData", in: viewContext)
-        let newRecord = NSManagedObject(entity: data!, insertInto: viewContext)
-        
-        // For reading
-        let query: NSFetchRequest<BrainWaveData> = BrainWaveData.fetchRequest()
         
         switch packet!.packetType() {
         case IXNMuseDataPacketType.alphaAbsolute:
             if let info = packet?.values() {
-                let alpha: Double = calculate(info: info as NSArray)
+                alpha = calculate(info: info as NSArray)
                 print("Alpha: \(alpha)")
-                
-                newRecord.setValue(alpha, forKey: "alpha") //値を代入
-                do {
-                    try viewContext.save()
-                } catch {
-                }
             }
             
         case IXNMuseDataPacketType.betaAbsolute:
             if let info = packet?.values() {
-                let beta: Double = calculate(info: info as NSArray)
+                beta = calculate(info: info as NSArray)
                 print("Beta: \(beta)")
-                
-                newRecord.setValue(beta, forKey: "beta") //値を代入
-                do {
-                    try viewContext.save()
-                } catch {
-                }
             }
             
         case IXNMuseDataPacketType.deltaAbsolute:
             if let info = packet?.values() {
-                let delta: Double = calculate(info: info as NSArray)
+                delta = calculate(info: info as NSArray)
                 print("Delta: \(delta)")
-                
-                newRecord.setValue(delta, forKey: "delta") //値を代入
-                do {
-                    try viewContext.save()
-                } catch {
-                }
             }
             
         case IXNMuseDataPacketType.thetaAbsolute:
             if let info = packet?.values() {
-                let theta: Double = calculate(info: info as NSArray)
+                theta = calculate(info: info as NSArray)
                 print("Theta: \(theta)")
-                
-                newRecord.setValue(theta, forKey: "theta") //値を代入
-                do {
-                    try viewContext.save()
-                } catch {
-                }
             }
             
         case IXNMuseDataPacketType.gammaAbsolute:
             if let info = packet?.values() {
-                print("\(info[0]) \(info[1]) \(info[2]) \(info[3]) \(info[4]) \(info[5])")
-                let gamma: Double = calculate(info: info as NSArray)
+                //print("\(info[0]) \(info[1]) \(info[2]) \(info[3]) \(info[4]) \(info[5])")
+                gamma = calculate(info: info as NSArray)
                 print("Gamma: \(gamma)")
                 
+                // Declaring values for CoreData
+                // For saving
+                let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
+                let viewContext = appDelegate.persistentContainer.viewContext
+                let data = NSEntityDescription.entity(forEntityName: "BrainWaveData", in: viewContext)
+                let newRecord = NSManagedObject(entity: data!, insertInto: viewContext)
+                
+
+                newRecord.setValue(alpha, forKey: "alpha") //値を代入
+                newRecord.setValue(beta, forKey: "beta") //値を代入
+                newRecord.setValue(delta, forKey: "delta") //値を代入
+                newRecord.setValue(theta, forKey: "theta") //値を代入
                 newRecord.setValue(gamma, forKey: "gamma") //値を代入
                 do {
                     try viewContext.save()
                 } catch {
                 }
                 
+                // For reading
+                let query: NSFetchRequest<BrainWaveData> = BrainWaveData.fetchRequest()
                 i += 1
                 if i == 250 {
                     do {
+                        i = 0
                         let fetchResults = try viewContext.fetch(query)
                         for result: AnyObject in fetchResults {
                             let alpha: Double! = result.value(forKey: "alpha") as? Double
-                            let beta: Double? = result.value(forKey: "beta") as? Double
-                            let delta: Double? = result.value(forKey: "delta") as? Double
-                            let theta: Double? = result.value(forKey: "theta") as? Double
-                            let gamma: Double? = result.value(forKey: "gamma") as? Double
+                            let beta: Double! = result.value(forKey: "beta") as? Double
+                            let delta: Double! = result.value(forKey: "delta") as? Double
+                            let theta: Double! = result.value(forKey: "theta") as? Double
+                            let gamma: Double! = result.value(forKey: "gamma") as? Double
                             
-                            print("CD Alpha: \(alpha)")
-                            print("CD Beta: \(beta)")
-                            print("CD Delta: \(delta)")
-                            print("CD Theta: \(theta)")
-                            print("CD Gamma: \(gamma)")
+                            print("CD ________________________________-   Alpha: \(Double(alpha))")
+                            print("CD Beta: \(Double(beta))")
+                            print("CD Delta: \(Double(delta))")
+                            print("CD Theta: \(Double(theta))")
+                            print("CD Gamma: \(Double(gamma))")
                         }
                     } catch {
                     }
@@ -416,11 +404,18 @@ class ConnectionController: UIViewController, IXNMuseConnectionListener, IXNMuse
     }
     
     func calculate(info: NSArray) -> Double {
-        var value: Double = 0
+        var value: Double = 0.0
+        var divisor: Double = 0.0
         for i in 0...5 {
-            value += (info[i] as! Double)
+            
+            // TODO: Find a more elegant solution to the problem
+            // Check, because gamma sends 2 nan (Not a Number) in a package
+            if (info[i] as! Double).isNaN == false {  // &&  != 0.0 {
+                value += (info[i] as! Double)
+                divisor += 1                            // we divide only for given information
+            }
         }
-        value = value / 6
+        value = value / divisor
         
         return value
     }
