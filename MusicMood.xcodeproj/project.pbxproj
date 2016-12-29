@@ -240,6 +240,11 @@
 						DevelopmentTeam = FF8XS2JGH6;
 						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					22A923A21D93B0AB002A0CA0 = {
 						CreatedOnToolsVersion = 8.0;

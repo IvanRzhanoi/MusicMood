@@ -57,7 +57,10 @@ class ConnectionController: UIViewController, IXNMuseConnectionListener, IXNMuse
     var gamma: Double = 0.0
     
     var i: Int = 0
-    
+    var checkSizeOfCD: Double = 0.0
+    let maxData: Int = 50              // Saves only a set amount of values for the brainwave data
+    let request: NSFetchRequest<BrainWaveData> = BrainWaveData.fetchRequest()
+
     @IBOutlet var tableView: UITableView!
     @IBOutlet var logView: UITextView!
     
@@ -83,39 +86,26 @@ class ConnectionController: UIViewController, IXNMuseConnectionListener, IXNMuse
         
         // TODO: Adapt the code below
         
-        // Deleting the data from previous session
-        // TODO: Change the code, so it will delete the data only when the app starts for the first time, but not changes the View
-        let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
-        let viewContext = appDelegate.persistentContainer.viewContext
-        let request: NSFetchRequest<BrainWaveData> = BrainWaveData.fetchRequest()
-        do {
-            let fetchResults = try viewContext.fetch(request)
-            for result: AnyObject in fetchResults {
-                let record = result as! NSManagedObject
-                viewContext.delete(record)
-            }
-            try viewContext.save()
-        } catch {
-        }
+        
 
-        let query: NSFetchRequest<BrainWaveData> = BrainWaveData.fetchRequest()
-        do {
-            let fetchResults = try viewContext.fetch(query)
-            for result: AnyObject in fetchResults {
-                let alpha: Double! = result.value(forKey: "alpha") as? Double
-                let beta: Double? = result.value(forKey: "beta") as? Double
-                let delta: Double? = result.value(forKey: "delta") as? Double
-                let theta: Double? = result.value(forKey: "theta") as? Double
-                let gamma: Double? = result.value(forKey: "gamma") as? Double
-                
-                print("CD Alpha: \(alpha)")
-                print("CD Beta: \(beta)")
-                print("CD Delta: \(delta)")
-                print("CD Theta: \(theta)")
-                print("CD Gamma: \(gamma)")
-            }
-        } catch {
-        }
+//        let query: NSFetchRequest<BrainWaveData> = BrainWaveData.fetchRequest()
+//        do {
+//            let fetchResults = try viewContext.fetch(query)
+//            for result: AnyObject in fetchResults {
+//                let alpha: Double! = result.value(forKey: "alpha") as? Double
+//                let beta: Double? = result.value(forKey: "beta") as? Double
+//                let delta: Double? = result.value(forKey: "delta") as? Double
+//                let theta: Double? = result.value(forKey: "theta") as? Double
+//                let gamma: Double? = result.value(forKey: "gamma") as? Double
+//                
+//                print("CD Alpha: \(alpha)")
+//                print("CD Beta: \(beta)")
+//                print("CD Delta: \(delta)")
+//                print("CD Theta: \(theta)")
+//                print("CD Gamma: \(gamma)")
+//            }
+//        } catch {
+//        }
 
         
         
@@ -273,7 +263,7 @@ class ConnectionController: UIViewController, IXNMuseConnectionListener, IXNMuse
             
             print("It should call!\n")
             self.connect()
-            print("======Choose device to connect: \(self.muse.getName()) \(self.muse.getMacAddress())======\n")
+            print("======Chose device to connect: \(self.muse.getName()) \(self.muse.getMacAddress())======\n")
         }
         //self.connect()
     }
@@ -317,6 +307,39 @@ class ConnectionController: UIViewController, IXNMuseConnectionListener, IXNMuse
 //        self.muse.register(self, type: IXNMuseDataPacketType.gammaRelative)
         
         
+        // Clean the Core Data, if it exists
+        let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
+        let viewContext = appDelegate.persistentContainer.viewContext
+        let request: NSFetchRequest<BrainWaveData> = BrainWaveData.fetchRequest()
+        
+        do {
+            let fetchResults = try viewContext.fetch(request)
+            for result: AnyObject in fetchResults {
+                let record = result as! NSManagedObject
+                viewContext.delete(record)
+            }
+            try viewContext.save()
+        } catch {
+        }
+
+        // Creating Core Data
+        for _ in 0...maxData {
+            let data = NSEntityDescription.entity(forEntityName: "BrainWaveData", in: viewContext)
+            let newRecord = NSManagedObject(entity: data!, insertInto: viewContext)
+
+
+            newRecord.setValue(0.0, forKey: "alpha") //値を代入
+            newRecord.setValue(0.0, forKey: "beta") //値を代入
+            newRecord.setValue(0.0, forKey: "delta") //値を代入
+            newRecord.setValue(0.0, forKey: "theta") //値を代入
+            newRecord.setValue(0.0, forKey: "gamma") //値を代入
+            
+            do {
+                try viewContext.save()
+            } catch {
+            }
+        }
+
         self.muse.runAsynchronously()
     }
     
@@ -359,27 +382,50 @@ class ConnectionController: UIViewController, IXNMuseConnectionListener, IXNMuse
                 // For saving
                 let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
                 let viewContext = appDelegate.persistentContainer.viewContext
-                let data = NSEntityDescription.entity(forEntityName: "BrainWaveData", in: viewContext)
-                let newRecord = NSManagedObject(entity: data!, insertInto: viewContext)
+//                let data = NSEntityDescription.entity(forEntityName: "BrainWaveData", in: viewContext)
+//                let newRecord = NSManagedObject(entity: data!, insertInto: viewContext)
                 
 
-                newRecord.setValue(alpha, forKey: "alpha") //値を代入
-                newRecord.setValue(beta, forKey: "beta") //値を代入
-                newRecord.setValue(delta, forKey: "delta") //値を代入
-                newRecord.setValue(theta, forKey: "theta") //値を代入
-                newRecord.setValue(gamma, forKey: "gamma") //値を代入
+//                newRecord.setValue(alpha, forKey: "alpha") //値を代入
+//                newRecord.setValue(beta, forKey: "beta") //値を代入
+//                newRecord.setValue(delta, forKey: "delta") //値を代入
+//                newRecord.setValue(theta, forKey: "theta") //値を代入
+//                newRecord.setValue(checkSizeOfCD, forKey: "gamma") //値を代入
+//                let request: NSFetchRequest<BrainWaveData> = BrainWaveData.fetchRequest()
+
+                
+
                 do {
+                    let fetchResults = try viewContext.fetch(request)
+                    fetchResults[i].setValue(alpha, forKey: "alpha")
+                    fetchResults[i].setValue(beta, forKey: "beta")
+                    fetchResults[i].setValue(delta, forKey: "delta")
+                    fetchResults[i].setValue(theta, forKey: "theta")
+                    fetchResults[i].setValue(gamma, forKey: "gamma")
+                    
                     try viewContext.save()
                 } catch {
                 }
                 
                 // For reading
-                let query: NSFetchRequest<BrainWaveData> = BrainWaveData.fetchRequest()
+                //let query: NSFetchRequest<BrainWaveData> = BrainWaveData.fetchRequest()
+                
+                // The lines below limit the scanning, but not the input
+                //query.fetchLimit = 500      // for 50 seconds
+                
+                
+                //request.fetchLimit = 500
+                
+                
+                                
+                checkSizeOfCD += 1
                 i += 1
-                if i == 250 {
+                print("\(i)")
+                
+                if i == maxData {
                     do {
                         i = 0
-                        let fetchResults = try viewContext.fetch(query)
+                        let fetchResults = try viewContext.fetch(request)
                         for result: AnyObject in fetchResults {
                             let alpha: Double! = result.value(forKey: "alpha") as? Double
                             let beta: Double! = result.value(forKey: "beta") as? Double

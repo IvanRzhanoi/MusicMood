@@ -17,6 +17,71 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
         self.connectionController = ConnectionController(nibName: "ConnectionController", bundle: nil)
+        
+//        let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
+//        let viewContext = appDelegate.persistentContainer.viewContext
+//        let request: NSFetchRequest<BrainWaveData> = BrainWaveData.fetchRequest()
+        
+        let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
+        if launchedBefore  {
+            print("Not first launch.")
+            
+            // TODO: Revise this code. Add check for Core Data existens
+//            do {
+//                let fetchResults = try viewContext.fetch(request)
+//                for result: AnyObject in fetchResults {
+//                    let record = result as! NSManagedObject
+//                    viewContext.delete(record)
+//                }
+//                try viewContext.save()
+//            } catch {
+//            }
+//            
+//            // Creating Core Data for future use
+//            for _ in 0...connectionController.maxData {
+//                let data = NSEntityDescription.entity(forEntityName: "BrainWaveData", in: viewContext)
+//                let newRecord = NSManagedObject(entity: data!, insertInto: viewContext)
+//                
+//                
+//                newRecord.setValue(0.0, forKey: "alpha") //値を代入
+//                newRecord.setValue(0.0, forKey: "beta") //値を代入
+//                newRecord.setValue(0.0, forKey: "delta") //値を代入
+//                newRecord.setValue(0.0, forKey: "theta") //値を代入
+//                newRecord.setValue(0.0, forKey: "gamma") //値を代入
+//                
+//                do {
+//                    try viewContext.save()
+//                } catch {
+//                }
+//            }
+        } else {
+            print("First launch, setting UserDefault.")
+            UserDefaults.standard.set(true, forKey: "launchedBefore")
+            
+            // Creating Core Data for future use
+//            for _ in 0...connectionController.maxData {
+//                let data = NSEntityDescription.entity(forEntityName: "BrainWaveData", in: viewContext)
+//                let newRecord = NSManagedObject(entity: data!, insertInto: viewContext)
+//                
+//                
+//                newRecord.setValue(0.0, forKey: "alpha") //値を代入
+//                newRecord.setValue(0.0, forKey: "beta") //値を代入
+//                newRecord.setValue(0.0, forKey: "delta") //値を代入
+//                newRecord.setValue(0.0, forKey: "theta") //値を代入
+//                newRecord.setValue(0.0, forKey: "gamma") //値を代入
+//                
+//                do {
+//                    try viewContext.save()
+//                } catch {
+//                }
+//            }
+        }
+        
+        // Deleting the data from previous session
+        // TODO: Change the code, so it will delete the data only when the app starts for the first time, but not changes the View
+        
+        
+        
     }
     
     func playMuseFile() {
