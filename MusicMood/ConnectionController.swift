@@ -56,6 +56,14 @@ class ConnectionController: UIViewController, IXNMuseConnectionListener, IXNMuse
     var theta: Double = 0.0
     var gamma: Double = 0.0
     
+    
+    var alphaSaved = Array(repeating: 0.0, count: 50)
+    var betaSaved = Array(repeating: 0.0, count: 50)
+    var deltaSaved = Array(repeating: 0.0, count: 50)
+    var thetaSaved = Array(repeating: 0.0, count: 50)
+    var gammaSaved = Array(repeating: 0.0, count: 50)
+
+    
     var i: Int = 0
     var checkSizeOfCD: Double = 0.0
     let maxData: Int = 50              // Saves only a set amount of values for the brainwave data
@@ -378,10 +386,19 @@ class ConnectionController: UIViewController, IXNMuseConnectionListener, IXNMuse
                 gamma = calculate(info: info as NSArray)
                 print("Gamma: \(gamma)")
                 
+                alphaSaved[i] = alpha
+                betaSaved[i] = beta
+                deltaSaved[i] = delta
+                thetaSaved[i] = theta
+                gammaSaved[i] = gamma
                 // Declaring values for CoreData
                 // For saving
-                let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
-                let viewContext = appDelegate.persistentContainer.viewContext
+
+                
+                //let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
+                //let viewContext = appDelegate.persistentContainer.viewContext
+
+                
 //                let data = NSEntityDescription.entity(forEntityName: "BrainWaveData", in: viewContext)
 //                let newRecord = NSManagedObject(entity: data!, insertInto: viewContext)
                 
@@ -395,17 +412,19 @@ class ConnectionController: UIViewController, IXNMuseConnectionListener, IXNMuse
 
                 
 
-                do {
-                    let fetchResults = try viewContext.fetch(request)
-                    fetchResults[i].setValue(alpha, forKey: "alpha")
-                    fetchResults[i].setValue(beta, forKey: "beta")
-                    fetchResults[i].setValue(delta, forKey: "delta")
-                    fetchResults[i].setValue(theta, forKey: "theta")
-                    fetchResults[i].setValue(gamma, forKey: "gamma")
-                    
-                    try viewContext.save()
-                } catch {
-                }
+//                do {
+//                    let fetchResults = try viewContext.fetch(request)
+//                    fetchResults[i].setValue(alpha, forKey: "alpha")
+//                    fetchResults[i].setValue(beta, forKey: "beta")
+//                    fetchResults[i].setValue(delta, forKey: "delta")
+//                    fetchResults[i].setValue(theta, forKey: "theta")
+//                    fetchResults[i].setValue(gamma, forKey: "gamma")
+//                    
+//                    try viewContext.save()
+//                } catch {
+//                }
+                
+                
                 
                 // For reading
                 //let query: NSFetchRequest<BrainWaveData> = BrainWaveData.fetchRequest()
@@ -425,20 +444,29 @@ class ConnectionController: UIViewController, IXNMuseConnectionListener, IXNMuse
                 if i == maxData {
                     do {
                         i = 0
-                        let fetchResults = try viewContext.fetch(request)
-                        for result: AnyObject in fetchResults {
-                            let alpha: Double! = result.value(forKey: "alpha") as? Double
-                            let beta: Double! = result.value(forKey: "beta") as? Double
-                            let delta: Double! = result.value(forKey: "delta") as? Double
-                            let theta: Double! = result.value(forKey: "theta") as? Double
-                            let gamma: Double! = result.value(forKey: "gamma") as? Double
-                            
-                            print("CD ________________________________-   Alpha: \(Double(alpha))")
-                            print("CD Beta: \(Double(beta))")
-                            print("CD Delta: \(Double(delta))")
-                            print("CD Theta: \(Double(theta))")
-                            print("CD Gamma: \(Double(gamma))")
+                        for j in 0...maxData-1 {
+                            print("CD ________________________________-   Alpha: \(Double(alphaSaved[j]))")
+                            print("CD Beta: \(Double(betaSaved[j]))")
+                            print("CD Delta: \(Double(deltaSaved[j]))")
+                            print("CD Theta: \(Double(thetaSaved[j]))")
+                            print("CD Gamma: \(Double(gammaSaved[j]))")
                         }
+                        
+                        
+//                        let fetchResults = try viewContext.fetch(request)
+//                        for result: AnyObject in fetchResults {
+//                            let alpha: Double! = result.value(forKey: "alpha") as? Double
+//                            let beta: Double! = result.value(forKey: "beta") as? Double
+//                            let delta: Double! = result.value(forKey: "delta") as? Double
+//                            let theta: Double! = result.value(forKey: "theta") as? Double
+//                            let gamma: Double! = result.value(forKey: "gamma") as? Double
+//                            
+//                            print("CD ________________________________-   Alpha: \(Double(alpha))")
+//                            print("CD Beta: \(Double(beta))")
+//                            print("CD Delta: \(Double(delta))")
+//                            print("CD Theta: \(Double(theta))")
+//                            print("CD Gamma: \(Double(gamma))")
+//                        }
                     } catch {
                     }
                 }
