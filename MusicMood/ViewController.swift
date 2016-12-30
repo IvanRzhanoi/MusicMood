@@ -23,6 +23,7 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     //var mood = MPMediaItemPropertyUserGrouping
     //var mood = MPMediaItemPropertyComments
     
+    var data = Data()
     
     enum Mood: String {
         case happy
@@ -31,7 +32,7 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     }
     
     
-    var currentMoodValue = "Rock"
+    var currentMoodValue = "Rock"           // TODO: Change to static
     
     
     @IBOutlet weak var currentMood: UILabel!
@@ -99,13 +100,19 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         }
         */
     }
+    
     @IBAction func previous(_ sender: AnyObject) {
         player.skipToPreviousItem()
     }
     
     @IBAction func next(_ sender: AnyObject) {
         // For now for testing it is pausing
-        player.skipToNextItem()
+        //player.skipToNextItem()
+        for i in 0...data.dataSize-1 {
+            //print("\(Data.Waves.alpha[i])")
+            print("Alpha stored: \(Double((Data.Waves["alpha"]?[i])!))")
+        }
+        data.determineMood()
     }
     
     override func viewDidLoad() {
