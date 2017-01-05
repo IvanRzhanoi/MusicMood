@@ -44,6 +44,9 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
 
     
     
+    @IBAction func goToSettings(_ sender: Any) {
+        
+    }
     
     
     

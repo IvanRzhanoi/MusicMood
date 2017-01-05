@@ -26,6 +26,8 @@
 		22D5690A1E10F25200832153 /* ConnectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D569071E10F25200832153 /* ConnectionController.swift */; };
 		22DA6D0F1E1E163D004E7350 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DB08A21E1604EA00C0A8E8 /* Data.swift */; };
 		22DA6D101E1E163D004E7350 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DB08A21E1604EA00C0A8E8 /* Data.swift */; };
+		22DA6D121E1E38C5004E7350 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DA6D111E1E38C5004E7350 /* Settings.swift */; };
+		22DA6D141E1E403D004E7350 /* SegueFromLeft.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DA6D131E1E403D004E7350 /* SegueFromLeft.swift */; };
 		22DB08A31E1604EA00C0A8E8 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DB08A21E1604EA00C0A8E8 /* Data.swift */; };
 		22EB783A1E137F3D000DFC07 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A923921D93B0AB002A0CA0 /* AppDelegate.swift */; };
 		22EB783B1E137F3E000DFC07 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A923921D93B0AB002A0CA0 /* AppDelegate.swift */; };
@@ -78,6 +80,8 @@
 		22D1C1CE1DC0639400FA16FD /* SimpleController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleController.h; sourceTree = "<group>"; };
 		22D1C1D61DC0639D00FA16FD /* libc++.tbd */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.text-based-dylib-definition"; path = "libc++.tbd"; sourceTree = "<group>"; };
 		22D569071E10F25200832153 /* ConnectionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionController.swift; sourceTree = "<group>"; };
+		22DA6D111E1E38C5004E7350 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		22DA6D131E1E403D004E7350 /* SegueFromLeft.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegueFromLeft.swift; sourceTree = "<group>"; };
 		22DB08A21E1604EA00C0A8E8 /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		22DB08A41E162BDE00C0A8E8 /* FutureImplementation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FutureImplementation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -142,9 +146,11 @@
 				22D1C1CE1DC0639400FA16FD /* SimpleController.h */,
 				22D1C1CD1DC0639400FA16FD /* SimpleController.m */,
 				22A923921D93B0AB002A0CA0 /* AppDelegate.swift */,
-				22A923941D93B0AB002A0CA0 /* ViewController.swift */,
 				22A923961D93B0AB002A0CA0 /* Main.storyboard */,
+				22A923941D93B0AB002A0CA0 /* ViewController.swift */,
 				22D569071E10F25200832153 /* ConnectionController.swift */,
+				22DA6D111E1E38C5004E7350 /* Settings.swift */,
+				22DA6D131E1E403D004E7350 /* SegueFromLeft.swift */,
 				226C4CBE1D95897800731F9D /* Assets.xcassets */,
 				22A9239B1D93B0AB002A0CA0 /* LaunchScreen.storyboard */,
 				22A9239E1D93B0AB002A0CA0 /* Info.plist */,
@@ -326,7 +332,9 @@
 				22DB08A31E1604EA00C0A8E8 /* Data.swift in Sources */,
 				22A923951D93B0AB002A0CA0 /* ViewController.swift in Sources */,
 				22A923931D93B0AB002A0CA0 /* AppDelegate.swift in Sources */,
+				22DA6D121E1E38C5004E7350 /* Settings.swift in Sources */,
 				22D1C1D31DC0639400FA16FD /* SimpleController.m in Sources */,
+				22DA6D141E1E403D004E7350 /* SegueFromLeft.swift in Sources */,
 				2240B5EA1E12541F00D24F9A /* AppData.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

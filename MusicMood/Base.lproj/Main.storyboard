@@ -174,6 +174,7 @@
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="ZSZ-8Y-mk4" secondAttribute="trailing" id="63B-a0-Jxc"/>
                             <constraint firstItem="ZSZ-8Y-mk4" firstAttribute="height" secondItem="k5y-wv-0yI" secondAttribute="height" id="D2O-fn-zeU"/>
@@ -186,15 +187,15 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Data" id="bhK-dU-3zs">
-                        <barButtonItem key="rightBarButtonItem" style="done" id="O4s-N6-P82">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="H6c-KT-TJq">
-                                <rect key="frame" x="300" y="7" width="59" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Connect"/>
-                                <connections>
-                                    <segue destination="NgA-qi-MaA" kind="show" id="JIX-Vm-qLR"/>
-                                </connections>
-                            </button>
+                        <barButtonItem key="leftBarButtonItem" title="Settings" id="JBS-bO-nOP">
+                            <connections>
+                                <segue destination="0MS-io-yNW" kind="presentation" id="jri-Us-b5w"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Connect" id="Qk9-uA-v0M">
+                            <connections>
+                                <segue destination="NgA-qi-MaA" kind="show" id="HLz-Hy-wCR"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -205,6 +206,44 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1048.8" y="124.58770614692655"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="z3Y-kv-Gg8">
+            <objects>
+                <viewController id="0MS-io-yNW" customClass="Settings" customModule="MusicMood" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Tq7-5C-IfM"/>
+                        <viewControllerLayoutGuide type="bottom" id="1sC-mh-2zx"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="S4d-CY-2Ri">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Bku-y0-dpX">
+                                <rect key="frame" x="160" y="582" width="54" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VjQ-Rv-J3c">
+                                        <rect key="frame" x="0.0" y="0.0" width="54" height="30"/>
+                                        <state key="normal" title="Dismiss"/>
+                                        <connections>
+                                            <action selector="dismiss:" destination="0MS-io-yNW" eventType="touchUpInside" id="OhX-Jf-Frf"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Bku-y0-dpX" firstAttribute="centerX" secondItem="S4d-CY-2Ri" secondAttribute="centerX" id="OYn-nz-3Tr"/>
+                            <constraint firstItem="1sC-mh-2zx" firstAttribute="top" secondItem="Bku-y0-dpX" secondAttribute="bottom" constant="55" id="tr0-MQ-HRi"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Settings" id="E11-lp-ZWS"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UM8-dL-I6V" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1049" y="873"/>
         </scene>
         <!--Connection-->
         <scene sceneID="xJM-up-l4U">
@@ -417,12 +456,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I7V-o2-Htc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1844" y="124.58770614692655"/>
+            <point key="canvasLocation" x="1978" y="125"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Dh6-l5-NAZ">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="NKQ-Mt-vOI" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="FeQ-Pz-M64" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="EXL-gy-Sd3">
@@ -434,6 +472,7 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="1kD-Ki-wfq"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NKQ-Mt-vOI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="109.59999999999999" y="124.58770614692655"/>
         </scene>
