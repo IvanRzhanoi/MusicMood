@@ -39,7 +39,6 @@ class ConnectionController: UIViewController, IXNMuseConnectionListener, IXNMuse
      * that sent the data packet.
      */
     
-    // TODO: Let the app run in the background
     
     
     var muse = IXNMuse()
@@ -215,7 +214,6 @@ class ConnectionController: UIViewController, IXNMuseConnectionListener, IXNMuse
             print("Everything is fine!")
             
             
-            // TODO: Add the proper checking, so it wouldn't be initialized each time
             //if self.muse.getConfiguration() == nil {
             
             
@@ -230,8 +228,7 @@ class ConnectionController: UIViewController, IXNMuseConnectionListener, IXNMuse
 //                self.muse = muse
 //            }
             //}
-            
-            // T
+
             self.muse = muse
             
             print("It should call!\n")
@@ -241,7 +238,7 @@ class ConnectionController: UIViewController, IXNMuseConnectionListener, IXNMuse
         //self.connect()
     }
     
-    func receive(_ packet: IXNMuseConnectionPacket, muse: IXNMuse?) {       // TODO: Find and error over here!
+    func receive(_ packet: IXNMuseConnectionPacket, muse: IXNMuse?) {
         var state: String
         switch packet.currentConnectionState {
         case IXNConnectionState.disconnected:
@@ -283,55 +280,42 @@ class ConnectionController: UIViewController, IXNMuseConnectionListener, IXNMuse
         switch packet!.packetType() {
         case IXNMuseDataPacketType.alphaAbsolute:
             if let info = packet?.values() {
-//                Data.Waves.alpha[i] = calculate(info: info as NSArray)
-//                print("Alpha: \(Data.Waves.alpha[i])")
                 Data.Waves["alpha"]?[i] = calculate(info: info as NSArray)
                 print("Alpha: \(Double((Data.Waves["alpha"]?[i])!))")
             }
             
         case IXNMuseDataPacketType.betaAbsolute:
             if let info = packet?.values() {
-//                Data.Waves.beta[i] = calculate(info: info as NSArray)
-//                print("Beta: \(Data.Waves.beta[i])")
+                Data.Waves["beta"]?[i] = calculate(info: info as NSArray)
+                print("Beta: \(Double((Data.Waves["beta"]?[i])!))")
             }
             
         case IXNMuseDataPacketType.deltaAbsolute:
             if let info = packet?.values() {
-//                Data.Waves.delta[i] = calculate(info: info as NSArray)
-//                print("Delta: \(Data.Waves.delta[i])")
+                Data.Waves["delta"]?[i] = calculate(info: info as NSArray)
+                print("Delta: \(Double((Data.Waves["delta"]?[i])!))")
             }
             
         case IXNMuseDataPacketType.thetaAbsolute:
             if let info = packet?.values() {
-//                Data.Waves.theta[i] = calculate(info: info as NSArray)
-//                print("Theta: \(Data.Waves.theta[i])")
+                Data.Waves["theta"]?[i] = calculate(info: info as NSArray)
+                print("Theta: \(Double((Data.Waves["theta"]?[i])!))")
             }
             
         case IXNMuseDataPacketType.gammaAbsolute:
             if let info = packet?.values() {
                 //print("\(info[0]) \(info[1]) \(info[2]) \(info[3]) \(info[4]) \(info[5])")
-//                Data.Waves.gamma[i] = calculate(info: info as NSArray)
-//                print("Gamma: \(Data.Waves.gamma[i])")
+                Data.Waves["gamma"]?[i] = calculate(info: info as NSArray)
+                print("Gamma: \(Double((Data.Waves["gamma"]?[i])!))")
                 
               
                 
-                
-                
-                                
-                
                 i += 1
-                print("\(i)")
                 
+                // if-statement below keeps the rotation through the dictionary values
                 if i == data.dataSize {
-                    for i in 0...data.dataSize-1 {
-//                        print("CD ________________________________-   Alpha: \(Data.Waves.alpha[i])")
-//                        print("CD Beta: \(Data.Waves.beta[i])")
-//                        print("CD Delta: \(Data.Waves.delta[i])")
-//                        print("CD Theta: \(Data.Waves.theta[i])")
-//                        print("CD Gamma: \(Data.Waves.gamma[i]))")
-                        //print("CD Gamma: \(Double(gammaSaved[j]))")
-                    }
-                    
+                    // TODO: Move this function to the main controller
+                    data.determineMood()
                     i = 0
                 }
             }
@@ -364,13 +348,7 @@ class ConnectionController: UIViewController, IXNMuseConnectionListener, IXNMuse
         self.isLastBlink = packet.blink
     }
     
-    
-//    TODO: Maybe I will delete this function, because it is stupid to just disconnect.
-//    func applicationWillResignActive() {
-//        print("disconnecting before going into background")
-//        //self.muse.disconnect(true)
-//    }
-    
+
     
     @IBAction func disconnect(_ sender: AnyObject) {
         
@@ -387,7 +365,6 @@ class ConnectionController: UIViewController, IXNMuseConnectionListener, IXNMuse
     }
     
     @IBAction func scan(_ sender: AnyObject) {
-        //SimpleController().scan(AnyObject)
         self.manager.startListening()
         DispatchQueue.main.async{
             self.tableView.reloadData()
