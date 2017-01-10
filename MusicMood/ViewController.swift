@@ -29,24 +29,16 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         case happy
         case sad
         case melancholic
+        case undefined
     }
     
     
-    var currentMoodValue = "Rock"           // TODO: Change to static
+    var currentMoodValue = Mood.undefined.rawValue
     
     
     @IBOutlet weak var currentMood: UILabel!
     
     
-    // MUSE Connectivity
-
-    @IBOutlet weak var alphaCurrent: UILabel!
-
-    
-    
-    @IBAction func goToSettings(_ sender: Any) {
-        
-    }
     
     
     
@@ -56,8 +48,12 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     
     
     // Player part
-    let genrePickerValues = [Mood.happy.rawValue, Mood.sad.rawValue, Mood.melancholic.rawValue]
-    @IBOutlet weak var genrePicker: UIPickerView!
+    let moodPickerValues = [Mood.happy.rawValue, Mood.sad.rawValue, Mood.melancholic.rawValue]
+    
+    
+    @IBOutlet var artwork: UIImageView!
+    @IBOutlet weak var moodPicker: UIPickerView!
+    
     @IBAction func pick(_ sender: AnyObject) {
         // Useless for now
         
@@ -68,14 +64,31 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
  
     }
     
-    @IBAction func genre(_ sender: AnyObject) {
-        genrePicker.isHidden = false
+    @IBAction func mood(_ sender: AnyObject) {
+        if moodPicker.isHidden {
+            hideShow(objectA: self.artwork, objectB: self.moodPicker)
+        } else {
+            hideShow(objectA: self.moodPicker, objectB: self.artwork)
+        }
     }
     
-    
+    // Hide current object, show the desired one
+    func hideShow(objectA: UIView, objectB: UIView) {
+        UIView.animate(withDuration: 0.2, delay: 0, options: [], animations: {
+            objectA.alpha = 0               // Animation
+        }, completion: { finished in
+            objectA.isHidden = true         // Hiding
+        })
+        
+        UIView.animate(withDuration: 0.2, delay: 0, options: [], animations: {
+            objectB.alpha = 1
+        }, completion: { finished in
+            objectB.isHidden = false
+        })
+    }
     
     @IBAction func playPause(_ sender: AnyObject) {
-        genrePicker.isHidden = true
+        moodPicker.isHidden = true
         
         /*if player.playbackState != 1.0 {
             currentMood.text = "rarar"
@@ -90,8 +103,9 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         
         
         
-        runMediaLibraryQuery()
+        self.runMediaLibraryQuery()
         player.play()
+        
         
         
         
@@ -120,8 +134,8 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.genrePicker.dataSource = self
-        self.genrePicker.delegate = self
+        self.moodPicker.dataSource = self
+        self.moodPicker.delegate = self
         
         
         // Do any additional setup after loading the view, typically from a nib.
@@ -132,7 +146,7 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         
         
         // Loading things for the player
-        genrePicker.isHidden = true
+        moodPicker.isHidden = true
         
         player = MPMusicPlayerController.systemMusicPlayer()
         
@@ -231,11 +245,9 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
                     default:
                         print("static")
                     }
-                    
                 }
             }
         }
-        
         
         /*
         let query = MPMediaQuery.songs()
@@ -251,24 +263,24 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return genrePickerValues.count
+        return moodPickerValues.count
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return genrePickerValues[row]
+        return moodPickerValues[row]
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         switch row {
         case 0:
-            currentMood.text = genrePickerValues[row]
-            currentMoodValue = genrePickerValues[row]
+            currentMood.text = moodPickerValues[row]
+            currentMoodValue = moodPickerValues[row]
         case 1:
-            currentMood.text = genrePickerValues[row]
-            currentMoodValue = genrePickerValues[row]
+            currentMood.text = moodPickerValues[row]
+            currentMoodValue = moodPickerValues[row]
         case 2:
-            currentMood.text = genrePickerValues[row]
-            currentMoodValue = genrePickerValues[row]
+            currentMood.text = moodPickerValues[row]
+            currentMoodValue = moodPickerValues[row]
         default:
             currentMood.text = "#static"
         }

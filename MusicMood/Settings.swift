@@ -21,19 +21,19 @@ class Settings: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func dismiss(_ sender: Any) {
-//        let tmpController :UIViewController! = self.presentingViewController;
-//        
-//        self.dismiss(animated: false, completion: {()->Void in
-//            print("done");
-//            tmpController.dismiss(animated: true, completion: nil);
-//        });
+    @IBAction func dismiss(_ sender: AnyObject) {
+        //        let tmpController :UIViewController! = self.presentingViewController;
+        //
+        //        self.dismiss(animated: false, completion: {()->Void in
+        //            print("done");
+        //            tmpController.dismiss(animated: true, completion: nil);
+        //        });
         
         let transition: CATransition = CATransition()
         transition.duration = 0.5
         transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
         transition.type = kCATransitionReveal
-        transition.subtype = kCATransitionFromTop
+        transition.subtype = kCATransitionFromBottom
         self.view.window!.layer.add(transition, forKey: nil)
         self.dismiss(animated: false, completion: nil)
     }

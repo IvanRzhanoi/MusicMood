@@ -76,14 +76,7 @@ class ConnectionController: UIViewController, IXNMuseConnectionListener, IXNMuse
         self.manager = IXNMuseManagerIos.sharedManager()
         
         //}
-        
-        
-        
-        
-        
-        
-        
-        
+
     }
     
         override init(nibName nibNameOrNil: String!, bundle nibBundleOrNil: Bundle!) {
@@ -378,6 +371,23 @@ class ConnectionController: UIViewController, IXNMuseConnectionListener, IXNMuse
         }
     }
     
+    @IBAction func dismiss(_ sender: AnyObject) {
+        //        let tmpController :UIViewController! = self.presentingViewController;
+        //
+        //        self.dismiss(animated: false, completion: {()->Void in
+        //            print("done");
+        //            tmpController.dismiss(animated: true, completion: nil);
+        //        });
+        
+        let transition: CATransition = CATransition()
+        transition.duration = 0.5
+        transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+        transition.type = kCATransitionReveal
+        transition.subtype = kCATransitionFromLeft
+        self.view.window!.layer.add(transition, forKey: nil)
+        self.dismiss(animated: false, completion: nil)
+    }
+
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
