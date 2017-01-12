@@ -28,7 +28,7 @@
                                 <rect key="frame" x="16" y="72" width="343" height="283.5"/>
                                 <subviews>
                                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X7t-vj-EHg">
-                                        <rect key="frame" x="57" y="8" width="229" height="229"/>
+                                        <rect key="frame" x="64.5" y="8" width="214" height="214.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="X7t-vj-EHg" secondAttribute="height" multiplier="1:1" id="RnT-Qh-6BC"/>
                                         </constraints>
@@ -58,8 +58,8 @@
                                             </button>
                                         </subviews>
                                     </stackView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="46706a67fabd3bc508ebc338a9bc3c5c" translatesAutoresizingMaskIntoConstraints="NO" id="Cpw-mz-3NA">
-                                        <rect key="frame" x="54" y="8" width="229" height="229"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="46706a67fabd3bc508ebc338a9bc3c5c" translatesAutoresizingMaskIntoConstraints="NO" id="Cpw-mz-3NA">
+                                        <rect key="frame" x="61.5" y="8" width="214" height="214.5"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="128" id="HhM-Mp-RZU"/>
                                             <constraint firstAttribute="width" secondItem="Cpw-mz-3NA" secondAttribute="height" multiplier="1:1" id="ebm-VQ-UM8"/>
@@ -67,6 +67,12 @@
                                                 <variation key="heightClass=compact" constant="12"/>
                                             </constraint>
                                         </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <variation key="default">
                                             <mask key="constraints">
                                                 <exclude reference="HhM-Mp-RZU"/>
@@ -87,7 +93,7 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="Cpw-mz-3NA" firstAttribute="centerX" secondItem="k5y-wv-0yI" secondAttribute="centerX" constant="-3" id="CaR-AL-AOO"/>
-                                    <constraint firstItem="X7t-vj-EHg" firstAttribute="width" secondItem="k5y-wv-0yI" secondAttribute="width" multiplier="1/1.5" id="V7r-Te-lFI"/>
+                                    <constraint firstItem="X7t-vj-EHg" firstAttribute="width" secondItem="k5y-wv-0yI" secondAttribute="width" multiplier="1/1.6" id="V7r-Te-lFI"/>
                                     <constraint firstItem="X7t-vj-EHg" firstAttribute="centerX" secondItem="k5y-wv-0yI" secondAttribute="centerX" id="eIw-bi-tcT"/>
                                     <constraint firstItem="Cpw-mz-3NA" firstAttribute="width" secondItem="X7t-vj-EHg" secondAttribute="width" id="eh5-5t-eDK"/>
                                     <constraint firstItem="vcG-29-Elx" firstAttribute="centerX" secondItem="k5y-wv-0yI" secondAttribute="centerX" id="fDi-Kw-nst"/>
@@ -222,9 +228,11 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="artist" destination="uqr-we-8tK" id="ajp-rG-WwG"/>
                         <outlet property="artwork" destination="Cpw-mz-3NA" id="qDZ-pL-pF1"/>
                         <outlet property="currentMood" destination="DIE-n6-P1E" id="YHS-5B-Xb0"/>
                         <outlet property="moodPicker" destination="X7t-vj-EHg" id="vMq-MS-L1T"/>
+                        <outlet property="song" destination="dG6-L4-Tae" id="rHA-Yh-r5U"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

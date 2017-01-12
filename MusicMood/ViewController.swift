@@ -37,15 +37,10 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     
     
     @IBOutlet weak var currentMood: UILabel!
+    @IBOutlet var artist: UILabel!
+    @IBOutlet var song: UILabel!
     
-    
-    
-    
-    
-    
-    
-    
-    
+        
     
     // Player part
     let moodPickerValues = [Mood.happy.rawValue, Mood.sad.rawValue, Mood.melancholic.rawValue]
@@ -88,7 +83,13 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     }
     
     @IBAction func playPause(_ sender: AnyObject) {
-        moodPicker.isHidden = true
+        if moodPicker.isHidden == false {
+            hideShow(objectA: self.moodPicker, objectB: self.artwork)
+        }
+        
+        artwork.image = player.nowPlayingItem?.artwork?.image(at: artwork.bounds.size)
+        artist.text = player.nowPlayingItem?.albumArtist
+        song.text = player.nowPlayingItem?.title
         
         /*if player.playbackState != 1.0 {
             currentMood.text = "rarar"
@@ -103,7 +104,7 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         
         
         
-        self.runMediaLibraryQuery()
+        //self.runMediaLibraryQuery()
         player.play()
         
         
@@ -130,6 +131,16 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
             print("Alpha stored: \(Double((Data.Waves["alpha"]?[i])!))")
         }
         data.determineMood()
+        
+        self.runMediaLibraryQuery()
+        // TODO: Check if the player is playing
+        if MPMusicPlayerController.systemMusicPlayer().playbackState == .playing {
+            player.play()
+        }
+        
+        artwork.image = player.nowPlayingItem?.artwork?.image(at: artwork.bounds.size)
+        artist.text = player.nowPlayingItem?.albumArtist
+        song.text = player.nowPlayingItem?.title
     }
     
     override func viewDidLoad() {
@@ -139,11 +150,6 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         
         
         // Do any additional setup after loading the view, typically from a nib.
-        //manager = IXNMuseManagerIos.sharedManager()
-        
-        
-        
-        
         
         // Loading things for the player
         moodPicker.isHidden = true
@@ -158,8 +164,7 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
                 print("Nope")
             }
         }
-        //MuseController.receive(IXNMuseConnectionPacket, muse: IXNMuse)
-        
+        self.runMediaLibraryQuery()
     }
 
     override func didReceiveMemoryWarning() {
@@ -194,34 +199,20 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         //let query = MPMediaQuery.songs()
         
         
-        let query = MPMediaQuery.albums()
+        //let query = MPMediaQuery.albums()
+        let query = MPMediaQuery.songs()
+        var queue = [MPMediaItemCollection]()
         
-        
-        
-        let predicateByMood = MPMediaPropertyPredicate(value: currentMoodValue, forProperty: MPMediaItemPropertyGenre)
-        
-        
-        
-        let predicateByComment = MPMediaPropertyPredicate(value: currentMoodValue, forProperty: MPMediaItemPropertyGenre)
-        
-        //query.filterPredicates = NSSet(object: predicateByMood)
-        
-        //query.filterPredicates(predicateByMood)
-        //query.addFilterPredicate(predicateByMood)
-        //query.addFilterPredicate(predicateByComment)
-        
-        let mediaCollection = MPMediaItemCollection(items: query.items!)
-        player.setQueue(with: mediaCollection)
         
         // Trying to filter the songs out by comments
         
         // 「アルバム」単位で取得
         
-        
+        // TODO: Update the display, because instead of albums I now have songs
         // 取得したアルバム情報を表示
         if let collections = query.collections {
             for collection in collections {
-                if let representativeTitle = collection.representativeItem!.albumTitle, let comment = collection.representativeItem!.comments {
+                if let representativeTitle = collection.representativeItem!.title, let comment = collection.representativeItem!.comments {
                     //print("Title: \(representativeTitle)  songs: \(collection.items.count) comment: \(comment)")
                     
                     
@@ -229,32 +220,33 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
                     switch currentMoodValue {
                     case Mood.happy.rawValue:
                         if comment.lowercased().range(of: "#\(Mood.happy.rawValue)") != nil {
-                            print("Title: \(representativeTitle)  songs: \(collection.items.count) comment: \(comment)")
+                            print("Title: \(representativeTitle) comment: \(comment)")
                             print(Mood.happy.rawValue)
+                            queue.append(collection)
                         }
                     case Mood.sad.rawValue:
                         if comment.lowercased().range(of: "#\(Mood.sad.rawValue)") != nil {
-                            print("Title: \(representativeTitle)  songs: \(collection.items.count) comment: \(comment)")
+                            print("Title: \(representativeTitle) comment: \(comment)")
                             print(Mood.sad.rawValue)
+                            queue.append(collection)
                         }
                     case Mood.melancholic.rawValue:
                         if comment.lowercased().range(of: "#\(Mood.melancholic.rawValue)") != nil {
-                            print("Title: \(representativeTitle)  songs: \(collection.items.count) comment: \(comment)")
+                            print("Title: \(representativeTitle) comment: \(comment)")
                             print(Mood.melancholic.rawValue)
+                            queue.append(collection)
                         }
                     default:
                         print("static")
+                        queue.append(collection)
                     }
                 }
             }
         }
         
-        /*
-        let query = MPMediaQuery.songs()
-        if let items = query.items, let item = items.first {
-            NSLog("Title: \(item.title)")
-        }
-        */
+        //player.stop()
+        let randomIndex = Int(arc4random_uniform(UInt32(queue.count)))
+        player.setQueue(with: queue[randomIndex])
     }
     
     // UIPickerView

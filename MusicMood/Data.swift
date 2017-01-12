@@ -23,6 +23,8 @@ class Data {
         static let deltaRange1000: Range = 0.0..<0.5
         static let thetaRange1000: Range = 0.0..<0.5
         static let gammaRange1000: Range = 0.0..<0.5
+        
+        
     }
     
     static var Waves = ["alpha": Array(repeating: 0.0, count: maxData),
