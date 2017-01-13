@@ -18,7 +18,6 @@
 		22A9239D1D93B0AB002A0CA0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22A9239B1D93B0AB002A0CA0 /* LaunchScreen.storyboard */; };
 		22A923A81D93B0AB002A0CA0 /* MusicMoodTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A923A71D93B0AB002A0CA0 /* MusicMoodTests.swift */; };
 		22A923B31D93B0AB002A0CA0 /* MusicMoodUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A923B21D93B0AB002A0CA0 /* MusicMoodUITests.swift */; };
-		22D1C1D21DC0639400FA16FD /* SimpleController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22D1C1CC1DC0639400FA16FD /* SimpleController.xib */; };
 		22D1C1D31DC0639400FA16FD /* SimpleController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D1C1CD1DC0639400FA16FD /* SimpleController.m */; };
 		22D1C1D71DC0639D00FA16FD /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 22D1C1D61DC0639D00FA16FD /* libc++.tbd */; };
 		22D569081E10F25200832153 /* ConnectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D569071E10F25200832153 /* ConnectionController.swift */; };
@@ -75,7 +74,6 @@
 		22A923AE1D93B0AB002A0CA0 /* MusicMoodUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MusicMoodUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		22A923B21D93B0AB002A0CA0 /* MusicMoodUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicMoodUITests.swift; sourceTree = "<group>"; };
 		22A923B41D93B0AB002A0CA0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		22D1C1CC1DC0639400FA16FD /* SimpleController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SimpleController.xib; sourceTree = "<group>"; };
 		22D1C1CD1DC0639400FA16FD /* SimpleController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleController.m; sourceTree = "<group>"; };
 		22D1C1CE1DC0639400FA16FD /* SimpleController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleController.h; sourceTree = "<group>"; };
 		22D1C1D61DC0639D00FA16FD /* libc++.tbd */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.text-based-dylib-definition"; path = "libc++.tbd"; sourceTree = "<group>"; };
@@ -142,7 +140,6 @@
 		22A923911D93B0AB002A0CA0 /* MusicMood */ = {
 			isa = PBXGroup;
 			children = (
-				22D1C1CC1DC0639400FA16FD /* SimpleController.xib */,
 				22D1C1CE1DC0639400FA16FD /* SimpleController.h */,
 				22D1C1CD1DC0639400FA16FD /* SimpleController.m */,
 				22A923921D93B0AB002A0CA0 /* AppDelegate.swift */,
@@ -304,7 +301,6 @@
 				22A9239D1D93B0AB002A0CA0 /* LaunchScreen.storyboard in Resources */,
 				226C4CBF1D95897800731F9D /* Assets.xcassets in Resources */,
 				22A923981D93B0AB002A0CA0 /* Main.storyboard in Resources */,
-				22D1C1D21DC0639400FA16FD /* SimpleController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -26,10 +26,11 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     var data = Data()
     
     enum Mood: String {
+        case undefined
         case happy
         case sad
         case melancholic
-        case undefined
+        case angry
     }
     
     
@@ -43,12 +44,13 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         
     
     // Player part
-    let moodPickerValues = [Mood.happy.rawValue, Mood.sad.rawValue, Mood.melancholic.rawValue]
+    let moodPickerValues = [Mood.undefined.rawValue, Mood.happy.rawValue, Mood.sad.rawValue, Mood.melancholic.rawValue, Mood.angry.rawValue]
     
     
     @IBOutlet var artwork: UIImageView!
     @IBOutlet weak var moodPicker: UIPickerView!
-    
+    @IBOutlet var playPauseButton: UIButton!
+   
     @IBAction func pick(_ sender: AnyObject) {
         // Useless for now
         
@@ -64,6 +66,10 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
             hideShow(objectA: self.artwork, objectB: self.moodPicker)
         } else {
             hideShow(objectA: self.moodPicker, objectB: self.artwork)
+            player.play()
+            update()
+            player.pause()
+            playPauseButton.setImage(#imageLiteral(resourceName: "Play"), for: .normal)
         }
     }
     
@@ -87,57 +93,53 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
             hideShow(objectA: self.moodPicker, objectB: self.artwork)
         }
         
-        artwork.image = player.nowPlayingItem?.artwork?.image(at: artwork.bounds.size)
-        artist.text = player.nowPlayingItem?.albumArtist
-        song.text = player.nowPlayingItem?.title
-        
-        /*if player.playbackState != 1.0 {
-            currentMood.text = "rarar"
-            player.play()
-        }
-        else {
-            // Playing, so pause.
-            currentMood.text = "Static"
-            player.pause()
-        }*/
-        
-        
-        
-        
-        //self.runMediaLibraryQuery()
-        player.play()
-        
-        
-        
-        
-        /*
-        if (player.nowPlayingItem != nil) {
+        if player.playbackState == .playing {
+            playPauseButton.setImage(#imageLiteral(resourceName: "Play"), for: .normal)
+            update()
             player.pause()
         } else {
+            playPauseButton.setImage(#imageLiteral(resourceName: "Pause"), for: .normal)
             player.play()
+            update()
         }
-        */
     }
     
     @IBAction func previous(_ sender: AnyObject) {
         player.skipToPreviousItem()
+        if moodPicker.isHidden == false {
+            hideShow(objectA: self.moodPicker, objectB: self.artwork)
+        }
     }
     
     @IBAction func next(_ sender: AnyObject) {
         // For now for testing it is pausing
-        //player.skipToNextItem()
-        for i in 0...data.dataSize-1 {
-            //print("\(Data.Waves.alpha[i])")
-            print("Alpha stored: \(Double((Data.Waves["alpha"]?[i])!))")
-        }
-        data.determineMood()
+//        for i in 0...data.dataSize-1 {
+//            //print("\(Data.Waves.alpha[i])")
+//            print("Alpha stored: \(Double((Data.Waves["alpha"]?[i])!))")
+//        }
+//        data.determineMood()
         
+   
         self.runMediaLibraryQuery()
-        // TODO: Check if the player is playing
-        if MPMusicPlayerController.systemMusicPlayer().playbackState == .playing {
+        if player.playbackState == .playing {
+            playPauseButton.setImage(#imageLiteral(resourceName: "Pause"), for: .normal)
+            player.stop()
             player.play()
+            update()
+        } else {
+            playPauseButton.setImage(#imageLiteral(resourceName: "Play"), for: .normal)
+            player.play()
+            update()
+            player.pause()
         }
-        
+   
+        if moodPicker.isHidden == false {
+            hideShow(objectA: self.moodPicker, objectB: self.artwork)
+        }
+    }
+
+
+    func update() {
         artwork.image = player.nowPlayingItem?.artwork?.image(at: artwork.bounds.size)
         artist.text = player.nowPlayingItem?.albumArtist
         song.text = player.nowPlayingItem?.title
@@ -152,6 +154,7 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         // Do any additional setup after loading the view, typically from a nib.
         
         // Loading things for the player
+        //moodPicker.selectRow(3, inComponent: 0, animated: true)
         moodPicker.isHidden = true
         
         player = MPMusicPlayerController.systemMusicPlayer()
@@ -192,7 +195,7 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     func runMediaLibraryQuery() {
         
         // Get all songs from the library
-        let mediaItems = MPMediaQuery.songs().items
+        //let mediaItems = MPMediaQuery.songs().items
         
         
         // Filter
@@ -236,17 +239,31 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
                             print(Mood.melancholic.rawValue)
                             queue.append(collection)
                         }
+                    case Mood.angry.rawValue:
+                        if comment.lowercased().range(of: "#\(Mood.angry.rawValue)") != nil {
+                            print("Title: \(representativeTitle) comment: \(comment)")
+                            print(Mood.angry.rawValue)
+                            queue.append(collection)
+                        }
+                    case Mood.undefined.rawValue:
+                        queue.append(collection)
                     default:
-                        print("static")
+                        print("Bizarre case!")
                         queue.append(collection)
                     }
                 }
             }
         }
         
-        //player.stop()
-        let randomIndex = Int(arc4random_uniform(UInt32(queue.count)))
-        player.setQueue(with: queue[randomIndex])
+        
+        if queue.count != 0 {
+            let randomIndex = Int(arc4random_uniform(UInt32(queue.count)))
+            player.setQueue(with: queue[randomIndex])
+        } else {
+            let alert = UIAlertController(title: "No songs found", message: "There are no songs with \(currentMoodValue) mood", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "ok", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
     }
     
     // UIPickerView
@@ -265,18 +282,24 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         switch row {
         case 0:
-            currentMood.text = moodPickerValues[row]
-            currentMoodValue = moodPickerValues[row]
+            picking(rowValue: row)
         case 1:
-            currentMood.text = moodPickerValues[row]
-            currentMoodValue = moodPickerValues[row]
+            picking(rowValue: row)
         case 2:
-            currentMood.text = moodPickerValues[row]
-            currentMoodValue = moodPickerValues[row]
+            picking(rowValue: row)
+        case 3:
+            picking(rowValue: row)
+        case 4:
+            picking(rowValue: row)
         default:
-            currentMood.text = "#static"
+            currentMood.text = Mood.undefined.rawValue
         }
     }
-
+    
+    func picking(rowValue: Int) {
+        currentMood.text = moodPickerValues[rowValue]
+        currentMoodValue = moodPickerValues[rowValue]
+        self.runMediaLibraryQuery()
+    }
 }
 
