@@ -358,6 +358,7 @@ class ConnectionController: UIViewController, IXNMuseConnectionListener, IXNMuse
     }
     
     @IBAction func scan(_ sender: AnyObject) {
+        // TODO: Make proper scan, so the results would be consatantly updated
         self.manager.startListening()
         DispatchQueue.main.async{
             self.tableView.reloadData()

@@ -91,32 +91,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let filePath = URL(fileURLWithPath: documentsDirectory).appendingPathComponent("testfile.muse").absoluteString
         let fileReader: IXNMuseFileReader = IXNMuseFileFactory.museFileReader(withPathString: filePath)
         
-        while fileReader.gotoNextMessage() != nil {
-            let type = fileReader.getMessageType()
-            let id_number = fileReader.getMessageId()
-            let timestamp: Int64 = fileReader.getMessageTimestamp()
-            print("type: \(type), id: \(id_number), timestamp: \(timestamp)")
-            switch type {
-            case IXNMessageType.eeg, IXNMessageType.quantization, IXNMessageType.accelerometer, IXNMessageType.battery:
-                let packet = fileReader.getDataPacket()?.packetType()
-                print("data packet = \(packet)")
-                
-            case IXNMessageType.version:
-                let version = fileReader.getVersion()
-                print("version = \(version?.getFirmwareVersion)")
-                
-            case IXNMessageType.configuration:
-                let config = fileReader.getConfiguration()
-                print("configuration = \(config?.getBluetoothMac)")
-                
-            case IXNMessageType.annotation:
-                let annotation = fileReader.getAnnotation()
-                print("annotation = \(annotation.data)")
-                
-            default:
-                break
-            }
+        //while fileReader.gotoNextMessage() {
+        let type = fileReader.getMessageType()
+        let id_number = fileReader.getMessageId()
+        let timestamp: Int64 = fileReader.getMessageTimestamp()
+        print("type: \(type), id: \(id_number), timestamp: \(timestamp)")
+        switch type {
+        case IXNMessageType.eeg, IXNMessageType.quantization, IXNMessageType.accelerometer, IXNMessageType.battery:
+            let packet = fileReader.getDataPacket()?.packetType()
+            print("data packet = \(packet)")
+            
+        case IXNMessageType.version:
+            let version = fileReader.getVersion()
+            print("version = \(version?.getFirmwareVersion)")
+            
+        case IXNMessageType.configuration:
+            let config = fileReader.getConfiguration()
+            print("configuration = \(config?.getBluetoothMac)")
+            
+        case IXNMessageType.annotation:
+            let annotation = fileReader.getAnnotation()
+            print("annotation = \(annotation.data)")
+            
+        default:
+            break
         }
+        //}
     }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
