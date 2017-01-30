@@ -15,16 +15,31 @@ let maxData: Int = 25              // Defines the sample amount of brainwaves
 class Data {
     var dataSize = maxData          // This will be referenced outside of the class
     
-    let sad = 0.0...0.5
+    enum Mood: String {
+        case undefined
+        case happy
+        case sad
+        case melancholic
+        case angry
+    }
     
+    var currentMoodValue = Mood.undefined.rawValue
+    
+    // This struct determines the mood by the range of brainwave values
     struct WaveRange {
-        static let alphaRange1000: Range = 0.0..<0.5
-        static let betaRange1000: Range = 0.0..<0.5
-        static let deltaRange1000: Range = 0.0..<0.5
-        static let thetaRange1000: Range = 0.0..<0.5
-        static let gammaRange1000: Range = 0.0..<0.5
+        // Sad mood
+        static let alphaRange1000: Range = 0.0..<0.2
+        static let betaRange1000: Range = 0.0..<1.0
+        static let deltaRange1000: Range = 0.0..<1.0
+        static let thetaRange1000: Range = 0.0..<1.0
+        static let gammaRange1000: Range = 0.0..<1.0
         
-        
+        // Happy mood
+        static let alphaRange5000: Range = 0.3..<1.0
+        static let betaRange5000: Range = 0.0..<1.0
+        static let deltaRange5000: Range = 0.0..<1.0
+        static let thetaRange5000: Range = 0.0..<1.0
+        static let gammaRange5000: Range = 0.0..<1.0
     }
     
     static var Waves = ["alpha": Array(repeating: 0.0, count: maxData),
@@ -47,8 +62,14 @@ class Data {
         
         // Switching over the values of the headband and determining the mood.
         switch (WavesAverage["alpha"], WavesAverage["beta"], WavesAverage["delta"], WavesAverage["theta"], WavesAverage["gamma"]) {
+        // Sad mood
         case (WaveRange.alphaRange1000?, WaveRange.betaRange1000?, WaveRange.deltaRange1000?, WaveRange.deltaRange1000?, WaveRange.gammaRange1000?):
-            print("Basic mood!")
+            print("Sad mood!")
+            
+        // Happy mood
+        case (WaveRange.alphaRange5000?, WaveRange.betaRange5000?, WaveRange.deltaRange5000?, WaveRange.deltaRange5000?, WaveRange.gammaRange5000?):
+            print("Happy mood!")
+            
         default:
             print("LOL, important!")
         }

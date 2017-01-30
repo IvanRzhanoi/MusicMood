@@ -58,7 +58,7 @@
                                             </button>
                                         </subviews>
                                     </stackView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="46706a67fabd3bc508ebc338a9bc3c5c" translatesAutoresizingMaskIntoConstraints="NO" id="Cpw-mz-3NA">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="songIcon" translatesAutoresizingMaskIntoConstraints="NO" id="Cpw-mz-3NA">
                                         <rect key="frame" x="62" y="8" width="214" height="214"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="128" id="HhM-Mp-RZU"/>
@@ -591,12 +591,12 @@
         </scene>
     </scenes>
     <resources>
-        <image name="46706a67fabd3bc508ebc338a9bc3c5c" width="512" height="512"/>
         <image name="Expand Arrow-100" width="50" height="50"/>
         <image name="Fast Forward" width="50" height="50"/>
         <image name="Play" width="50" height="50"/>
         <image name="Rewind" width="50" height="50"/>
         <image name="Settings-100" width="50" height="50"/>
+        <image name="songIcon" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Uk3-OV-yr3"/>

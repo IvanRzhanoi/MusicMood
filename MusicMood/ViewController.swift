@@ -19,6 +19,7 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     // Declaration for player
     //let player = AVPlayer()
     var player = MPMusicPlayerController()
+    //let notificationCenter = NotificationCenter.default
     var album = MPMediaItemPropertyAlbumTitle
     //var mood = MPMediaItemPropertyUserGrouping
     //var mood = MPMediaItemPropertyComments
@@ -34,7 +35,7 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     }
     
     
-    var currentMoodValue = Mood.undefined.rawValue
+    var currentMoodValue = Data.Mood.undefined.rawValue         //Mood.undefined.rawValue
     
     
     @IBOutlet weak var currentMood: UILabel!
@@ -44,7 +45,7 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         
     
     // Player part
-    let moodPickerValues = [Mood.undefined.rawValue, Mood.happy.rawValue, Mood.sad.rawValue, Mood.melancholic.rawValue, Mood.angry.rawValue]
+    let moodPickerValues = [Data.Mood.undefined.rawValue, Data.Mood.happy.rawValue, Data.Mood.sad.rawValue, Data.Mood.melancholic.rawValue, Data.Mood.angry.rawValue]
     
     
     @IBOutlet var artwork: UIImageView!
@@ -104,6 +105,7 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         }
     }
     
+    
     @IBAction func previous(_ sender: AnyObject) {
         player.skipToPreviousItem()
         if moodPicker.isHidden == false {
@@ -140,9 +142,19 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
 
 
     func update() {
-        artwork.image = player.nowPlayingItem?.artwork?.image(at: artwork.bounds.size)
+        if let cover = player.nowPlayingItem?.artwork?.image(at: artwork.bounds.size) {
+            artwork.image = cover
+        } else {
+            artwork.image = #imageLiteral(resourceName: "songIcon")
+        }
         artist.text = player.nowPlayingItem?.albumArtist
         song.text = player.nowPlayingItem?.title
+    }
+    
+    // TODO: Use this function
+    func trackFinished(notification: Notification) {
+        //runMediaLibraryQuery()
+        print("Well, at least this works!AAAAAAAAAAASSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSDFGHGFDUGH!!")
     }
     
     override func viewDidLoad() {
@@ -158,6 +170,13 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         moodPicker.isHidden = true
         
         player = MPMusicPlayerController.systemMusicPlayer()
+        //let vc = ViewController()
+        //NotificationCenter.default.addObserver(vc, selector: #selector(vc.trackFinished(notification:)), name: NSNotification.Name.MPMusicPlayerControllerPlaybackStateDidChange, object: player)
+        
+        
+        
+        //NotificationCenter.default.addObserver(forName: Notification.Name.MPMusicPlayerControllerPlaybackStateDidChange, object: nil, queue: nil, using: trackFinished)
+        
         
         MPMediaLibrary.requestAuthorization { (status) in
             if status == .authorized {
@@ -193,7 +212,8 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
  
     
     func runMediaLibraryQuery() {
-        
+  
+
         // Get all songs from the library
         //let mediaItems = MPMediaQuery.songs().items
         
@@ -203,66 +223,64 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         
         
         //let query = MPMediaQuery.albums()
-        let query = MPMediaQuery.songs()
-        var queue = [MPMediaItemCollection]()
+        
         
         
         // Trying to filter the songs out by comments
         
-        // 「アルバム」単位で取得
-        
-        // TODO: Update the display, because instead of albums I now have songs
-        // 取得したアルバム情報を表示
-        if let collections = query.collections {
-            for collection in collections {
-                if let representativeTitle = collection.representativeItem!.title, let comment = collection.representativeItem!.comments {
-                    //print("Title: \(representativeTitle)  songs: \(collection.items.count) comment: \(comment)")
-                    
-                    
-                    // TODO: Implement the switch statement
-                    switch currentMoodValue {
-                    case Mood.happy.rawValue:
-                        if comment.lowercased().range(of: "#\(Mood.happy.rawValue)") != nil {
-                            print("Title: \(representativeTitle) comment: \(comment)")
-                            print(Mood.happy.rawValue)
+        DispatchQueue.global(qos: .utility).async {
+            let query = MPMediaQuery.songs()
+            var queue = [MPMediaItemCollection]()
+            
+            if let collections = query.collections {
+                for collection in collections {
+                    if let representativeTitle = collection.representativeItem!.title, let comment = collection.representativeItem!.comments {
+                        //print("Title: \(representativeTitle)  songs: \(collection.items.count) comment: \(comment)")
+                        
+                        
+                        switch self.currentMoodValue {
+                        case Data.Mood.happy.rawValue:
+                            if comment.lowercased().range(of: "#\(Mood.happy.rawValue)") != nil {
+                                print("Title: \(representativeTitle) comment: \(comment)")
+                                print(Mood.happy.rawValue)
+                                queue.append(collection)
+                            }
+                        case Mood.sad.rawValue:
+                            if comment.lowercased().range(of: "#\(Mood.sad.rawValue)") != nil {
+                                print("Title: \(representativeTitle) comment: \(comment)")
+                                print(Mood.sad.rawValue)
+                                queue.append(collection)
+                            }
+                        case Mood.melancholic.rawValue:
+                            if comment.lowercased().range(of: "#\(Mood.melancholic.rawValue)") != nil {
+                                print("Title: \(representativeTitle) comment: \(comment)")
+                                print(Mood.melancholic.rawValue)
+                                queue.append(collection)
+                            }
+                        case Mood.angry.rawValue:
+                            if comment.lowercased().range(of: "#\(Mood.angry.rawValue)") != nil {
+                                print("Title: \(representativeTitle) comment: \(comment)")
+                                print(Mood.angry.rawValue)
+                                queue.append(collection)
+                            }
+                        case Mood.undefined.rawValue:
+                            queue.append(collection)
+                        default:
+                            print("Bizarre case!")
                             queue.append(collection)
                         }
-                    case Mood.sad.rawValue:
-                        if comment.lowercased().range(of: "#\(Mood.sad.rawValue)") != nil {
-                            print("Title: \(representativeTitle) comment: \(comment)")
-                            print(Mood.sad.rawValue)
-                            queue.append(collection)
-                        }
-                    case Mood.melancholic.rawValue:
-                        if comment.lowercased().range(of: "#\(Mood.melancholic.rawValue)") != nil {
-                            print("Title: \(representativeTitle) comment: \(comment)")
-                            print(Mood.melancholic.rawValue)
-                            queue.append(collection)
-                        }
-                    case Mood.angry.rawValue:
-                        if comment.lowercased().range(of: "#\(Mood.angry.rawValue)") != nil {
-                            print("Title: \(representativeTitle) comment: \(comment)")
-                            print(Mood.angry.rawValue)
-                            queue.append(collection)
-                        }
-                    case Mood.undefined.rawValue:
-                        queue.append(collection)
-                    default:
-                        print("Bizarre case!")
-                        queue.append(collection)
                     }
                 }
             }
-        }
-        
-        
-        if queue.count != 0 {
-            let randomIndex = Int(arc4random_uniform(UInt32(queue.count)))
-            player.setQueue(with: queue[randomIndex])
-        } else {
-            let alert = UIAlertController(title: "No songs found", message: "There are no songs with \(currentMoodValue) mood", preferredStyle: UIAlertControllerStyle.alert)
-            alert.addAction(UIAlertAction(title: "ok", style: UIAlertActionStyle.default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
+            
+            if queue.count != 0 {
+                let randomIndex = Int(arc4random_uniform(UInt32(queue.count)))
+                self.player.setQueue(with: queue[randomIndex])
+            } else {
+                let alert = UIAlertController(title: "No songs found", message: "There are no songs with \(self.currentMoodValue) mood", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "ok", style: UIAlertActionStyle.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            }
         }
     }
     
@@ -299,6 +317,7 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     func picking(rowValue: Int) {
         currentMood.text = moodPickerValues[rowValue]
         currentMoodValue = moodPickerValues[rowValue]
+
         self.runMediaLibraryQuery()
     }
 }

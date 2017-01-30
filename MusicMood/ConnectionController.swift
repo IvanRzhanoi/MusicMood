@@ -41,17 +41,21 @@ class ConnectionController: UIViewController, IXNMuseConnectionListener, IXNMuse
     
     
     
+    // Threads
+    var tableRefresherWorks: Bool = true
+    
+    // Variables for MUSE headband
     var muse = IXNMuse()
     var manager = IXNMuseManagerIos()
     var logLines = [Any]()
     var isLastBlink = false
+    // It is impossible now to check the connection of the headband, so the flag is created here
+    var isConnected = false
     
     // Declaring an object that will call the functions in SimpleController()
     var connectionController = SimpleController()
     
-
     var data = Data()
-    
     var i: Int = 0
     
     
@@ -191,8 +195,10 @@ class ConnectionController: UIViewController, IXNMuseConnectionListener, IXNMuse
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //connectionController.tableView(tableView, didSelectRowAt: indexPath)
-        print("If this is not called, then it does not do jackshit!")
+        // The function below, which is commented out, works fine
+        // ---> connectionController.tableView(tableView, didSelectRowAt: indexPath)
+        // However, I decided to recreate it in Swift 3 for greater flexibility
+        
         var muses = self.manager.getMuses()
         
         if indexPath.row < muses.count {
@@ -200,11 +206,7 @@ class ConnectionController: UIViewController, IXNMuseConnectionListener, IXNMuse
             // TODO: Add error safety.
             let muse: IXNMuse = muses[indexPath.row] as! IXNMuse
             print("Everything is fine!")
-            print("Everything is fine!")
-            //var synchronius = DispatchQueue
-            //DispatchQueue.main.sync {
-            
-            print("Everything is fine!")
+   
             
             
             //if self.muse.getConfiguration() == nil {
@@ -221,14 +223,12 @@ class ConnectionController: UIViewController, IXNMuseConnectionListener, IXNMuse
 //                self.muse = muse
 //            }
             //}
+            self.tableRefresherWorks = false
 
             self.muse = muse
-            
-            print("It should call!\n")
             self.connect()
             print("======Chose device to connect: \(self.muse.getName()) \(self.muse.getMacAddress())======\n")
         }
-        //self.connect()
     }
     
     func receive(_ packet: IXNMuseConnectionPacket, muse: IXNMuse?) {
@@ -250,8 +250,6 @@ class ConnectionController: UIViewController, IXNMuseConnectionListener, IXNMuse
     
     
     func connect() {
-        print("It does call indeed!\n")
-        //self.muse.register(self)
         self.muse.register(self)
         self.muse.register(self, type: IXNMuseDataPacketType.artifacts)
         
@@ -261,9 +259,9 @@ class ConnectionController: UIViewController, IXNMuseConnectionListener, IXNMuse
         self.muse.register(self, type: IXNMuseDataPacketType.thetaAbsolute)
         self.muse.register(self, type: IXNMuseDataPacketType.gammaAbsolute)
         
-        
-        
         self.muse.runAsynchronously()
+        
+        isConnected = true
     }
     
     
@@ -344,51 +342,37 @@ class ConnectionController: UIViewController, IXNMuseConnectionListener, IXNMuse
 
     
     @IBAction func disconnect(_ sender: AnyObject) {
-        
-        // TODO: Make a proper disconnect. 
-        
-//        if self.muse.getConnectionState() == IXNConnectionState.connected {
-
-//        if self.muse != NSObject{
-//            self.muse.disconnect(true)
-//        }
-        
-        
-        //self.muse.disconnect(true)
+        if isConnected {
+            self.muse.disconnect(true)
+            isConnected = false
+        }
     }
     
     @IBAction func scan(_ sender: AnyObject) {
-        // TODO: Make proper scan, so the results would be consatantly updated
+        var checkingTime: Int = 0
+        self.tableRefresherWorks = true
+        
         self.manager.startListening()
-        DispatchQueue.main.async{
-            self.tableView.reloadData()
+        
+        DispatchQueue.global(qos: .background).async {
+            while checkingTime < 300 && self.tableRefresherWorks {
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+                
+                checkingTime += 1
+                Thread.sleep(forTimeInterval: 1.0)
+            }
         }
     }
     
     @IBAction func stopScan(_ sender: AnyObject) {
+        self.tableRefresherWorks = false
         self.manager.stopListening()
         DispatchQueue.main.async{
             self.tableView.reloadData()
         }
     }
-    
-    @IBAction func dismiss(_ sender: AnyObject) {
-        //        let tmpController :UIViewController! = self.presentingViewController;
-        //
-        //        self.dismiss(animated: false, completion: {()->Void in
-        //            print("done");
-        //            tmpController.dismiss(animated: true, completion: nil);
-        //        });
-        
-        let transition: CATransition = CATransition()
-        transition.duration = 0.5
-        transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
-        transition.type = kCATransitionReveal
-        transition.subtype = kCATransitionFromLeft
-        self.view.window!.layer.add(transition, forKey: nil)
-        self.dismiss(animated: false, completion: nil)
-    }
-
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
