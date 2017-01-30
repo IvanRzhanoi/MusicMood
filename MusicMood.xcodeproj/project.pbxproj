@@ -147,6 +147,7 @@
 				22A923941D93B0AB002A0CA0 /* ViewController.swift */,
 				22D569071E10F25200832153 /* ConnectionController.swift */,
 				22DA6D111E1E38C5004E7350 /* Settings.swift */,
+				22DB08A21E1604EA00C0A8E8 /* Data.swift */,
 				226C4CBE1D95897800731F9D /* Assets.xcassets */,
 				22DA6D131E1E403D004E7350 /* SegueFromLeft.swift */,
 				2274C2C91E249C8D002E2561 /* SegueFromRight.swift */,
@@ -156,7 +157,6 @@
 				22A0FDA71DBF49EF00A263F5 /* MusicMoodTests-Bridging-Header.h */,
 				22A0FDA81DBF49EF00A263F5 /* MusicMoodUITests-Bridging-Header.h */,
 				2240B5E81E12541F00D24F9A /* AppData.xcdatamodeld */,
-				22DB08A21E1604EA00C0A8E8 /* Data.swift */,
 				22DB08A41E162BDE00C0A8E8 /* FutureImplementation.swift */,
 			);
 			path = MusicMood;

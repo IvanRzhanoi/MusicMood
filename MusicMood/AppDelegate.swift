@@ -11,7 +11,13 @@ import CoreData
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    let defaults = UserDefaults.standard
 
+    // ATTENTION! Setting enum also exists in Settings.swift
+    enum Setting: String {
+        case UseMuse
+    }
+    
     var window: UIWindow?
 
     func applicationDidBecomeActive(_ application: UIApplication) {
@@ -23,6 +29,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        let request: NSFetchRequest<BrainWaveData> = BrainWaveData.fetchRequest()
         
         let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
+        
+        
+        
+        
+        
         if launchedBefore  {
             print("Not first launch.")
             
@@ -56,7 +67,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //            }
         } else {
             print("First launch, setting UserDefault.")
-            UserDefaults.standard.set(true, forKey: "launchedBefore")
+            
+            // Defaults for user settings
+            defaults.set(true, forKey: "launchedBefore")
+            defaults.set(true, forKey: Setting.UseMuse.rawValue)
             
             // Creating Core Data for future use
 //            for _ in 0...connectionController.maxData {

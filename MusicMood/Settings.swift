@@ -9,11 +9,21 @@
 import UIKit
 
 class Settings: UIViewController {
-
+    let defaults = UserDefaults.standard
+    
+    // ATTENTION! Setting enum also exists in AppDelegate.swift
+    enum Setting: String {
+        case UseMuse
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+   
+        // Setting up switches, depending on the setting
+        let umSwitch = defaults.bool(forKey: Setting.UseMuse.rawValue)
+        useMuseOutlet.setOn(umSwitch, animated: false)
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,13 +31,24 @@ class Settings: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    
+    @IBOutlet var useMuseOutlet: UISwitch!
+    @IBAction func useMuseSetting(_ sender: Any) {
+        if useMuseOutlet.isOn {
+            defaults.set(true, forKey: Setting.UseMuse.rawValue)
+        } else {
+            defaults.set(false, forKey: Setting.UseMuse.rawValue)
+        }
+    }
+    
     @IBAction func dismiss(_ sender: AnyObject) {
-        //        let tmpController :UIViewController! = self.presentingViewController;
-        //
-        //        self.dismiss(animated: false, completion: {()->Void in
-        //            print("done");
-        //            tmpController.dismiss(animated: true, completion: nil);
-        //        });
+// Alternative animation
+//        let tmpController :UIViewController! = self.presentingViewController;
+//
+//        self.dismiss(animated: false, completion: {()->Void in
+//            print("done");
+//            tmpController.dismiss(animated: true, completion: nil);
+//        });
         
         let transition: CATransition = CATransition()
         transition.duration = 0.5

@@ -23,7 +23,10 @@ class Data {
         case angry
     }
     
-    var currentMoodValue = Mood.undefined.rawValue
+    struct CMV {
+        static var currentMoodValue = Mood.undefined.rawValue
+    }
+    
     
     // This struct determines the mood by the range of brainwave values
     struct WaveRange {
@@ -65,10 +68,12 @@ class Data {
         // Sad mood
         case (WaveRange.alphaRange1000?, WaveRange.betaRange1000?, WaveRange.deltaRange1000?, WaveRange.deltaRange1000?, WaveRange.gammaRange1000?):
             print("Sad mood!")
+            CMV.currentMoodValue = Mood.sad.rawValue
             
         // Happy mood
         case (WaveRange.alphaRange5000?, WaveRange.betaRange5000?, WaveRange.deltaRange5000?, WaveRange.deltaRange5000?, WaveRange.gammaRange5000?):
             print("Happy mood!")
+            CMV.currentMoodValue = Mood.happy.rawValue
             
         default:
             print("LOL, important!")

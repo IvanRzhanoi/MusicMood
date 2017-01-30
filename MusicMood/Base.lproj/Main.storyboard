@@ -286,6 +286,9 @@
                                             </label>
                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lMZ-2Q-GTU">
                                                 <rect key="frame" x="252.5" y="0.0" width="51" height="31"/>
+                                                <connections>
+                                                    <action selector="useMuseSetting:" destination="0MS-io-yNW" eventType="valueChanged" id="Dkr-4g-8Jt"/>
+                                                </connections>
                                             </switch>
                                         </subviews>
                                     </stackView>
@@ -332,6 +335,9 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Settings" id="E11-lp-ZWS"/>
+                    <connections>
+                        <outlet property="useMuseOutlet" destination="lMZ-2Q-GTU" id="orL-i6-sXX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UM8-dL-I6V" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <swipeGestureRecognizer direction="down" id="C0i-Wa-OHp">

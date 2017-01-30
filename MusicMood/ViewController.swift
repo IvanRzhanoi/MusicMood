@@ -17,7 +17,6 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     //let MuseController = SimpleController()
     
     // Declaration for player
-    //let player = AVPlayer()
     var player = MPMusicPlayerController()
     //let notificationCenter = NotificationCenter.default
     var album = MPMediaItemPropertyAlbumTitle
@@ -25,6 +24,7 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     //var mood = MPMediaItemPropertyComments
     
     var data = Data()
+    let defaults = UserDefaults.standard
     
     enum Mood: String {
         case undefined
@@ -228,6 +228,11 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         
         // Trying to filter the songs out by comments
         
+        if defaults.bool(forKey: Settings.Setting.UseMuse.rawValue) {
+            data.determineMood()
+            currentMood.text = Data.CMV.currentMoodValue
+        }
+        
         DispatchQueue.global(qos: .utility).async {
             let query = MPMediaQuery.songs()
             var queue = [MPMediaItemCollection]()
@@ -236,9 +241,7 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
                 for collection in collections {
                     if let representativeTitle = collection.representativeItem!.title, let comment = collection.representativeItem!.comments {
                         //print("Title: \(representativeTitle)  songs: \(collection.items.count) comment: \(comment)")
-                        
-                        
-                        switch self.currentMoodValue {
+                        switch Data.CMV.currentMoodValue {
                         case Data.Mood.happy.rawValue:
                             if comment.lowercased().range(of: "#\(Mood.happy.rawValue)") != nil {
                                 print("Title: \(representativeTitle) comment: \(comment)")
@@ -316,8 +319,11 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     
     func picking(rowValue: Int) {
         currentMood.text = moodPickerValues[rowValue]
+        
+        // Setting the mood through the UIPickerView
         currentMoodValue = moodPickerValues[rowValue]
-
+        Data.CMV.currentMoodValue = moodPickerValues[rowValue]
+        
         self.runMediaLibraryQuery()
     }
 }
