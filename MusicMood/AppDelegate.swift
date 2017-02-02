@@ -12,11 +12,6 @@ import CoreData
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     let defaults = UserDefaults.standard
-
-    // ATTENTION! Setting enum also exists in Settings.swift
-    enum Setting: String {
-        case UseMuse
-    }
     
     var window: UIWindow?
 
@@ -70,7 +65,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             // Defaults for user settings
             defaults.set(true, forKey: "launchedBefore")
-            defaults.set(true, forKey: Setting.UseMuse.rawValue)
+            defaults.set(true, forKey: Settings.Setting.UseMuse.rawValue)
+            defaults.set(false, forKey: Settings.Setting.SaveMood.rawValue)
             
             // Creating Core Data for future use
 //            for _ in 0...connectionController.maxData {

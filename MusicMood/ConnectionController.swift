@@ -10,36 +10,6 @@ import UIKit
 import CoreData
 
 class ConnectionController: UIViewController, IXNMuseConnectionListener, IXNMuseDataListener, IXNMuseListener, IXNLogListener, UITableViewDelegate, UITableViewDataSource {
-    /**
-     * Handler method for Muse data packets
-     *
-     * \warning It is important that you do not perform any computation
-     * intensive tasks in this callback. This would result in significant
-     * delays in all the listener callbacks from being called. You should
-     * delegate any intensive tasks to another thread or schedule it to run
-     * with a delay through handler/scheduler for the platform.
-     *
-     * However, you can register/unregister listeners in this callback.
-     * All previously registered listeners would still receive callbacks
-     * for this current event. On subsequent events, the newly registered
-     * listeners will be called. For example, if you had 2 listeners 'A' and 'B'
-     * for this event. If, on the callback for listener A, listener A unregisters
-     * all listeners and registers a new listener 'C' and then in the callback for
-     * listener 'B', you unregister all listeners again and register a new listener
-     * 'D'. Then on the subsequent event callback, only listener D's callback
-     * will be invoked.
-     *
-     * \param packet The data packet
-     * \param muse   The
-     * \if ANDROID_ONLY
-     * Muse
-     * \elseif IOS_ONLY
-     * IXNMuse
-     * \endif
-     * that sent the data packet.
-     */
-    
-    
     
     // Threads
     var tableRefresherWorks: Bool = true
@@ -56,48 +26,52 @@ class ConnectionController: UIViewController, IXNMuseConnectionListener, IXNMuse
     var connectionController = SimpleController()
     
     var data = Data()
+    
+    // Variable below is used to store data in the array in the cycle
     var i: Int = 0
     
     
 
     @IBOutlet var tableView: UITableView!
-    @IBOutlet var logView: UITextView!
+    
+    
+    @IBOutlet var alphaCurrent: UILabel!
+    @IBOutlet var betaCurrent: UILabel!
+    @IBOutlet var deltaCurrent: UILabel!
+    @IBOutlet var thetaCurrent: UILabel!
+    @IBOutlet var gammaCurrent: UILabel!
+    
+    @IBOutlet var alphaAverage: UILabel!
+    @IBOutlet var betaAverage: UILabel!
+    @IBOutlet var deltaAverage: UILabel!
+    @IBOutlet var thetaAverage: UILabel!
+    @IBOutlet var gammaAverage: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //self.tableView.delegate = SimpleController()
         
-        // Do any additional setup after loading the view.
         self.tableView.delegate = self
         self.tableView.dataSource = self
         
-        UIApplication.shared.isIdleTimerDisabled = true
-        
-        
-        //if self.manager != nil {
-        
         self.manager = IXNMuseManagerIos.sharedManager()
         
-        //}
-
+        updateAverageBrainWave()
     }
     
         override init(nibName nibNameOrNil: String!, bundle nibBundleOrNil: Bundle!) {
-            //if (self == super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)) {
-    
             super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     
             self.manager = IXNMuseManagerIos.sharedManager()
             self.manager.museListener = self
             self.tableView = UITableView()
-            self.logView = UITextView()
             self.logLines = [Any]()
-            self.logView.text = ""
+            
             IXNLogManager.instance()?.setLogListener(self)
+            
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "yyyy-MM-dd hh:mm:ss"
-            //var dateStr = dateFormatter.string(fromDate: Date()).appending(".log")
+            
             let dateStr = dateFormatter.string(from: Date()).appending(".log")
             print("\(dateStr)")
         }
@@ -107,39 +81,9 @@ class ConnectionController: UIViewController, IXNMuseConnectionListener, IXNMuse
         }
     
     
-    
-    
-    
-    
-    func log(fmt: String) {
-        // TODO: Since I don't have a log function, maybe just get rid of all the functions.
-        
-        //log(fmt: fmt)
-        //self.log(fmt: fmt)
-        
-        
-        
-//        var args: CVaListPointer
-//        
-//        va_start(args, fmt)
-//        
-//        var line = String(format: fmt, arguments: [args])
-//        
-//        va_end(args)
-//        
-//        print("\(line)")
-//        self.logLines.insert(line, at: 0)
-        
-//        DispatchQueue.main.async(execute: {() -> Void in
-//            self.logView.text = (self.logLines as NSArray).componentsJoined(by: "\n")
-//        })
-        //print("\(line)")
-    }
-    
     func receiveLog(_ log: IXNLogPacket) {
         connectionController.receiveLog(log)
     }
-    
     
     
     func museListChanged() {
@@ -157,79 +101,27 @@ class ConnectionController: UIViewController, IXNMuseConnectionListener, IXNMuse
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = connectionController.tableView(tableView, cellForRowAt: indexPath)
-        
-        
-        // The code below works fine. It is simplier to use only one line above, but in case someone would like to completely port it to swift, I kept it.
-        
-//        let simpleTableIdentifier: String = "nil"
-//        let muses = self.manager.getMuses()
-//        
-//        // Checking for the value. If cell doesn't receive any data (finding nil, while unwraping), we give empty.
-//        if let cell = tableView.dequeueReusableCell(withIdentifier: simpleTableIdentifier) {
-//            
-//            if indexPath.row < muses.count {
-//                let muse: IXNMuse = self.manager.getMuses()[indexPath.row] as! IXNMuse
-//                cell.textLabel!.text = muse.getName()
-//                if !muse.isLowEnergy() {
-//                    cell.textLabel!.text = cell.textLabel!.text?.appending(muse.getMacAddress())
-//                }
-//            }
-//            return cell
-//            
-//        } else {
-//            let cell = UITableViewCell(style: .default, reuseIdentifier: simpleTableIdentifier)
-//
-//            if indexPath.row < muses.count {
-//                let muse: IXNMuse = self.manager.getMuses()[indexPath.row] as! IXNMuse
-//                
-//                // TODO: Check the code below in the future
-//                cell.textLabel?.text = muse.getName()
-//                if !muse.isLowEnergy() {
-//                    cell.textLabel?.text = cell.textLabel?.text?.appending(muse.getMacAddress())
-//                }
-//            }
-//            return cell
-//        }
-        
         return cell
     }
     
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // The function below, which is commented out, works fine
+        // The function below works fine. However, I decided to recreate it in Swift 3 for greater flexibility and further porting
         // ---> connectionController.tableView(tableView, didSelectRowAt: indexPath)
-        // However, I decided to recreate it in Swift 3 for greater flexibility
+        
         
         var muses = self.manager.getMuses()
         
         if indexPath.row < muses.count {
-            print("Everything is fine!")
-            // TODO: Add error safety.
             let muse: IXNMuse = muses[indexPath.row] as! IXNMuse
-            print("Everything is fine!")
-   
-            
-            
-            //if self.muse.getConfiguration() == nil {
-            
-            
-//            if self.muse == nil {
-//                print("Everything is fine!")
-//                self.muse = muse
-//                print("Everything is  STILL fine!")
-//
-//            } else if self.muse != muse {
-//                // TODO: Add the proper support for disconnecting
-//                //self.muse.disconnect(false)
-//                self.muse = muse
-//            }
-            //}
-            self.tableRefresherWorks = false
 
+            self.tableRefresherWorks = false
             self.muse = muse
             self.connect()
-            print("======Chose device to connect: \(self.muse.getName()) \(self.muse.getMacAddress())======\n")
+            //print("======Chose device to connect: \(self.muse.getName()) \(self.muse.getMacAddress())======\n")
         }
     }
+    
     
     func receive(_ packet: IXNMuseConnectionPacket, muse: IXNMuse?) {
         var state: String
@@ -266,54 +158,53 @@ class ConnectionController: UIViewController, IXNMuseConnectionListener, IXNMuse
     
     
     func receive(_ packet: IXNMuseDataPacket?, muse: IXNMuse?) {
-        
-        
         switch packet!.packetType() {
         case IXNMuseDataPacketType.alphaAbsolute:
             if let info = packet?.values() {
                 Data.Waves["alpha"]?[i] = calculate(info: info as NSArray)
-                print("Alpha: \(Double((Data.Waves["alpha"]?[i])!))")
+                alphaCurrent.text = String(format: "%.5f", Double((Data.Waves["alpha"]?[i])!))
             }
             
         case IXNMuseDataPacketType.betaAbsolute:
             if let info = packet?.values() {
                 Data.Waves["beta"]?[i] = calculate(info: info as NSArray)
-                print("Beta: \(Double((Data.Waves["beta"]?[i])!))")
+                betaCurrent.text = String(format: "%.5f", Double((Data.Waves["beta"]?[i])!))
             }
             
         case IXNMuseDataPacketType.deltaAbsolute:
             if let info = packet?.values() {
                 Data.Waves["delta"]?[i] = calculate(info: info as NSArray)
-                print("Delta: \(Double((Data.Waves["delta"]?[i])!))")
+                deltaCurrent.text = String(format: "%.5f", Double((Data.Waves["delta"]?[i])!))
             }
             
         case IXNMuseDataPacketType.thetaAbsolute:
             if let info = packet?.values() {
                 Data.Waves["theta"]?[i] = calculate(info: info as NSArray)
-                print("Theta: \(Double((Data.Waves["theta"]?[i])!))")
+                thetaCurrent.text = String(format: "%.5f", Double((Data.Waves["theta"]?[i])!))
             }
             
         case IXNMuseDataPacketType.gammaAbsolute:
             if let info = packet?.values() {
-                //print("\(info[0]) \(info[1]) \(info[2]) \(info[3]) \(info[4]) \(info[5])")
                 Data.Waves["gamma"]?[i] = calculate(info: info as NSArray)
-                print("Gamma: \(Double((Data.Waves["gamma"]?[i])!))")
+                gammaCurrent.text = String(format: "%.5f", Double((Data.Waves["gamma"]?[i])!))
                 
+                //print("Gamma: \(Double((Data.Waves["gamma"]?[i])!))")
+                //print("\(info[0]) \(info[1]) \(info[2]) \(info[3]) \(info[4]) \(info[5])")
               
                 
                 i += 1
-                
                 // if-statement below keeps the rotation through the dictionary values
+                // This logic works, because MUSE Headband saves brainwave data sequentially
                 if i == data.dataSize {
-                    // TODO: Move this function to the main controller
-                    data.determineMood()
                     i = 0
                 }
             }
+            
         default:
             print("another package")
         }
     }
+    
     
     func calculate(info: NSArray) -> Double {
         var value: Double = 0.0
@@ -322,31 +213,47 @@ class ConnectionController: UIViewController, IXNMuseConnectionListener, IXNMuse
             
             // TODO: Find a more elegant solution to the problem
             // Check, because gamma sends 2 nan (Not a Number) in a package
-            if (info[i] as! Double).isNaN == false {  // &&  != 0.0 {
+            if (info[i] as! Double).isNaN == false {
                 value += (info[i] as! Double)
                 divisor += 1                            // we divide only for given information
             }
+//            else {
+//                print("\(info[i])")
+//            }
         }
         value = value / divisor
         
         return value
     }
     
+    func updateAverageBrainWave() {
+        alphaAverage.text = String(format: "%.5f", Double(Data.WavesAverage["alpha"]!))
+        betaAverage.text = String(format: "%.5f", Double(Data.WavesAverage["beta"]!))
+        deltaAverage.text = String(format: "%.5f", Double(Data.WavesAverage["delta"]!))
+        gammaAverage.text = String(format: "%.5f", Double(Data.WavesAverage["gamma"]!))
+        thetaAverage.text = String(format: "%.5f", Double(Data.WavesAverage["theta"]!))
+    }
+    
+    
     func receive(_ packet: IXNMuseArtifactPacket, muse: IXNMuse?) {
         if packet.blink && packet.blink != self.isLastBlink {
-            self.log(fmt: "blink detected")
+            //print("Blink detected")
         }
         self.isLastBlink = packet.blink
     }
     
-
+    
+    
     
     @IBAction func disconnect(_ sender: AnyObject) {
+        // This solution is not very good as it relies on the flag and not an actual status check
+        // But unfortunately that is the only way right now as the check function does not transition to swift 3 from Objective-C
         if isConnected {
             self.muse.disconnect(true)
             isConnected = false
         }
     }
+    
     
     @IBAction func scan(_ sender: AnyObject) {
         var checkingTime: Int = 0
@@ -380,13 +287,3 @@ class ConnectionController: UIViewController, IXNMuseConnectionListener, IXNMuse
     }
     
 }
-
-/*
- // MARK: - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
- // Get the new view controller using segue.destinationViewController.
- // Pass the selected object to the new view controller.
- }
- */

@@ -11,9 +11,9 @@ import UIKit
 class Settings: UIViewController {
     let defaults = UserDefaults.standard
     
-    // ATTENTION! Setting enum also exists in AppDelegate.swift
     enum Setting: String {
         case UseMuse
+        case SaveMood
     }
     
     override func viewDidLoad() {
@@ -24,6 +24,7 @@ class Settings: UIViewController {
         // Setting up switches, depending on the setting
         let umSwitch = defaults.bool(forKey: Setting.UseMuse.rawValue)
         useMuseOutlet.setOn(umSwitch, animated: false)
+        saveMood.setOn(false, animated: false)
     }
 
     override func didReceiveMemoryWarning() {
@@ -40,6 +41,11 @@ class Settings: UIViewController {
             defaults.set(false, forKey: Setting.UseMuse.rawValue)
         }
     }
+    
+    @IBOutlet var saveMood: UISwitch!
+    @IBAction func saveMoodSetting(_ sender: Any) {
+    }
+    
     
     @IBAction func dismiss(_ sender: AnyObject) {
 // Alternative animation
