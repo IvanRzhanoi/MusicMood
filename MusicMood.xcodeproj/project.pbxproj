@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		2240B5EA1E12541F00D24F9A /* AppData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2240B5E81E12541F00D24F9A /* AppData.xcdatamodeld */; };
 		226C4CBF1D95897800731F9D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 226C4CBE1D95897800731F9D /* Assets.xcassets */; };
+		227F9BB91E6011720068CFB4 /* Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227F9BB81E6011720068CFB4 /* Info.swift */; };
+		227F9BBB1E6037DE0068CFB4 /* Legal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227F9BBA1E6037DE0068CFB4 /* Legal.swift */; };
 		22A0FDA31DBF476E00A263F5 /* Muse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22A0FDA21DBF476E00A263F5 /* Muse.framework */; };
 		22A0FDA41DBF476E00A263F5 /* Muse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22A0FDA21DBF476E00A263F5 /* Muse.framework */; };
 		22A0FDA51DBF476E00A263F5 /* Muse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22A0FDA21DBF476E00A263F5 /* Muse.framework */; };
@@ -58,6 +60,8 @@
 		2240B5F41E1255A700D24F9A /* BrainWaveData+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BrainWaveData+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		226C4CBE1D95897800731F9D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2274C2C91E249C8D002E2561 /* SegueFromRight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegueFromRight.swift; sourceTree = "<group>"; };
+		227F9BB81E6011720068CFB4 /* Info.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Info.swift; sourceTree = "<group>"; };
+		227F9BBA1E6037DE0068CFB4 /* Legal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Legal.swift; sourceTree = "<group>"; };
 		22A0FDA21DBF476E00A263F5 /* Muse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Muse.framework; sourceTree = "<group>"; };
 		22A0FDA61DBF49EF00A263F5 /* MusicMood-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MusicMood-Bridging-Header.h"; sourceTree = "<group>"; };
 		22A0FDA71DBF49EF00A263F5 /* MusicMoodTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MusicMoodTests-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -145,8 +149,10 @@
 				22A923921D93B0AB002A0CA0 /* AppDelegate.swift */,
 				22A923961D93B0AB002A0CA0 /* Main.storyboard */,
 				22A923941D93B0AB002A0CA0 /* ViewController.swift */,
+				227F9BB81E6011720068CFB4 /* Info.swift */,
 				22D569071E10F25200832153 /* ConnectionController.swift */,
 				22DA6D111E1E38C5004E7350 /* Settings.swift */,
+				227F9BBA1E6037DE0068CFB4 /* Legal.swift */,
 				22DB08A21E1604EA00C0A8E8 /* Data.swift */,
 				226C4CBE1D95897800731F9D /* Assets.xcassets */,
 				22DA6D131E1E403D004E7350 /* SegueFromLeft.swift */,
@@ -325,7 +331,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				227F9BBB1E6037DE0068CFB4 /* Legal.swift in Sources */,
 				22D569081E10F25200832153 /* ConnectionController.swift in Sources */,
+				227F9BB91E6011720068CFB4 /* Info.swift in Sources */,
 				22DB08A31E1604EA00C0A8E8 /* Data.swift in Sources */,
 				22A923951D93B0AB002A0CA0 /* ViewController.swift in Sources */,
 				22A923931D93B0AB002A0CA0 /* AppDelegate.swift in Sources */,
