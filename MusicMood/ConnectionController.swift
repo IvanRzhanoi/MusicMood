@@ -56,7 +56,7 @@ class ConnectionController: UIViewController, IXNMuseConnectionListener, IXNMuse
         
         self.manager = IXNMuseManagerIos.sharedManager()
         
-        updateAverageBrainWave()
+        //updateAverageBrainWave()
     }
     
         override init(nibName nibNameOrNil: String!, bundle nibBundleOrNil: Bundle!) {

@@ -45,14 +45,20 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     
     
     @IBAction func mood(_ sender: AnyObject) {
-        if moodPicker.isHidden {
-            hideShow(objectA: self.artwork, objectB: self.moodPicker)
+        if defaults.bool(forKey: Settings.Setting.UseMuse.rawValue) == false {
+            if moodPicker.isHidden {
+                hideShow(objectA: self.artwork, objectB: self.moodPicker)
+            } else {
+                hideShow(objectA: self.moodPicker, objectB: self.artwork)
+                player.play()
+                update()
+                player.pause()
+                playPauseButton.setImage(#imageLiteral(resourceName: "Play"), for: .normal)
+            }
         } else {
-            hideShow(objectA: self.moodPicker, objectB: self.artwork)
-            player.play()
-            update()
-            player.pause()
-            playPauseButton.setImage(#imageLiteral(resourceName: "Play"), for: .normal)
+            let alert = UIAlertController(title: "Picker View disabled", message: "You can't pick the song when using MUSE Headband. It will do it for you. :)", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "ok", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
         }
     }
     
@@ -205,10 +211,6 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         if defaults.bool(forKey: Settings.Setting.UseMuse.rawValue) {
             data.determineMood()
             currentMood.text = Data.CMV.currentMoodValue
-            
-            // TODO: Implement the proper change of mood in the moodPicker according to the data from the headband
-            
-            //moodPicker.selectRow(0, inComponent: 0, animated: true)
         }
         
         // Get all songs from the library. Needs to be run in sequence, so asynchronius solution does not work

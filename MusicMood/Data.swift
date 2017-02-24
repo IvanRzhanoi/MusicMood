@@ -38,14 +38,14 @@ class Data {
         static let gammaDefault: Double = 0.0
         
         // Sad mood
-        static let alphaRange1000: Range = 0.0..<0.2
+        static let alphaRange1000: Range = 0.0..<0.5
         static let betaRange1000: Range = 0.0..<1.0
         static let deltaRange1000: Range = 0.0..<1.0
         static let thetaRange1000: Range = 0.0..<1.0
         static let gammaRange1000: Range = 0.0..<1.0
         
         // Happy mood
-        static let alphaRange5000: Range = 0.3..<1.0
+        static let alphaRange5000: Range = 0.5..<1.0
         static let betaRange5000: Range = 0.0..<1.0
         static let deltaRange5000: Range = 0.0..<1.0
         static let thetaRange5000: Range = 0.0..<1.0
